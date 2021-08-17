@@ -18,11 +18,13 @@ Criar um jogo de aventura inspirado na vida universitária na UFSM, usando um fr
 
 
 ## Ideia da dupla:
-Um jogo de plataforma, inspirado no ambiente da UFSM, com referências ao CT e aos Laboratórios.
+Um jogo de plataforma inspirado na vida academica, com um recorte para a época de fim do semestre, onde entramos em uma verdadeira jornada para entregar os trabalhos e ir bem nas provas. Essa aventura terá como cenário um ambiente que faz referência ao CT e aos Laboratórios, como estamos em EAD desde o ingress no curso, essa será a maneira encontrada de desfrutar desses espaços.
 
-Um(a) aluno(a) matriculado na cadeira de paradgmas que precisa fazer as práticas para aprender 3 novas linguagens de programação (não espera por Prolog).
+Uma historia simples e pela qual passamos: Um(a) aluno(a) matriculado na cadeira de paradgmas que quer fazer as práticas para aprender 3 novas linguagens de programação (não espera por Prolog), o personagem deverá ser controlado pelo mapa, a fim de coletar todos as partes das práticas e entregar/fazer commit a tempo.
 
-O grau de dificuldade aumenta quanto mais proximo do final do semestre nós chegamos, já que o/a estudante estará exausto, então se movendo mais lentamente.
+### Ideias extras:
+
+Algumas fazes podem contar com personalizações, para evitar a repetição, por exemplo, aumentar o grau de dificuldade justificando o acumulo de materia ou varios trabalhos para a mesma data e/ou o/a estudante estará cançado(a), então se movendo mais lentamente...
 
 *Talvez* o uso de sistemas de bonûs, como por exemplo, conseguir fazer uma prática de Prolog no tempo estipulado.
 

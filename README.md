@@ -18,7 +18,7 @@ Criar um jogo de aventura inspirado na vida universitária na UFSM, usando um fr
 
 
 ## Ideia da dupla:
-Um jogo de plataforma inspirado na vida academica, com um recorte para a época de fim do semestre, onde entramos em uma verdadeira jornada para entregar os trabalhos e ir bem nas provas. Essa aventura terá como cenário um ambiente que faz referência ao CT e aos Laboratórios, como estamos em EAD desde o ingress no curso, essa será a maneira encontrada de desfrutar desses espaços.
+Um jogo de plataforma inspirado na vida academica, com um recorte para a época de fim do semestre, onde entramos em uma verdadeira jornada para entregar os trabalhos e ir bem nas provas. Essa aventura terá como cenário um ambiente que faz referência ao CT e aos Laboratórios, como estamos em EAD desde o ingresso no curso, essa será a maneira encontrada de desfrutar desses espaços.
 
 Uma historia simples e pela qual passamos: Um(a) aluno(a) matriculado na cadeira de paradgmas que quer fazer as práticas para aprender 3 novas linguagens de programação (não espera por Prolog), o personagem deverá ser controlado pelo mapa, a fim de coletar todos as partes das práticas e entregar/fazer commit a tempo.
 
@@ -26,22 +26,33 @@ Uma historia simples e pela qual passamos: Um(a) aluno(a) matriculado na cadeira
 
 Algumas fazes podem contar com personalizações, para evitar a repetição, por exemplo, aumentar o grau de dificuldade justificando o acumulo de materia ou varios trabalhos para a mesma data e/ou o/a estudante estará cançado(a), então se movendo mais lentamente...
 
-*Talvez* o uso de sistemas de bonûs, como por exemplo, conseguir fazer uma prática de Prolog no tempo estipulado.
+***Talvez*** o uso de sistemas de bonûs, como por exemplo, conseguir fazer uma prática de Prolog no tempo estipulado.
 
-### Vamos:
-Desafiar o jogador a coletar e entregar, os trabalhos/práticas que estão espalhados pelo mapa, a tempo para que não reprove na cadeira.
+## Objetivo do jogador(a):
+Coletar e entregar, as partes dos trabalhos/práticas que estão espalhados pelo mapa, a tempo para que não reprove na cadeira.
+Deve fazer um caminho inteligente para otimizaro tempo.
+
+**OBS:** Com mais _tempo_ e _trabalho em cima do jogo_, poderíamos exibir o código dentro de cada parte, e pedir para que o estudante pegasse na ordem correta, assim fazendo uma **revisão** do conteúdo, até aqui.
 
 ## Jogabilidade/Mecânica:
-Deverá movimentar o personagem pelas plataformas usando as setas do teclado e alguns outros comandos.
+A movimentação do personagem pelas plataformas se dá usando as setas do teclado e a barra de espaço.
 
-**Talvez**
+* `Seta_cima / Espaço` - Pula;
 
-Z - Toma café (buff de velocidade)
+* `Seta_Direita` - Anda para a direita;
 
-X - _Ainda não decidido_
+* `Seta_Esquerda` - Anda para a esquerda;
 
-V - Desliza.
+* `Seta_baixo` - agacha.
 
-V + Seta_pra_cima - Salto maior
+#### Talvez:
 
-P - Tranca o semestre (Pause)/Destranca (Continue)
+* `Z` - Toma café (buff de velocidade);
+
+* `X` - _Ainda não decidido_;
+
+* `V` - Desliza (se estiver parado, apaenas agacha);
+
+* `V + Seta_pra_cima / espaço` - Salto maior;
+
+* `P` - Tranca o semestre (Pause)/Destranca (Continue);

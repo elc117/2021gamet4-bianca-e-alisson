@@ -30,20 +30,6 @@ public class GameScreen extends ScreenAdapter {
 
         world = new World(camera);
         world.regenerate();
-
-        /*if (ParadigmasGame.DEBUG) {
-            Gdx.input.setInputProcessor(new InputAdapter() {
-                @Override
-                public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-                    screenCoordinate.set(screenX, screenY, 0);
-                    camera.unproject(screenCoordinate);
-
-                    world.getWorld().getEntity(world.getPlayer()).getComponent(TransformComponent.class).position.set(screenCoordinate.x, screenCoordinate.y);
-                    world.getWorld().getEntity(world.getPlayer()).getComponent(RigidBodyComponent.class).velocity.set(0, 0);
-                    return true;
-                }
-            });
-        }*/
     }
 
     @Override

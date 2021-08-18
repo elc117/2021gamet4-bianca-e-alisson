@@ -21,7 +21,6 @@ public class MovimentSystem extends IteratingSystem {
         this.world = world;
     }
 
-
     @Override
     protected void process(int entityId) {
         TransformComponent cTransform = mTransform.get(entityId);
@@ -40,10 +39,9 @@ public class MovimentSystem extends IteratingSystem {
 
                 cCollidable.onGround = true;
             }
+            else{
+                cCollidable.onGround = false;
+            }
         }
-        else{
-            cCollidable.onGround = false;
-        }
-
     }
 }

@@ -3,6 +3,7 @@ package com.paradigmas.game.dictionary;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.IntMap;
 import com.paradigmas.game.bloco.Bloco;
+import com.paradigmas.game.resource.Assets;
 
 public class Blocos
 {
@@ -35,8 +36,8 @@ public class Blocos
     static
     {
         AIR = register(AIR_ID, new Bloco(null));
-        DIRT = register(1, new Bloco(new Texture("Mapa_Texturas/Dirt_texture.png")));
-        COBBLESTONE = register(2, new Bloco(new Texture("Mapa_Texturas/Pedra_texture.png")));
-        OBSIDIAN = register(3, new Bloco(new Texture("Mapa_Texturas/Obsidian_Texture.png")));
+        DIRT = register(1, new Bloco(Assets.manager.get(Assets.dirt)));
+        COBBLESTONE = register(2, new Bloco(Assets.manager.get(Assets.cobblestone)));
+        OBSIDIAN = register(3, new Bloco(Assets.manager.get(Assets.obsidian)));
     }
 }

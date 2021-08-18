@@ -10,6 +10,7 @@ import com.paradigmas.game.entity.component.PlayerComponent;
 import com.paradigmas.game.entity.component.RigidBodyComponent;
 import com.paradigmas.game.entity.component.SpriteComponent;
 import com.paradigmas.game.entity.component.TransformComponent;
+import com.paradigmas.game.resource.Assets;
 
 public class EntitiesFactory
 {
@@ -28,7 +29,7 @@ public class EntitiesFactory
         cTransform.position.set(x, y);
 
         SpriteComponent cSprite = mSprite.create(entity);
-        cSprite.sprite = new Sprite(new Texture("Personagem_principal_H/Cow__000.png"));
+        cSprite.sprite = new Sprite(Assets.manager.get(Assets.playerH));
 
         PlayerComponent cPlayer = mPlayer.create(entity);
 

@@ -2,6 +2,7 @@ package com.paradigmas.game;
 
 import com.badlogic.gdx.Game;
 import com.paradigmas.game.screen.GameScreen;
+import com.paradigmas.game.screen.PreloadScreen;
 
 public class ParadigmasGame extends Game {
 	private static ParadigmasGame instance;
@@ -13,7 +14,7 @@ public class ParadigmasGame extends Game {
 
 	@Override
 	public void create() {
-		this.setScreen(new GameScreen());
+		this.setScreen(new PreloadScreen());
 	}
 
 	public static ParadigmasGame getInstance() {

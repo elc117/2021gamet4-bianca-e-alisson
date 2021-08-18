@@ -21,6 +21,7 @@ public class MovimentSystem extends IteratingSystem {
         this.world = world;
     }
 
+
     @Override
     protected void process(int entityId) {
         TransformComponent cTransform = mTransform.get(entityId);

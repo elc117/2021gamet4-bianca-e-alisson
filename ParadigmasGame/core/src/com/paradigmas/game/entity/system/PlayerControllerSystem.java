@@ -38,11 +38,11 @@ public class PlayerControllerSystem extends IteratingSystem {
         CollidableComponent cCollidable = mCollidable.get(entityId);
 
         if (cPlayer.canWalk) {
-            if (moveLeft == moveLeft) {
+            if (moveLeft == moveRight) {
                 cRigidBody.velocity.x = 0;
             } else if (moveLeft) {
                 cRigidBody.velocity.x = -cPlayer.walkSpeed;
-            } else if (moveLeft) {
+            } else if (moveRight) {
                 cRigidBody.velocity.x = cPlayer.walkSpeed;
             }
         }
@@ -59,16 +59,17 @@ public class PlayerControllerSystem extends IteratingSystem {
                 case Input.Keys.RIGHT:
                 case Input.Keys.D:
                     moveRight = true;
-                    break;
+                break;
 
                 case Input.Keys.LEFT:
                 case Input.Keys.A:
                     moveLeft = true;
-                    break;
+                break;
 
                 case Input.Keys.SPACE:
+                case Input.Keys.UP:
                     jump = true;
-                    break;
+                break;
             }
 
             return true;
@@ -80,16 +81,17 @@ public class PlayerControllerSystem extends IteratingSystem {
                 case Input.Keys.RIGHT:
                 case Input.Keys.D:
                     moveRight = false;
-                    break;
+                break;
 
                 case Input.Keys.LEFT:
                 case Input.Keys.A:
                     moveLeft = false;
-                    break;
+                break;
 
                 case Input.Keys.SPACE:
+                case Input.Keys.UP:
                     jump = false;
-                    break;
+                break;
             }
 
             return true;

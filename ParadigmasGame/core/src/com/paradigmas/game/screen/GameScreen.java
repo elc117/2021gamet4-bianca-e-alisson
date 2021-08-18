@@ -31,7 +31,7 @@ public class GameScreen extends ScreenAdapter {
         world = new World(camera);
         world.regenerate();
 
-        if (ParadigmasGame.DEBUG) {
+        /*if (ParadigmasGame.DEBUG) {
             Gdx.input.setInputProcessor(new InputAdapter() {
                 @Override
                 public boolean touchDown(int screenX, int screenY, int pointer, int button) {
@@ -43,7 +43,7 @@ public class GameScreen extends ScreenAdapter {
                     return true;
                 }
             });
-        }
+        }*/
     }
 
     @Override

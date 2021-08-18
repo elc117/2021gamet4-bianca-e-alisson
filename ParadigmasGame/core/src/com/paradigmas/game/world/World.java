@@ -8,6 +8,7 @@ import com.paradigmas.game.bloco.Bloco;
 import com.paradigmas.game.dictionary.Blocos;
 import com.paradigmas.game.entity.EntitiesFactory;
 import com.paradigmas.game.entity.system.MovimentSystem;
+import com.paradigmas.game.entity.system.PlayerControllerSystem;
 import com.paradigmas.game.entity.system.SpriteRenderSystem;
 import com.paradigmas.game.entity.system.TileRenderSystem;
 
@@ -35,6 +36,7 @@ public class World {
 
     public World(OrthographicCamera camera) {
         WorldConfigurationBuilder worldConfigBuilder = new WorldConfigurationBuilder()
+                .with(new PlayerControllerSystem())
                 .with(new MovimentSystem(this))
                 .with(new TileRenderSystem(this, camera))
                 .with(new SpriteRenderSystem(camera));

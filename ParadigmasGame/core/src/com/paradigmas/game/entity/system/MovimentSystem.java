@@ -44,5 +44,6 @@ public class MovimentSystem extends IteratingSystem {
         else{
             cCollidable.onGround = false;
         }
+
     }
 }

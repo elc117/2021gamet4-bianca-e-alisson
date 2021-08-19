@@ -1,6 +1,5 @@
 package com.paradigmas.game.dictionary;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.IntMap;
 import com.paradigmas.game.bloco.Bloco;
 import com.paradigmas.game.resource.Assets;

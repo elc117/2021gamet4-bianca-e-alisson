@@ -1,7 +1,6 @@
 package com.paradigmas.game;
 
 import com.badlogic.gdx.Game;
-import com.paradigmas.game.screen.GameScreen;
 import com.paradigmas.game.screen.PreloadScreen;
 
 public class ParadigmasGame extends Game {

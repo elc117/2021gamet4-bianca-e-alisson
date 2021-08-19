@@ -1,9 +1,10 @@
 buildscript {
     ext {
-        appName = "Game"
+        appName = "paradigmas-game"
         gdxVersion = '1.10.0'
         roboVMVersion = '2.3.12'
         box2DLightsVersion = '1.5'
+        //ashleyVersion = '1.7.3'
         aiVersion = '1.8.2'
         gdxControllersVersion = '2.1.0'
 
@@ -20,7 +21,6 @@ buildscript {
     dependencies {
         classpath 'org.wisepersist:gwt-gradle-plugin:1.0.13'
         classpath 'org.gretty:gretty:3.0.2'
-        classpath 'com.android.tools.build:gradle:7.0.0'
 
         classpath "net.onedaybeard.artemis:artemis-odb-gradle-plugin:$artemisVersion"
     }
@@ -58,14 +58,12 @@ subprojects {
         google()
     }
 
-    idea
-            {
-                module
-                        {
-                            downloadJavadoc = true
-                            downloadSources = true
-                        }
-            }
+    idea {
+        module {
+            downloadJavadoc = true
+            downloadSources = true
+        }
+    }
 }
 
 project(":desktop") {
@@ -75,8 +73,8 @@ project(":desktop") {
         implementation project(":core")
         api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-        api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
+        api "com.badlogicgames.gdx-controllers:gdx-controllers-desktop:$gdxControllersVersion"
     }
 }
 
@@ -91,8 +89,9 @@ project(":html") {
         api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
         api "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
         api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
-        api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion:sources"
-        api "com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion:sources"
+        api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion:sources"
+        api "com.badlogicgames.gdx-controllers:gdx-controllers-gwt:$gdxControllersVersion"
+        api "com.badlogicgames.gdx-controllers:gdx-controllers-gwt:$gdxControllersVersion:sources"
     }
 }
 
@@ -101,7 +100,7 @@ project(":core") {
 
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+        api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion"
 
         api "net.onedaybeard.artemis:artemis-odb:$artemisVersion"
         api "net.namekdev.entity_tracker:artemis-entity-tracker:$artemisEntityTrackerVersion"
@@ -115,4 +114,3 @@ project(":core") {
         }
     }
 }
-

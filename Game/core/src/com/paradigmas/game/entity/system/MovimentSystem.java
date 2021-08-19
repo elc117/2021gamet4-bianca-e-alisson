@@ -14,7 +14,7 @@ public class MovimentSystem extends IteratingSystem {
     private ComponentMapper<TransformComponent> mTransform;
     private ComponentMapper<RigidBodyComponent> mRigidBody;
     private ComponentMapper<CollidableComponent> mCollidable;
-    private com.paradigmas.game.world.World world;
+    private World world;
 
     public MovimentSystem(World world) {
         super(Aspect.all(TransformComponent.class, RigidBodyComponent.class));

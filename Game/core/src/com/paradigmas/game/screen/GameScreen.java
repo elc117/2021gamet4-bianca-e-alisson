@@ -2,15 +2,12 @@ package com.paradigmas.game.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.paradigmas.game.ParadigmasGame;
-import com.paradigmas.game.entity.component.RigidBodyComponent;
-import com.paradigmas.game.entity.component.TransformComponent;
 import com.paradigmas.game.world.World;
 
 public class GameScreen extends ScreenAdapter {

@@ -42,33 +42,31 @@ allprojects {
     }
 }
 
-subprojects
-        {
-            apply plugin: "eclipse"
-            apply plugin: "idea"
+subprojects {
+    apply plugin: "eclipse"
+    apply plugin: "idea"
 
-            configurations.all
-            {
-                resolutionStrategy.force "net.onedayBeard.artemis:artemis-odb:$artemisVersion"
-            }
+    configurations.all {
+        resolutionStrategy.force "net.onedayBeard.artemis:artemis-odb:$artemisVersion"
+    }
 
-            repositories {
-                mavenLocal()
-                mavenCentral()
-                gradlePluginPortal()
-                maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-                google()
-            }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        google()
+    }
 
-            idea
+    idea
             {
                 module
-                {
-                    downloadJavadoc = true
-                    downloadSources = true
-                }
+                        {
+                            downloadJavadoc = true
+                            downloadSources = true
+                        }
             }
-        }
+}
 
 project(":desktop") {
     apply plugin: "java-library"
@@ -110,10 +108,8 @@ project(":core") {
         api "net.namekdev.entity_tracker:artemis-entity-tracker-gui:$artemisEntityTrackerVersion"
     }
 
-    idea
-    {
-        module
-        {
+    idea {
+        module {
             downloadJavadoc = true
             downloadSources = true
         }

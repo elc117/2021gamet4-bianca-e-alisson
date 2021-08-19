@@ -17,12 +17,12 @@ Criar um jogo de aventura inspirado na vida universitária na UFSM, usando um fr
 1.  O jogo deverá ser disponibilizado no itch.io, em uma página de "game jam" que será criada pela professora.
 
 
-## Ideia da dupla:
+## Idéia da dupla:
 Um jogo de plataforma inspirado na vida acadêmica, com um recorte para a época de fim do semestre, onde entramos em uma verdadeira corrida para entregar os trabalhos e ir bem nas provas. Essa aventura terá como cenário um ambiente que faz referência ao CT e aos seus Laboratórios, como estamos em EAD desde o ingresso no curso, essa será a maneira encontrada de desfrutar desses espaços.
 
 Uma história simples e pela qual todos nós passamos: Um(a) aluno(a) matriculado na cadeira de paradigmas que quer fazer as práticas para aprender 3 novas linguagens de programação (não espera por Prolog), o personagem deverá ser controlado pelo mapa a fim de coletar todos as partes das práticas e entregar/fazer commit a tempo.
 
-### Ideias extras:
+### Idéias extras:
 
 Algumas fases podem contar com personalizações para evitar a repetição, como por exemplo aumentar o grau de dificuldade justificando o acúmulo de matéria ou vários trabalhos para a mesma data e/ou o/a estudante estará cansado(a), então se movendo mais lentamente...
 
@@ -56,3 +56,6 @@ A movimentação do personagem pelas plataformas se dá usando as setas do tecla
 * `V + Seta_pra_cima / espaço` - Salto maior;
 
 * `P` - Tranca o semestre (Pause)/Destranca (Continue);
+
+
+## OBS: Devido ao excesso de bugs, ainda não roda na web.

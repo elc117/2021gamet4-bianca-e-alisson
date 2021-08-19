@@ -59,3 +59,10 @@ A movimentação do personagem pelas plataformas se dá usando as setas do tecla
 
 
 ## OBS: Devido ao excesso de bugs, ainda não roda na web.
+### Erro:
+```
+Execution failed for task ':html:compileGwt'.
+Process 'command 'C:\Program Files\Java\jdk-11.0.12\bin\java.exe'' finished with non-zero exit value 1.
+```
+
+Optei pela minha sanidade atual.

@@ -23,7 +23,7 @@ public class World {
 
     private int player;
     private int seaLevel = 7;
-    private float gravity = -576;
+    private float gravity = -570;
     private EntitiesFactory entitiesFactory;
 
     public int getPlayer() {
@@ -69,6 +69,8 @@ public class World {
                 }
             }
         }
+
+        map[10][8][1] = Blocos.getIdByBloco(Blocos.DIRT);
     }
 
     public void update(float delta) {

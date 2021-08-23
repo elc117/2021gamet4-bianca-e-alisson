@@ -6,9 +6,11 @@ import com.paradigmas.game.resource.Assets;
 
 public class Blocos
 {
-    public static final IntMap<Bloco> REGISTRY = new IntMap<Bloco>();
-
+    public static final IntMap<Bloco> REGISTRY = new IntMap<>();
     public static final int AIR_ID = 0;
+    public static final int DIRT_ID = 1;
+    public static final int COBBLESTONE_ID = 2;
+    public static final int OBSIDIAN_ID = 3;
 
     public static final Bloco AIR;
     public static final Bloco DIRT;
@@ -35,8 +37,8 @@ public class Blocos
     static
     {
         AIR = register(AIR_ID, new Bloco(null));
-        DIRT = register(1, new Bloco(Assets.manager.get(Assets.dirt)));
-        COBBLESTONE = register(2, new Bloco(Assets.manager.get(Assets.cobblestone)));
-        OBSIDIAN = register(3, new Bloco(Assets.manager.get(Assets.obsidian)));
+        DIRT = register(DIRT_ID, new Bloco(Assets.manager.get(Assets.dirt)));
+        COBBLESTONE = register(COBBLESTONE_ID, new Bloco(Assets.manager.get(Assets.cobblestone)));
+        OBSIDIAN = register(OBSIDIAN_ID, new Bloco(Assets.manager.get(Assets.obsidian)));
     }
 }

@@ -11,6 +11,7 @@ import com.paradigmas.game.entity.component.CollidableComponent;
 import com.paradigmas.game.entity.component.JumpComponent;
 import com.paradigmas.game.entity.component.PlayerComponent;
 import com.paradigmas.game.entity.component.RigidBodyComponent;
+import com.paradigmas.game.entity.component.TransformComponent;
 
 public class PlayerControllerSystem extends IteratingSystem {
 
@@ -18,10 +19,12 @@ public class PlayerControllerSystem extends IteratingSystem {
     private ComponentMapper<RigidBodyComponent> mRigidBody;
     private ComponentMapper<CollidableComponent> mCollidable;
     private ComponentMapper<JumpComponent> mJump;
+    private ComponentMapper<TransformComponent> mTransform;
 
     private boolean moveRight;
     private boolean moveLeft;
     private boolean jump;
+    private boolean down;
 
     public PlayerControllerSystem() {
         super(Aspect.all(PlayerComponent.class, RigidBodyComponent.class,
@@ -36,6 +39,7 @@ public class PlayerControllerSystem extends IteratingSystem {
         RigidBodyComponent cRigidBody = mRigidBody.get(entityId);
         JumpComponent cJump = mJump.get(entityId);
         CollidableComponent cCollidable = mCollidable.get(entityId);
+        TransformComponent cTransform = mTransform.get(entityId);
 
         if (cPlayer.canWalk) {
             if (moveLeft == moveRight) {
@@ -47,8 +51,21 @@ public class PlayerControllerSystem extends IteratingSystem {
             }
         }
 
-        if(cJump.canJump && cCollidable.onGround && jump){
+        if (cJump.canJump && cCollidable.onGround && jump) {
             cRigidBody.velocity.y = cJump.jumpSpeed;
+        }
+
+        if ((Gdx.input.isKeyJustPressed(Input.Keys.V) || Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
+                && cCollidable.onGround) {
+            if (down) {
+                cPlayer.walkSpeed *= 2;
+                cTransform.scaleY *= 2;
+                down = false;
+            } else {
+                cPlayer.walkSpeed /= 2;
+                cTransform.scaleY /= 2;
+                down = true;
+            }
         }
     }
 
@@ -59,17 +76,17 @@ public class PlayerControllerSystem extends IteratingSystem {
                 case Input.Keys.RIGHT:
                 case Input.Keys.D:
                     moveRight = true;
-                break;
+                    break;
 
                 case Input.Keys.LEFT:
                 case Input.Keys.A:
                     moveLeft = true;
-                break;
+                    break;
 
                 case Input.Keys.SPACE:
                 case Input.Keys.UP:
                     jump = true;
-                break;
+                    break;
             }
 
             return true;
@@ -81,17 +98,17 @@ public class PlayerControllerSystem extends IteratingSystem {
                 case Input.Keys.RIGHT:
                 case Input.Keys.D:
                     moveRight = false;
-                break;
+                    break;
 
                 case Input.Keys.LEFT:
                 case Input.Keys.A:
                     moveLeft = false;
-                break;
+                    break;
 
                 case Input.Keys.SPACE:
                 case Input.Keys.UP:
                     jump = false;
-                break;
+                    break;
             }
 
             return true;

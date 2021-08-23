@@ -11,6 +11,7 @@ public class DesktopLauncher {
 		config.setWindowedMode(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT);
 		config.setResizable(false);
 		config.useVsync(true);
+
 		new Lwjgl3Application(ParadigmasGame.getInstance(), config);
 	}
 }

@@ -10,6 +10,8 @@ buildscript {
 
         artemisVersion = '2.1.0'
         artemisEntityTrackerVersion = '0.4.0-SNAPSHOT'
+        gdxUtilsVersion = "0.13.4"
+
     }
     repositories {
         mavenLocal()
@@ -105,6 +107,7 @@ project(":core") {
         api "net.onedaybeard.artemis:artemis-odb:$artemisVersion"
         api "net.namekdev.entity_tracker:artemis-entity-tracker:$artemisEntityTrackerVersion"
         api "net.namekdev.entity_tracker:artemis-entity-tracker-gui:$artemisEntityTrackerVersion"
+        compile "net.dermetfan.libgdx-utils:libgdx-utils:$gdxUtilsVersion"
     }
 
     idea {

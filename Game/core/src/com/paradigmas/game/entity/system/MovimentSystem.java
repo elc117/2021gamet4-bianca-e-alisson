@@ -32,15 +32,17 @@ public class MovimentSystem extends IteratingSystem {
         cTransform.position.mulAdd(cRigidBody.velocity, delta);//So + Vt
         cRigidBody.velocity.y += world.getGravity() * delta;
 
-        if(cCollidable != null) {
+        if(mCollidable.has(entityId)) {
+            cCollidable.collisionBox.setCenter(cTransform.position);
+
             if (cTransform.position.y < world.getSeaLevel() * Bloco.TILE_SIZE) {
                 cRigidBody.velocity.y = 0;
                 cTransform.position.y = world.getSeaLevel() * Bloco.TILE_SIZE;
 
-                cCollidable.onGround = true;
+                //cCollidable.onGround = true;
             }
             else{
-                cCollidable.onGround = false;
+                //cCollidable.onGround = false;
             }
         }
     }

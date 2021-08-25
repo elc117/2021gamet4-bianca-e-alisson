@@ -2,7 +2,9 @@ package com.paradigmas.game.entity;
 
 import com.artemis.ComponentMapper;
 import com.artemis.World;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Vector2;
 import com.paradigmas.game.entity.component.CollidableComponent;
 import com.paradigmas.game.entity.component.JumpComponent;
 import com.paradigmas.game.entity.component.PlayerComponent;
@@ -27,14 +29,18 @@ public class EntitiesFactory
         TransformComponent cTransform = mTransform.create(entity);
         cTransform.position.set(x, y);
 
+        Texture texture = Assets.manager.get(Assets.playerH);
+
         SpriteComponent cSprite = mSprite.create(entity);
-        cSprite.sprite = new Sprite(Assets.manager.get(Assets.playerH));
+        cSprite.sprite = new Sprite(texture);
 
         PlayerComponent cPlayer = mPlayer.create(entity);
 
         RigidBodyComponent cRigidBody = mRigidBody.create(entity);
 
         CollidableComponent cCollidable = mCollidable.create(entity);
+        cCollidable.collisionBox.setSize(texture.getWidth(), texture.getHeight());
+        cCollidable.collisionBox.setCenter(new Vector2(x, y));
 
         JumpComponent cJump = mJump.create(entity);
 

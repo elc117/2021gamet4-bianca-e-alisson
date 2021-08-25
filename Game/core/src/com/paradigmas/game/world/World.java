@@ -2,11 +2,14 @@ package com.paradigmas.game.world;
 
 import com.artemis.WorldConfiguration;
 import com.artemis.WorldConfigurationBuilder;
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.paradigmas.game.ParadigmasGame;
 import com.paradigmas.game.bloco.Bloco;
 import com.paradigmas.game.dictionary.Blocos;
 import com.paradigmas.game.entity.EntitiesFactory;
+import com.paradigmas.game.entity.system.CollisionDebugSystem;
 import com.paradigmas.game.entity.system.MovimentSystem;
 import com.paradigmas.game.entity.system.PlayerControllerSystem;
 import com.paradigmas.game.entity.system.SpriteRenderSystem;
@@ -36,8 +39,13 @@ public class World {
                 .with(new SpriteRenderSystem(camera));
 
         if (ParadigmasGame.DEBUG) {
-            entityTrackerWindow = new EntityTrackerMainWindow(false, false);
-            worldConfigBuilder.with(new EntityTracker(entityTrackerWindow));
+            worldConfigBuilder.with(new CollisionDebugSystem(camera));
+
+
+            if (Gdx.app.getType().equals(Application.ApplicationType.Desktop)) {
+                entityTrackerWindow = new EntityTrackerMainWindow(false, false);
+                worldConfigBuilder.with(new EntityTracker(entityTrackerWindow));
+            }
         }
 
         WorldConfiguration config = worldConfigBuilder.build();

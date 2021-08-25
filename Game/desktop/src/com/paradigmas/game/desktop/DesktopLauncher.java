@@ -6,12 +6,13 @@ import com.paradigmas.game.ParadigmasGame;
 
 
 public class DesktopLauncher {
-	public static void main(String[] arg) {
-		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-		config.setWindowedMode(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT);
-		config.setResizable(false);
-		config.useVsync(true);
+    public static void main(String[] arg) {
+        Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
+        config.setWindowedMode(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT);
+        config.setResizable(false);
+        config.useVsync(true);
+        config.setTitle(ParadigmasGame.NAME);
 
-		new Lwjgl3Application(ParadigmasGame.getInstance(), config);
-	}
+        new Lwjgl3Application(ParadigmasGame.getInstance(), config);
+    }
 }

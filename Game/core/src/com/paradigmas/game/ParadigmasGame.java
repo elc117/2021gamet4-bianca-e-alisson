@@ -1,6 +1,7 @@
 package com.paradigmas.game;
 
 import com.badlogic.gdx.Game;
+import com.paradigmas.game.resource.Assets;
 import com.paradigmas.game.screen.PreloadScreen;
 
 public class ParadigmasGame extends Game {
@@ -22,5 +23,10 @@ public class ParadigmasGame extends Game {
             instance = new ParadigmasGame();
         }
         return instance;
+    }
+
+    @Override
+    public void dispose() {
+        Assets.manager.dispose();
     }
 }

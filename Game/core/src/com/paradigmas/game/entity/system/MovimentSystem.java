@@ -39,10 +39,10 @@ public class MovimentSystem extends IteratingSystem {
                 cRigidBody.velocity.y = 0;
                 cTransform.position.y = world.getSeaLevel() * Bloco.TILE_SIZE;
 
-                //cCollidable.onGround = true;
+                cCollidable.onGround = true;
             }
             else{
-                //cCollidable.onGround = false;
+                cCollidable.onGround = false;
             }
         }
     }

@@ -2,6 +2,7 @@ package com.paradigmas.game.dictionary;
 
 import com.badlogic.gdx.utils.IntMap;
 import com.paradigmas.game.bloco.Bloco;
+import com.paradigmas.game.bloco.BlocoAir;
 import com.paradigmas.game.resource.Assets;
 
 public class Blocos
@@ -36,7 +37,7 @@ public class Blocos
 
     static
     {
-        AIR = register(AIR_ID, new Bloco(null));
+        AIR = register(AIR_ID, new BlocoAir());
         DIRT = register(DIRT_ID, new Bloco(Assets.manager.get(Assets.dirt)));
         COBBLESTONE = register(COBBLESTONE_ID, new Bloco(Assets.manager.get(Assets.cobblestone)));
         OBSIDIAN = register(OBSIDIAN_ID, new Bloco(Assets.manager.get(Assets.obsidian)));

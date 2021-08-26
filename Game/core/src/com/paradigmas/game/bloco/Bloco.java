@@ -12,4 +12,8 @@ public class Bloco {
     {
         this.texture = texture;
     }
+
+    public boolean isSolid() {
+        return true;
+    }
 }

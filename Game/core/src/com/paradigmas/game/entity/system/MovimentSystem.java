@@ -3,7 +3,9 @@ package com.paradigmas.game.entity.system;
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
 import com.artemis.systems.IteratingSystem;
-import com.paradigmas.game.bloco.Bloco;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 import com.paradigmas.game.entity.component.CollidableComponent;
 import com.paradigmas.game.entity.component.RigidBodyComponent;
 import com.paradigmas.game.entity.component.TransformComponent;
@@ -15,6 +17,7 @@ public class MovimentSystem extends IteratingSystem {
     private ComponentMapper<RigidBodyComponent> mRigidBody;
     private ComponentMapper<CollidableComponent> mCollidable;
     private World world;
+    Array<Rectangle> tiles = new Array<>();
 
     public MovimentSystem(World world) {
         super(Aspect.all(TransformComponent.class, RigidBodyComponent.class));
@@ -29,21 +32,118 @@ public class MovimentSystem extends IteratingSystem {
 
         float delta = super.world.getDelta();
 
-        cTransform.position.mulAdd(cRigidBody.velocity, delta);//So + Vt
         cRigidBody.velocity.y += world.getGravity() * delta;
 
-        if(mCollidable.has(entityId)) {
-            cCollidable.collisionBox.setCenter(cTransform.position);
+        // mCollidable != null
+        if (mCollidable.has(entityId)) {
+            cCollidable.onGround = false;
+            cCollidable.onCeiling = false;
+            cCollidable.onLeftWall = false;
+            cCollidable.onRightWall = false;
 
-            if (cTransform.position.y < world.getSeaLevel() * Bloco.TILE_SIZE) {
-                cRigidBody.velocity.y = 0;
-                cTransform.position.y = world.getSeaLevel() * Bloco.TILE_SIZE;
+            // Clona o vetor de velocidade
+            final Vector2 velocity = new Vector2(cRigidBody.velocity);
 
-                cCollidable.onGround = true;
+            //scale
+            // velocity*delta
+            velocity.scl(delta);
+
+            // pega a collision box do personagem
+            final Rectangle rectangle = cCollidable.collisionBox;
+            // Mantem a collision box na posição do personagem
+            rectangle.setPosition(cTransform.position);
+
+            ///Pegando os blocos que o personagem pode colidir:
+            float startX, startY, endX, endY;
+
+            // Definindo a area que vai ser passada para "getTilesRectangle",
+            // para achar os blocos colidiveis ao redor:
+            // (Na movimentação em X. Y está com  tamanho fixo. (de 2 blocos).)
+
+            // está se deslocando em x, no sentido positivo. ->
+            if (velocity.x > 0) {
+                startX = endX = cTransform.position.x + rectangle.width + velocity.x;
+            } else {
+                // no sentido negativo. <-
+                //                         a velocidade já tem um valor negativo, por isso +
+                startX = endX = cTransform.position.x + velocity.x;
             }
-            else{
-                cCollidable.onGround = false;
+
+            // definindo a altura da area a ser testada
+            startY = cTransform.position.y;
+            endY = cTransform.position.y + rectangle.height;
+
+            // selecionando todos os blocos colidiveis
+            tiles.clear();
+            world.getTilesRectangle(startX, startY, endX, endY, tiles);
+
+            rectangle.x += velocity.x;
+
+            for(Rectangle tile : tiles) {
+                // se colidir, a velocidade vai pra 0.
+                if(rectangle.overlaps(tile)) {
+                    if (velocity.x > 0) {
+                        // Colidindo com uma parede à direita
+                        cCollidable.onRightWall = true;
+                    } else {
+                        // Colidindo com uma parede à esquerda
+                        cCollidable.onLeftWall = true;
+                    }
+
+                    velocity.x = 0;
+                    break;
+                }
             }
+
+            rectangle.x = cTransform.position.x;
+
+            // Definindo a area que vai ser passada para "getTilesRectangle",
+            // para achar os blocos colidiveis ao redor:
+            // (Na movimentação em Y. X está com  tamanho fixo. (de 1 bloco).)
+            if (velocity.y > 0) {
+                startY = endY  =  cTransform.position.y + rectangle.height + velocity.y;
+            } else {
+                startY = endY = cTransform.position.y + velocity.y;
+            }
+
+            startX = cTransform.position.x;
+            endX = cTransform.position.x + rectangle.width;
+
+            tiles.clear();
+            world.getTilesRectangle(startX, startY, endX, endY, tiles);
+
+            rectangle.y += velocity.y;
+
+            for(Rectangle tile : tiles) {
+                // se colidir, a velocidade vai pra 0.
+                if(rectangle.overlaps(tile)) {
+                    // está subindo
+                    if (velocity.y > 0) {
+                        cTransform.position.y = tile.y - rectangle.height;
+
+                        // Colidindo com o teto
+                        cCollidable.onCeiling = true;
+                    }
+                    else {
+                        // descendo
+                        cTransform.position.y = tile.y + tile.height;
+
+                        // Colidindo com o chão
+                        cCollidable.onGround = true;
+                    }
+
+                    velocity.y = 0;
+                    break;
+                }
+            }
+
+            cTransform.position.add(velocity);
+            // retorna pra velocidade normal
+            velocity.scl(1 / delta);
+            cRigidBody.velocity.set(velocity);
+
+        } else {
+            cTransform.position.mulAdd(cRigidBody.velocity, delta);//So + Vt
         }
     }
 }

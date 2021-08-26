@@ -21,10 +21,16 @@ public class PlayerControllerSystem extends IteratingSystem {
     private ComponentMapper<JumpComponent> mJump;
     private ComponentMapper<TransformComponent> mTransform;
 
+    /** teste de comentário */
     private boolean moveRight;
     private boolean moveLeft;
     private boolean jump;
     private boolean down;
+    private boolean coffe;
+    private boolean temp;
+    private long tempoFinal;
+    private boolean pause;
+    private boolean menu;
 
     public PlayerControllerSystem() {
         super(Aspect.all(PlayerComponent.class, RigidBodyComponent.class,
@@ -41,21 +47,44 @@ public class PlayerControllerSystem extends IteratingSystem {
         CollidableComponent cCollidable = mCollidable.get(entityId);
         TransformComponent cTransform = mTransform.get(entityId);
 
+        float walkSpeed = 0;
+        long tempoCorrente = System.currentTimeMillis();
+
+        if(coffe && cPlayer.have_coffe()) {
+            walkSpeed = cPlayer.buffedWalkSpeed;
+            cPlayer.coffe--;
+
+            coffe = false;
+            temp = true;
+            tempoFinal = tempoCorrente + 10000;
+        } else if (!temp) {
+            walkSpeed = cPlayer.normalWalkSpeed;
+        }
+        
+        if(temp) {
+            walkSpeed = cPlayer.buffedWalkSpeed;
+
+            if(tempoCorrente > tempoFinal)
+            {
+                temp = false;
+            }
+        }
+
         if (cPlayer.canWalk) {
             if (moveLeft == moveRight) {
                 cRigidBody.velocity.x = 0;
             } else if (moveLeft) {
-                cRigidBody.velocity.x = -cPlayer.walkSpeed;
+                cRigidBody.velocity.x = -walkSpeed;
             } else if (moveRight) {
-                cRigidBody.velocity.x = cPlayer.walkSpeed;
+                cRigidBody.velocity.x = walkSpeed;
             }
         }
 
-        if (cJump.canJump && cCollidable.onGround && jump) {
+        if (cJump.canJump && (cCollidable.onGround || cCollidable.onRightWall || cCollidable.onLeftWall) && jump) {
             cRigidBody.velocity.y = cJump.jumpSpeed;
         }
 
-        if ((Gdx.input.isKeyJustPressed(Input.Keys.V) || Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
+        /*if ((Gdx.input.isKeyJustPressed(Input.Keys.V) || Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
                 && cCollidable.onGround) {
             if (down) {
                 cPlayer.walkSpeed *= 2;
@@ -66,27 +95,55 @@ public class PlayerControllerSystem extends IteratingSystem {
                 cTransform.scaleY /= 2;
                 down = true;
             }
-        }
+        }*/
     }
 
     private class GameInputAdapter extends InputAdapter {
         @Override
         public boolean keyDown(int keycode) {
             switch (keycode) {
-                case Input.Keys.RIGHT:
-                case Input.Keys.D:
-                    moveRight = true;
+
+                /// Movimentação básica:
+                // W
+                case Input.Keys.SPACE:
+                case Input.Keys.UP:
+                case Input.Keys.W:
+                    jump = true;
                     break;
 
+                // A
                 case Input.Keys.LEFT:
                 case Input.Keys.A:
                     moveLeft = true;
                     break;
 
-                case Input.Keys.SPACE:
-                case Input.Keys.UP:
-                    jump = true;
+                // S
+                case Input.Keys.DOWN:
+                case Input.Keys.V:
+                case Input.Keys.S:
+                    down = true;
                     break;
+
+                // D
+                case Input.Keys.RIGHT:
+                case Input.Keys.D:
+                    moveRight = true;
+                    break;
+
+                /// Pause/Resume / Menu
+                case Input.Keys.P:
+                    pause = true;
+                    break;
+
+                case Input.Keys.ESCAPE:
+                    menu = true;
+                    break;
+            }
+
+            /// skils/buffs/extras
+            // Z
+            if(Gdx.input.isKeyJustPressed(Input.Keys.Z)) {
+                coffe = true;
             }
 
             return true;
@@ -95,19 +152,45 @@ public class PlayerControllerSystem extends IteratingSystem {
         @Override
         public boolean keyUp(int keycode) {
             switch (keycode) {
-                case Input.Keys.RIGHT:
-                case Input.Keys.D:
-                    moveRight = false;
+
+                // W
+                case Input.Keys.SPACE:
+                case Input.Keys.UP:
+                case Input.Keys.W:
+                    jump = false;
                     break;
 
+                // A
                 case Input.Keys.LEFT:
                 case Input.Keys.A:
                     moveLeft = false;
                     break;
 
-                case Input.Keys.SPACE:
-                case Input.Keys.UP:
-                    jump = false;
+                //S
+                case Input.Keys.DOWN:
+                case Input.Keys.V:
+                case Input.Keys.S:
+                    down = false;
+                    break;
+
+                // D
+                case Input.Keys.RIGHT:
+                case Input.Keys.D:
+                    moveRight = false;
+                    break;
+
+                /// skils/buffs/extras
+                // Z
+                // é por tempo;
+
+
+                /// Pause/Resume / Menu
+                case Input.Keys.P:
+                    pause = false;
+                    break;
+
+                case Input.Keys.ESCAPE:
+                    menu = false;
                     break;
             }
 

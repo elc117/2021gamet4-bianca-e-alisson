@@ -1,6 +1,8 @@
 package com.paradigmas.game;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.paradigmas.game.resource.Assets;
 import com.paradigmas.game.screen.PreloadScreen;
 
@@ -34,6 +36,12 @@ public class ParadigmasGame extends Game {
 
         if (DEBUG) {
             fpslogger.log();
+
+            if (Gdx.input.isKeyJustPressed(Input.Keys.R)) {
+                if (Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT)) {
+                    getScreen().show();
+                }
+            }
         }
     }
 

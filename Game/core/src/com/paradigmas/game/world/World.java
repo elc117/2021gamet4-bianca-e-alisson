@@ -28,7 +28,7 @@ public class World {
     public static final int FG = 1; //ForeGround (layer 1)
 
     private EntityTrackerMainWindow entityTrackerWindow;
-    private final int[][][] map = new int[80][45][2];
+    private final int[][][] map = new int[ParadigmasGame.SCREEN_WIDTH/16][ParadigmasGame.SCREEN_HEIGHT/16][2];
     private final com.artemis.World artemisWorld;
 
     private int player;

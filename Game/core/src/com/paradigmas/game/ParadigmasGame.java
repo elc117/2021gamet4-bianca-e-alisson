@@ -9,7 +9,7 @@ import com.paradigmas.game.screen.PreloadScreen;
 public class ParadigmasGame extends Game {
     private static ParadigmasGame instance;
     public static final String NAME = "ParadigmasGame";
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     public static final int SCREEN_WIDTH = 720;
     public static final int SCREEN_HEIGHT = 512;
 

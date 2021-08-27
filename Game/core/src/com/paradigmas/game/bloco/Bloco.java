@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class Bloco {
 
-    public static final int TILE_SIZE = 16;
+    public static final int TILE_SIZE = 24;
 
     public final Texture texture;
 

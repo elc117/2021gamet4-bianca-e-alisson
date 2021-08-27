@@ -9,17 +9,19 @@ import com.paradigmas.game.screen.PreloadScreen;
 public class ParadigmasGame extends Game {
     private static ParadigmasGame instance;
     public static final String NAME = "ParadigmasGame";
-    public static final boolean DEBUG = false;
-    public static final int SCREEN_WIDTH = 720;
-    public static final int SCREEN_HEIGHT = 512;
+    public static final boolean DEBUG = false; // muda para true para debugar
+    public static final int SCREEN_WIDTH = 720; // TODO: Alterar as dimenções da tela com base nos mapas que forem criados
+    public static final int SCREEN_HEIGHT = 528;
 
     FPSLogger fpslogger = new FPSLogger(NAME, true, false);
 
+    // Construtor
     private ParadigmasGame() {
     }
 
     @Override
     public void create() {
+        // A preeloadScreen que carrega as texturas
         this.setScreen(new PreloadScreen());
     }
 

@@ -47,7 +47,7 @@ public class PlayerControllerSystem extends IteratingSystem {
         CollidableComponent cCollidable = mCollidable.get(entityId);
         TransformComponent cTransform = mTransform.get(entityId);
 
-        float walkSpeed = 0;
+        float walkSpeed = 100;
         long tempoCorrente = System.currentTimeMillis();
 
         if(coffe && cPlayer.have_coffe()) {

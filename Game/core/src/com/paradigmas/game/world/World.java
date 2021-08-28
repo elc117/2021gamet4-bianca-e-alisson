@@ -32,8 +32,8 @@ public class World {
         return map;
     }
 
-    public void setMap(int[][][] map) {
-        this.map = map;
+    public void setMap(int x, int y, int bloco_ID) {
+        this.map[x][y][1] = bloco_ID;
     }
 
     private int[][][] map = new int[ParadigmasGame.SCREEN_WIDTH / 24][ParadigmasGame.SCREEN_HEIGHT / 24][2];

@@ -44,20 +44,20 @@ public class MapsMakerSystem { // TODO: extends IteratingSystem
             // plataforma flutuante primeiro nível
             gera_PlataformaByCoord(14, 18, 4, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
 
-            // plataforma que faz o segundo nível
+            // plataforma segundo nível
             gera_PlataformaByCoord(1, world.getWidth()-8, 7, Blocos.Ground_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
             gera_PlataformaByCoord(world.getWidth()-4, world.getWidth()-2, 6, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
             gera_PlataformaByCoord(1,5, 9, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
             gera_PlataformaByCoord(8, 11, 11, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
 
 
-            // plataforma que faz o terceiro nível
+            // plataforma terceiro nível
             gera_PlataformaByCoord(15, 30, 12, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
             gera_PlataformaByCoord(30, world.getWidth()-9, 11, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
             gera_PlataformaByCoord(world.getWidth()-6, world.getWidth()-2, 12, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
             gera_PlataformaByCoord(world.getWidth()-3, world.getWidth()-2, 13, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
-            // plataforma que faz o quarto nível
+            // plataforma quarto nível
             gera_PlataformaByCoord(6, world.getWidth()-6, 16, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
             gera_PlataformaByCoord(23, 32, 17, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
             gera_PlataformaByCoord(24, 31, 18, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
@@ -65,7 +65,7 @@ public class MapsMakerSystem { // TODO: extends IteratingSystem
             gera_PlataformaByCoord(1, 6, 18, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
             gera_PlataformaByCoord(1, 6, 19, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
-            // plataforma que faz o quinto nível
+            // plataforma quinto nível
             gera_PlataformaByCoord(9, 12, 22, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
             gera_ParedeByCoord(19, 22, 13, Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
             gera_PlataformaByCoord(14, 16, 19, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
@@ -76,22 +76,37 @@ public class MapsMakerSystem { // TODO: extends IteratingSystem
             map[5][4][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
         }
         else if (cont == 2) {
-            // parede (1-3, 11) -> (base-fim; posição em x)
-            gera_ParedeByCoord(1, 3, 11, Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
 
-            gera_PlataformaByCoord(12, 20, 1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
-            gera_ParedeByCoord(1, 3, 21, Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
+            // chao
+            gera_PlataformaByCoord(1, world.getWidth()-2, 1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
-            gera_PlataformaByCoord(22, world.getWidth()-2, 3, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            // plataforma primeiro nível
+            gera_PlataformaByCoord(1, 5, 6, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+            gera_PlataformaByCoord(8, 10, 4, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_ParedeByCoord(4, 8, 10, Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+            gera_PlataformaByCoord(world.getWidth()-7, world.getWidth()-5, 4, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
 
-            // Preenche areas vazias até o chão
-            // TODO: Alterar para escolher até onde preencher.
-            preenche(22, 2, Blocos.Mid_1);
-            preenche(1, 3, Blocos.Mid_1);
+            // plataforma segundo nível
+            gera_ParedeByCoord(4, 5, 15, Blocos.Wall_Mid_Right_1, Blocos.Wall_Mid_Right_1);
+            gera_PlataformaByCoord(15, world.getWidth()-2, 6, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(13, 13, 4, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
 
-            gera_PlataformaByCoord(14, 18, 4, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
 
-            gera_PlataformaByCoord(22, world.getWidth()-2, 6, Blocos.Ground_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            // plataforma terceiro nível
+            gera_PlataformaByCoord(1, world.getWidth()-4, 9, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+            gera_ParedeByCoord(10, 15, world.getWidth()-8, Blocos.Wall_Mid_Right_1, Blocos.Wall_Mid_Right_1);
+            gera_PlataformaByCoord(world.getWidth()-5, world.getWidth()-2, 11, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(world.getWidth()-7, world.getWidth()-6, 14, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+            gera_PlataformaByCoord(world.getWidth()-5, world.getWidth()-2, 16, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+
+            // plataforma quarto nível
+            gera_ParedeByCoord(18, 24, world.getWidth()-18, Blocos.Wall_Mid_Right_1, Blocos.Wall_Mid_Right_1);
+            gera_PlataformaByCoord(world.getWidth()-17, world.getWidth()-9, 18, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+            gera_PlataformaByCoord(world.getWidth()-17, world.getWidth()-13, 19, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(world.getWidth()-17, world.getWidth()-13, 20, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(world.getWidth()-17, world.getWidth()-13, 21, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+
+
         }
 
         maps.add(map);

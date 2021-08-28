@@ -10,8 +10,8 @@ public class ParadigmasGame extends Game {
     private static ParadigmasGame instance;
     public static final String NAME = "ParadigmasGame";
     public static final boolean DEBUG = false; // muda para true para debugar
-    public static final int SCREEN_WIDTH = 720; // TODO: Alterar as dimenções da tela com base nos mapas que forem criados
-    public static final int SCREEN_HEIGHT = 528;
+    public static final int SCREEN_WIDTH = 1200;
+    public static final int SCREEN_HEIGHT = 600;
 
     FPSLogger fpslogger = new FPSLogger(NAME, true, false);
 

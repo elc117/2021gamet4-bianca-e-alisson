@@ -32,6 +32,8 @@ public class PlayerControllerSystem extends IteratingSystem {
     private boolean pause;
     private boolean menu;
 
+    private boolean NextFase;
+
     public PlayerControllerSystem() {
         super(Aspect.all(PlayerComponent.class, RigidBodyComponent.class,
                 JumpComponent.class, CollidableComponent.class));
@@ -83,6 +85,7 @@ public class PlayerControllerSystem extends IteratingSystem {
         if (cJump.canJump && (cCollidable.onGround || cCollidable.onRightWall || cCollidable.onLeftWall) && jump) {
             cRigidBody.velocity.y = cJump.jumpSpeed;
         }
+
 
         /*if ((Gdx.input.isKeyJustPressed(Input.Keys.V) || Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
                 && cCollidable.onGround) {
@@ -142,6 +145,10 @@ public class PlayerControllerSystem extends IteratingSystem {
 
             /// skils/buffs/extras
             // Z
+            if(Gdx.input.isKeyJustPressed(Input.Keys.Z)) {
+                coffe = true;
+            }
+
             if(Gdx.input.isKeyJustPressed(Input.Keys.Z)) {
                 coffe = true;
             }

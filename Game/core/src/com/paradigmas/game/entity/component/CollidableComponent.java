@@ -10,4 +10,5 @@ public class CollidableComponent extends Component {
     public boolean  onCeiling;
     public boolean  onLeftWall;
     public boolean  onRightWall;
+    public boolean  onCode;
 }

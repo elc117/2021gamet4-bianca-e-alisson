@@ -28,6 +28,9 @@ public class Blocos
     public static final int Wall_Mid_Left_1_ID = ID++;
     public static final int Wall_Mid_Right_1_ID = ID++;
 
+
+    public static final int Codigo_1_ID = ID++;
+
     // BLOCOS
     public static final Bloco AIR;
     public static final Bloco DIRT;
@@ -47,6 +50,7 @@ public class Blocos
     public static final Bloco Wall_Mid_Left_1;
     public static final Bloco Wall_Mid_Right_1;
 
+    public static final Bloco Codigo_1;
 
     // O mapa é uma matriz de ID's, passe uma posição da matriz para saber qual bloco está lá
     public static Bloco getBlocoById(int id)
@@ -91,5 +95,8 @@ public class Blocos
         // WALL
         Wall_Mid_Right_1 = register(Wall_Mid_Right_1_ID, new Bloco(Assets.manager.get(Assets.Wall_Mid_Right_1)));
         Wall_Mid_Left_1 = register(Wall_Mid_Left_1_ID, new Bloco(Assets.manager.get(Assets.Wall_Mid_Left_1)));
+
+        // OBJECTIVES
+        Codigo_1 = register(Codigo_1_ID, new Bloco(Assets.manager.get(Assets.Codigo_1)));
     }
 }

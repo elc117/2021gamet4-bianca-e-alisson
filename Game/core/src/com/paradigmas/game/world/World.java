@@ -12,6 +12,7 @@ import com.paradigmas.game.bloco.Bloco;
 import com.paradigmas.game.dictionary.Blocos;
 import com.paradigmas.game.entity.EntitiesFactory;
 import com.paradigmas.game.entity.system.CollisionDebugSystem;
+import com.paradigmas.game.entity.system.MapsMakerSystem;
 import com.paradigmas.game.entity.system.MovimentSystem;
 import com.paradigmas.game.entity.system.PlayerControllerSystem;
 import com.paradigmas.game.entity.system.SpriteRenderSystem;
@@ -26,7 +27,16 @@ public class World {
     public static final int FG = 1; //ForeGround (layer 1)
 
     private EntityTrackerMainWindow entityTrackerWindow;
-    private final int[][][] map = new int[720 / 24][528 / 24][2]; // ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT
+
+    public int[][][] getMap() {
+        return map;
+    }
+
+    public void setMap(int[][][] map) {
+        this.map = map;
+    }
+
+    private int[][][] map = new int[ParadigmasGame.SCREEN_WIDTH / 24][ParadigmasGame.SCREEN_HEIGHT / 24][2];
     private final com.artemis.World artemisWorld;
 
     private int player;
@@ -62,99 +72,12 @@ public class World {
     }
 
     public void regenerate() {
-        // Básico
-        gera_Fundo();   // preenche a camada 0 com terra e a 1 com ar
-        gera_ground(Blocos.Mid_1); // faz o chão básico
-        gera_ParedeByCoord(0, getHeight()-1, 0, Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1); // parede direita
-        gera_ParedeByCoord(0, getHeight()-1, getWidth()-1, Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1); // parede esquerda
+        MapsMakerSystem creator = new MapsMakerSystem(this, map);
+        Array<int[][][]> maps = creator.createMaps();
 
-        // plataforma (1-10, 3) -> (início-fim; altura)
-        gera_PlataformaByCoord(1, 10, 3, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
-
-        // parede (1-3, 11) -> (base-fim; posição em x)
-        gera_ParedeByCoord(1, 3, 11, Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
-
-        gera_PlataformaByCoord(12, 20, 1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
-        gera_ParedeByCoord(1, 3, 21, Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
-
-        gera_PlataformaByCoord(22, getWidth()-2, 3, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
-
-        // Preenche areas vazias até o chão
-        // TODO: Alterar para escolher até onde preencher.
-        preenche(22, 2, Blocos.Mid_1);
-        preenche(1, 3, Blocos.Mid_1);
-
-        gera_PlataformaByCoord(14, 18, 4, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
-
-        gera_PlataformaByCoord(22, getWidth()-2, 6, Blocos.Ground_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        map = maps.first();
     }
 
-    // Varre o mapa colocando DIRT na layer 0 e AIR na 1.
-    private void gera_Fundo() {
-        for (int x = 0; x < getWidth(); x++) {
-            for (int y = 0; y < getHeight(); y++) {
-                for (int i = 0; i < getLayer(); i++) {
-                    Bloco bloco  = Blocos.AIR;
-
-                    if (i == 0) {
-                        bloco = Blocos.DIRT;
-                    }
-
-                    map[x][y][i] = Blocos.getIdByBloco(bloco);
-                }
-            }
-        }
-    }
-
-    // Faz uma linha na parte inferior da tela, exceto nos 2 cantos, com blocos de preenchimento,
-    // formando um chão base
-    private void gera_ground(Bloco bloco) {
-        for (int x = 1; x < getWidth()-1; x++) {
-            map[x][0][1] = Blocos.getIdByBloco(bloco);
-        }
-    }
-
-    // Informe (em x) as coordenadas de inicio, fim e altura da plataforma
-    // e a textura que quer colocar em cada ponta e no meio.
-    private void gera_PlataformaByCoord(int startX, int endX, int height, Bloco Left, Bloco Mid, Bloco Right) {
-        for (int x = startX; x <= endX; x++) {
-            Bloco bloco  = Mid;
-
-            if (x == startX) {
-                bloco = Left;
-            } else if (x == endX) {
-                bloco = Right;
-            }
-
-            map[x][height][1] = Blocos.getIdByBloco(bloco);
-        }
-    }
-
-    // Informe (em y) as coordenadas de inicio, fim e posição em x da parede
-    // e a textura que quer colocar no top e no restante.
-    private void gera_ParedeByCoord(int startY, int endY, int x, Bloco Top, Bloco Mid) {
-        for (int y = startY; y <= endY; y++) {
-            Bloco bloco = Mid;
-
-            if (y == endY) {
-                bloco = Top;
-            }
-
-            map[x][y][1] = Blocos.getIdByBloco(bloco);
-        }
-    }
-
-    // Informe a primeira coordenada de um espaço vazio (cercado de blocos) que será preenchido,
-    // por enquanto, até o chão. TODO: mudar isso.
-    private void preenche(int x, int y, Bloco bloco) {
-        for(; y > 0; y--) {
-            int xx = x;
-            while(Blocos.getBlocoById(map[xx][y][1]) == Blocos.AIR) {
-                map[xx][y][1] = Blocos.getIdByBloco(bloco);
-                xx  ++;
-            }
-        }
-    }
 
     public void update(float delta) {
         artemisWorld.setDelta(delta);

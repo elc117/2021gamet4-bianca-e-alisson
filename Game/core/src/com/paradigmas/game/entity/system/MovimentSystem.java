@@ -6,6 +6,7 @@ import com.artemis.systems.IteratingSystem;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.paradigmas.game.dictionary.Blocos;
 import com.paradigmas.game.entity.component.CollidableComponent;
 import com.paradigmas.game.entity.component.RigidBodyComponent;
 import com.paradigmas.game.entity.component.TransformComponent;
@@ -82,16 +83,22 @@ public class MovimentSystem extends IteratingSystem {
             for(Rectangle tile : tiles) {
                 // se colidir, a velocidade vai pra 0.
                 if(rectangle.overlaps(tile)) {
-                    if (velocity.x > 0) {
-                        // Colidindo com uma parede à direita
-                        cCollidable.onRightWall = true;
-                    } else {
-                        // Colidindo com uma parede à esquerda
-                        cCollidable.onLeftWall = true;
+                    if(Blocos.getBlocoById(world.getMap()[world.worldToMap(cTransform.position.x)][world.worldToMap(cTransform.position.y)][1]) == Blocos.Codigo_1) {
+                        cCollidable.onCode = true;
+                        world.getMap()[world.worldToMap(cTransform.position.x)][world.worldToMap(cTransform.position.y)][1] = Blocos.AIR_ID;
                     }
+                    else {
+                        if (velocity.x > 0) {
+                            // Colidindo com uma parede à direita
+                            cCollidable.onRightWall = true;
+                        } else {
+                            // Colidindo com uma parede à esquerda
+                            cCollidable.onLeftWall = true;
+                        }
 
-                    velocity.x = 0;
-                    break;
+                        velocity.x = 0;
+                        break;
+                    }
                 }
             }
 

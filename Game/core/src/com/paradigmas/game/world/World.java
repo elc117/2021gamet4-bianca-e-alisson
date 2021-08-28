@@ -23,26 +23,18 @@ import net.namekdev.entity_tracker.ui.EntityTrackerMainWindow;
 
 public class World {
 
-    public static final int BG = 0; //BackGround (layer 0)
+    //public static final int BG = 0; //BackGround (layer 0)
     public static final int FG = 1; //ForeGround (layer 1)
 
     private EntityTrackerMainWindow entityTrackerWindow;
 
-    public int[][][] getMap() {
-        return map;
-    }
-
-    public void setMap(int x, int y, int bloco_ID) {
-        this.map[x][y][1] = bloco_ID;
-    }
-
     private int[][][] map = new int[ParadigmasGame.SCREEN_WIDTH / 24][ParadigmasGame.SCREEN_HEIGHT / 24][2];
     private final com.artemis.World artemisWorld;
 
-    private int player;
-    private int seaLevel = 7;
-    private float gravity = -570;
-    private EntitiesFactory entitiesFactory;
+    private final int player;
+    private final int seaLevel = 7;
+    private final float gravity = -570;
+    private final EntitiesFactory entitiesFactory;
 
     // construtor
     public World(OrthographicCamera camera) {
@@ -68,7 +60,7 @@ public class World {
         artemisWorld.inject(entitiesFactory);
 
         // TODO: definir um lugar certo para o spawn do personagem
-        player = entitiesFactory.createPlayer(artemisWorld, Bloco.TILE_SIZE, getHeight() * Bloco.TILE_SIZE);
+        player = entitiesFactory.createPlayer(artemisWorld, 2 * Bloco.TILE_SIZE, 8 * Bloco.TILE_SIZE); // getHeight()
     }
 
     public void regenerate() {

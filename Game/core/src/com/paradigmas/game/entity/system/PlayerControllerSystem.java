@@ -82,7 +82,7 @@ public class PlayerControllerSystem extends IteratingSystem {
             }
         }
 
-        if (cJump.canJump && (cCollidable.onGround || cCollidable.onRightWall || cCollidable.onLeftWall) && jump) {
+        if (cJump.canJump && cCollidable.onGround /*|| cCollidable.onRightWall || cCollidable.onLeftWall)*/ && jump) {
             cRigidBody.velocity.y = cJump.jumpSpeed;
         }
 

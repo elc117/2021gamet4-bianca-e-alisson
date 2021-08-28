@@ -41,10 +41,37 @@ public class MapsMakerSystem { // TODO: extends IteratingSystem
             preenche(22, 2, Blocos.Mid_1);
             preenche(1, 3, Blocos.Mid_1);
 
+            // plataforma flutuante primeiro nível
             gera_PlataformaByCoord(14, 18, 4, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
 
+            // plataforma que faz o segundo nível
             gera_PlataformaByCoord(1, world.getWidth()-8, 7, Blocos.Ground_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
-            gera_PlataformaByCoord(world.getWidth()-4, world.getWidth()-2, 5, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(world.getWidth()-4, world.getWidth()-2, 6, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(1,5, 9, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+            gera_PlataformaByCoord(8, 11, 11, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+
+
+            // plataforma que faz o terceiro nível
+            gera_PlataformaByCoord(15, 30, 12, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(30, world.getWidth()-9, 11, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+            gera_PlataformaByCoord(world.getWidth()-6, world.getWidth()-2, 12, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(world.getWidth()-3, world.getWidth()-2, 13, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+
+            // plataforma que faz o quarto nível
+            gera_PlataformaByCoord(6, world.getWidth()-6, 16, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+            gera_PlataformaByCoord(23, 32, 17, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(24, 31, 18, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(1, 6, 17, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(1, 6, 18, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(1, 6, 19, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+
+            // plataforma que faz o quinto nível
+            gera_PlataformaByCoord(9, 12, 22, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_ParedeByCoord(19, 22, 13, Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+            gera_PlataformaByCoord(14, 16, 19, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_ParedeByCoord(19, 21, 17, Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+            gera_PlataformaByCoord(18, world.getWidth()-1, 21, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+
 
             map[5][4][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
         }

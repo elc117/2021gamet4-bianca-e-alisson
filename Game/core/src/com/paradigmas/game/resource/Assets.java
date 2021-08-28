@@ -18,6 +18,10 @@ public class Assets {
     @Asset public static final AssetDescriptor<Texture> Ground_Mid_1 = new AssetDescriptor<>("Mapa_Texturas/Ground_Mid_1.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Ground_Right_1 = new AssetDescriptor<>("Mapa_Texturas/Ground_Right_1.png", Texture.class);
 
+    // Ramp
+    //@Asset public static final AssetDescriptor<Texture> Ramp_Left_1 = new AssetDescriptor<>("Mapa_Texturas/Ramp_Left_1.png", Texture.class);
+    //@Asset public static final AssetDescriptor<Texture> Ramp_Right_1 = new AssetDescriptor<>("Mapa_Texturas/Ramp_Right_1png", Texture.class);
+
     // Preenchimento
     @Asset public static final AssetDescriptor<Texture> Mid_1 = new AssetDescriptor<>("Mapa_Texturas/Mid_1.png", Texture.class);
 

@@ -43,7 +43,8 @@ public class MapsMakerSystem { // TODO: extends IteratingSystem
 
             gera_PlataformaByCoord(14, 18, 4, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
 
-            gera_PlataformaByCoord(22, world.getWidth()-2, 6, Blocos.Ground_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(1, world.getWidth()-8, 7, Blocos.Ground_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+            gera_PlataformaByCoord(world.getWidth()-4, world.getWidth()-2, 5, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
             map[5][4][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
         }

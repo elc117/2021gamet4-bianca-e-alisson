@@ -60,7 +60,7 @@ public class World {
         artemisWorld.inject(entitiesFactory);
 
         // TODO: definir um lugar certo para o spawn do personagem
-        player = entitiesFactory.createPlayer(artemisWorld, 2 * Bloco.TILE_SIZE, 8 * Bloco.TILE_SIZE); // getHeight()
+        player = entitiesFactory.createPlayer(artemisWorld, 2 * Bloco.TILE_SIZE, 6 * Bloco.TILE_SIZE); // getHeight()
     }
 
     public void regenerate() {

@@ -24,7 +24,7 @@ public class MapsMakerSystem { // TODO: extends IteratingSystem
         gera_ParedeByCoord(0, world.getHeight()-1, world.getWidth()-1, Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1); // parede esquerda
 
 
-        if (cont == 1) {
+        if (cont == 2) {
             // plataforma (1-10, 3) -> (início-fim; altura)
             gera_PlataformaByCoord(1, 10, 3, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
@@ -75,7 +75,7 @@ public class MapsMakerSystem { // TODO: extends IteratingSystem
 
             map[5][4][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
         }
-        else if (cont == 2) {
+        else if (cont == 1) {
 
             // chao
             gera_PlataformaByCoord(1, world.getWidth()-2, 1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
@@ -87,24 +87,28 @@ public class MapsMakerSystem { // TODO: extends IteratingSystem
             gera_PlataformaByCoord(world.getWidth()-7, world.getWidth()-5, 4, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
 
             // plataforma segundo nível
-            gera_ParedeByCoord(4, 5, 15, Blocos.Wall_Mid_Right_1, Blocos.Wall_Mid_Right_1);
-            gera_PlataformaByCoord(15, world.getWidth()-2, 6, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
-            gera_PlataformaByCoord(13, 13, 4, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+            gera_ParedeByCoord(3, 4, 15, Blocos.Wall_Mid_Right_1, Blocos.Wall_Mid_Right_1);
+            gera_PlataformaByCoord(15, 25, 4, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_ParedeByCoord(5, 6, 25, Blocos.Wall_Mid_Right_1, Blocos.Wall_Mid_Right_1);
+            gera_PlataformaByCoord(25, world.getWidth()-2, 6, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+
 
 
             // plataforma terceiro nível
-            gera_PlataformaByCoord(1, world.getWidth()-4, 9, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
-            gera_ParedeByCoord(10, 15, world.getWidth()-8, Blocos.Wall_Mid_Right_1, Blocos.Wall_Mid_Right_1);
+            gera_PlataformaByCoord(2, world.getWidth()-4, 9, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+            gera_ParedeByCoord(10, 18, world.getWidth()-8, Blocos.Wall_Mid_Right_1, Blocos.Wall_Mid_Right_1);
             gera_PlataformaByCoord(world.getWidth()-5, world.getWidth()-2, 11, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
             gera_PlataformaByCoord(world.getWidth()-7, world.getWidth()-6, 14, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
             gera_PlataformaByCoord(world.getWidth()-5, world.getWidth()-2, 16, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
             // plataforma quarto nível
-            gera_ParedeByCoord(18, 24, world.getWidth()-18, Blocos.Wall_Mid_Right_1, Blocos.Wall_Mid_Right_1);
-            gera_PlataformaByCoord(world.getWidth()-17, world.getWidth()-9, 18, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
+            gera_ParedeByCoord(18, 22, world.getWidth()-18, Blocos.Wall_Mid_Right_1, Blocos.Mid_1);
+            gera_PlataformaByCoord(world.getWidth()-17, world.getWidth()-9, 18, Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
             gera_PlataformaByCoord(world.getWidth()-17, world.getWidth()-13, 19, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
             gera_PlataformaByCoord(world.getWidth()-17, world.getWidth()-13, 20, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
             gera_PlataformaByCoord(world.getWidth()-17, world.getWidth()-13, 21, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(world.getWidth()-3, world.getWidth()-2, 23, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+            gera_PlataformaByCoord(world.getWidth()-5, world.getWidth()-5, 21, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Right_1);
 
 
         }

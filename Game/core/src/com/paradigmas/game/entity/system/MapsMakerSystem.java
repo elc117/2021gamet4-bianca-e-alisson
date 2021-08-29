@@ -143,10 +143,12 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
     /// MAPAS
     private void mapa_level_1() {
         // plataforma (1-10, 3) -> (início-fim; altura)
-        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-10), MAX_Y-(MAX_Y-3), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-10), MAX_Y-(MAX_Y-3), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Ground_Right_1);
 
         // parede (1-3, 11) -> (base-fim; posição em x)
         gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_X-(MAX_X-3), MAX_X-(MAX_X-11), Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+
+        map[9][4][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
     }
 
 
@@ -177,7 +179,6 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
     }
 
     private void mapa_level_3() {
-
     }
 
     private void mapa_level_4() {

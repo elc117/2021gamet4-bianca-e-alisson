@@ -19,7 +19,7 @@ public class Blocos
     public static final int Ground_Mid_1_ID = ID++;
     public static final int Ground_Right_1_ID = ID++;
 
-    //public static final int Ramp_Left_1_ID = ID++;
+    public static final int Ramp_Left_1_ID = ID++;
     //public static final int Ramp_Right_1_ID = ID++;
 
     public static final int Mid_1_ID = ID++;
@@ -44,7 +44,7 @@ public class Blocos
     public static final Bloco Ground_Mid_1;
     public static final Bloco Ground_Right_1;
 
-    //public static final Bloco Ramp_Left_1;
+    public static final Bloco Ramp_Left_1;
     //public static final Bloco Ramp_Right_1;
 
     public static final Bloco Mid_1;
@@ -91,7 +91,7 @@ public class Blocos
         Ground_Right_1 = register(Ground_Right_1_ID, new Bloco(Assets.manager.get(Assets.Ground_Right_1)));
 
         // RAMP:
-        //Ramp_Left_1 = register(Ramp_Left_1_ID, new Bloco(Assets.manager.get(Assets.Ramp_Left_1)));
+        Ramp_Left_1 = register(Ramp_Left_1_ID, new Bloco(Assets.manager.get(Assets.Ramp_Left_1)));
         //Ramp_Right_1 = register(Ramp_Right_1_ID, new Bloco(Assets.manager.get(Assets.Ramp_Right_1)));
 
         // Preenchimento

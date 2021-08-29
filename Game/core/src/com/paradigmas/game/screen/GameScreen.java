@@ -1,5 +1,7 @@
 package com.paradigmas.game.screen;
 
+import static com.paradigmas.game.ParadigmasGame.LEVEL_MAX;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
@@ -11,6 +13,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.paradigmas.game.ParadigmasGame;
 import com.paradigmas.game.entity.component.RigidBodyComponent;
 import com.paradigmas.game.entity.component.TransformComponent;
+import com.paradigmas.game.entity.system.PlayerControllerSystem;
 import com.paradigmas.game.world.World;
 
 public class GameScreen extends ScreenAdapter {
@@ -18,6 +21,7 @@ public class GameScreen extends ScreenAdapter {
     protected OrthographicCamera camera;
     protected World world;
     SpriteBatch batch;
+    protected int level = 1;
 
     protected final Vector3 screenCoordinate = new Vector3();
 
@@ -29,7 +33,11 @@ public class GameScreen extends ScreenAdapter {
         camera.setToOrtho(false, ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT);
 
         world = new World(camera);
-        world.regenerate();
+        world.regenerate(level);
+    }
+
+    public void show(boolean bool) {
+
     }
 
     @Override
@@ -38,6 +46,15 @@ public class GameScreen extends ScreenAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         world.update(delta);
+
+        if(PlayerControllerSystem.NextFase && level < LEVEL_MAX) {
+            level++;
+            world.regenerate(level);
+            PlayerControllerSystem.NextFase = false;
+        }
+        else if (level >= LEVEL_MAX) {
+            show();
+        }
 
         if (ParadigmasGame.DEBUG) {
             if (Gdx.input.isKeyJustPressed(Input.Keys.B)) {

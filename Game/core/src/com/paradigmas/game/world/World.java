@@ -27,14 +27,13 @@ public class World {
     public static final int FG = 1; //ForeGround (layer 1)
 
     private EntityTrackerMainWindow entityTrackerWindow;
-
     private int[][][] map = new int[ParadigmasGame.SCREEN_WIDTH / 24][ParadigmasGame.SCREEN_HEIGHT / 24][2];
     private final com.artemis.World artemisWorld;
+    private final EntitiesFactory entitiesFactory;
 
     private final int player;
     private final int seaLevel = 7;
     private final float gravity = -570;
-    private final EntitiesFactory entitiesFactory;
 
     // construtor
     public World(OrthographicCamera camera) {
@@ -63,11 +62,8 @@ public class World {
         player = entitiesFactory.createPlayer(artemisWorld, 2 * Bloco.TILE_SIZE, 6 * Bloco.TILE_SIZE); // getHeight()
     }
 
-    public void regenerate() {
-        MapsMakerSystem creator = new MapsMakerSystem(this, map);
-        Array<int[][][]> maps = creator.createMaps();
-
-        map = maps.first();
+    public void regenerate(int level) {
+        map = new MapsMakerSystem(this, map).createMap(level);
     }
 
 

@@ -1,6 +1,5 @@
 package com.paradigmas.game.entity.system;
 
-import com.badlogic.gdx.utils.Array;
 import com.paradigmas.game.bloco.Bloco;
 import com.paradigmas.game.dictionary.Blocos;
 import com.paradigmas.game.world.World;
@@ -8,20 +7,47 @@ import com.paradigmas.game.world.World;
 public class MapsMakerSystem { // TODO: extends IteratingSystem
     private final World world;
     private final int[][][] map;
-    private final Array<int[][][]> maps = new Array<>();
 
     public MapsMakerSystem (World world, int[][][] map) {
         this.world = world;
         this.map = map;
     }
 
+    /** getHeight() = SCREEN_WIDTH/TILE_SIZE = 840/54 = 35. <p>
+     * eixo x vai de 0 a 34. <p>
+     * getHeight() = 21. <p>
+     * eixo Y vai de 0 a 20.
+     */
+
     // Construção do mapa
-    private void createMap(int cont) {
+    public int[][][] createMap(int cont) {
+        /** Qualquer valor de x maior que 34, vai dar erro,
+         *  ou valores de y maiores que 20 */
+
+        /** TODO: Mudar todas as coordenadas para o seguinte formato:
+             * N pode ser feito a partir de (quero que inicie no 3 bloco em x) n = MAX_X-3
+             * (por começar em 0, a terceira posição é o 4º bloco, mas a parede equilibra isso.)
+             * world.getHeight()-n = 34 - 31 = 3
+             *
+             * world.getHeight()-(MAX_X-3)
+             *
+             * gera_ParedeByCoord(world.getHeight()-n, world.getHeight()-n, world.getWidth()-n. ...)
+             *
+             * gera_PlataformaByCoord(world.getWidth()-n, world.getWidth()-n, world.getHeight()-n, ...)
+             *
+             * preenche(world.getWidth()-n, world.getHeight()-n, ...)
+             *
+             * Assim, o mapa fica mais dinamico, se a gente mudar o tamanho da tela de novo, vai permanecer na mesma proporção!
+        */
+
+        final int MAX_Y = world.getHeight()-1;
+        final int MAX_X = world.getWidth()-1;
+
         // Básico
         gera_Fundo();   // preenche a camada 0 com terra e a 1 com ar
         gera_ground(Blocos.Mid_1); // faz o chão básico
-        gera_ParedeByCoord(0, world.getHeight()-1, 0, Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1); // parede direita
-        gera_ParedeByCoord(0, world.getHeight()-1, world.getWidth()-1, Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1); // parede esquerda
+        gera_ParedeByCoord(0, MAX_Y-1, 0, Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1); // parede direita
+        gera_ParedeByCoord(0, MAX_Y-1, MAX_X-1, Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1); // parede esquerda
 
 
         if (cont == 2) {
@@ -66,6 +92,7 @@ public class MapsMakerSystem { // TODO: extends IteratingSystem
             gera_PlataformaByCoord(1, 6, 19, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
             // plataforma quinto nível
+            /** TODO: ESSA PLATAFORMA ESTÁ FORA DO MAPA*/
             gera_PlataformaByCoord(9, 12, 22, Blocos.Platt_Left_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
             gera_ParedeByCoord(19, 22, 13, Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
             gera_PlataformaByCoord(14, 16, 19, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
@@ -113,14 +140,7 @@ public class MapsMakerSystem { // TODO: extends IteratingSystem
 
         }
 
-        maps.add(map);
-    }
-
-    public Array<int[][][]> createMaps() {
-        createMap(2);
-        createMap(1);
-
-        return maps;
+        return map;
     }
 
 

@@ -32,7 +32,7 @@ public class PlayerControllerSystem extends IteratingSystem {
     private boolean pause;
     private boolean menu;
 
-    private boolean NextFase;
+    public static boolean NextFase;
 
     public PlayerControllerSystem() {
         super(Aspect.all(PlayerComponent.class, RigidBodyComponent.class,

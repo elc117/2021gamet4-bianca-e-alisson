@@ -12,7 +12,7 @@ public class ParadigmasGame extends Game {
     public static final boolean DEBUG = false; // muda para true para debugar
     public static final int SCREEN_WIDTH = 840;
     public static final int SCREEN_HEIGHT = 504;
-    public static final int LEVEL_MAX = 2;
+    public static final int LEVEL_MAX = 6;
 
     FPSLogger fpslogger = new FPSLogger(NAME, true, false);
 

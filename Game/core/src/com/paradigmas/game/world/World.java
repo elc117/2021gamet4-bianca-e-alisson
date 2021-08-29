@@ -63,14 +63,17 @@ public class World {
     }
 
     public void regenerate(int level) {
-        map = new MapsMakerSystem(this, map).createMap(level);
+        map = new MapsMakerSystem(map, getWidth(), getHeight()).createMap(level);
     }
-
 
     public void update(float delta) {
         artemisWorld.setDelta(delta);
         artemisWorld.process();
     }
+
+
+
+
 
     // pega um bloco a partir das coodenadas do mapa
     public Bloco getBloco(int x, int y, int layer) {

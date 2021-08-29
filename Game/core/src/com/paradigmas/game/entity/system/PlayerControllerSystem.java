@@ -149,8 +149,8 @@ public class PlayerControllerSystem extends IteratingSystem {
                 coffe = true;
             }
 
-            if(Gdx.input.isKeyJustPressed(Input.Keys.Z)) {
-                coffe = true;
+            if(Gdx.input.isKeyJustPressed(Input.Keys.X)) {
+                NextFase = true;
             }
 
             return true;

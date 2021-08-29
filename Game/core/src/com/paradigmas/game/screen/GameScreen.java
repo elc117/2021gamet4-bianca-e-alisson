@@ -33,7 +33,7 @@ public class GameScreen extends ScreenAdapter {
         camera.setToOrtho(false, ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT);
 
         world = new World(camera);
-        world.regenerate(level);
+        world.regenerate(1);
     }
 
     public void show(boolean bool) {

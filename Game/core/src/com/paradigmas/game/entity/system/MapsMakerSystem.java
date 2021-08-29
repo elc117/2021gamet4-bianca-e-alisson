@@ -142,40 +142,98 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
 
     /// MAPAS
     private void mapa_level_1() {
-        // plataforma (1-10, 3) -> (início-fim; altura)
-        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-10), MAX_Y-(MAX_Y-3), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Ground_Right_1);
+       
+        // primeiro nivel
+        gera_PlataformaByCoord(MAX_X-(MAX_X-14), MAX_X-(MAX_X-15), MAX_Y-(MAX_Y-1), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-18), MAX_X-(MAX_X-19), MAX_Y-(MAX_Y-1), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_Y-(MAX_Y-2), MAX_X-(MAX_X-28), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_Y-(MAX_Y-2), MAX_X-(MAX_X-29), Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-30), MAX_X-(MAX_X-31), MAX_Y-(MAX_Y-1), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-1), MAX_Y-(MAX_Y-3), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
-        // parede (1-3, 11) -> (base-fim; posição em x)
-        gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_X-(MAX_X-3), MAX_X-(MAX_X-11), Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+        // segundo nivel
+        gera_PlataformaByCoord(MAX_X-(MAX_X-3), MAX_X-1, MAX_Y-(MAX_Y-4), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-18), MAX_X-(MAX_X-20), MAX_Y-(MAX_Y-7), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-24), MAX_X-(MAX_X-25), MAX_Y-(MAX_Y-6), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-5), MAX_Y-(MAX_Y-6), MAX_X-(MAX_X-30), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-5), MAX_Y-(MAX_Y-6), MAX_X-(MAX_X-31), Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+        gera_PlataformaByCoord(MAX_X-2, MAX_X-2, MAX_Y-(MAX_Y-7), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
-        map[9][4][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+        // terceiro nivel
+        gera_PlataformaByCoord(MAX_X-(MAX_X-15), MAX_X-(MAX_X-31), MAX_Y-(MAX_Y-9), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-15), MAX_Y-(MAX_Y-8), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-9), MAX_Y-(MAX_Y-12), MAX_X-(MAX_X-3), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-9), MAX_Y-(MAX_Y-12), MAX_X-(MAX_X-4), Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-2), MAX_X-(MAX_X-2), MAX_Y-(MAX_Y-11), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-6), MAX_X-(MAX_X-8), MAX_Y-(MAX_Y-10), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-17), MAX_X-(MAX_X-18), MAX_Y-(MAX_Y-12), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-2, MAX_X-2, MAX_Y-(MAX_Y-11), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+
+        // quarto nivel
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-14), MAX_Y-(MAX_Y-14), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-14), MAX_Y-(MAX_Y-16), MAX_X-(MAX_X-14), Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-20), MAX_X-2, MAX_Y-(MAX_Y-14), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-1), MAX_Y-(MAX_Y-17), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-17), MAX_Y-(MAX_Y-19), MAX_X-(MAX_X-2), Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-5), MAX_X-(MAX_X-6), MAX_Y-(MAX_Y-18), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-10), MAX_X-(MAX_X-11), MAX_Y-(MAX_Y-17), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-17), MAX_X-(MAX_X-18), MAX_Y-(MAX_Y-16), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-21), MAX_X-(MAX_X-21), MAX_Y-(MAX_Y-18), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-25), MAX_X-(MAX_X-25), MAX_Y-(MAX_Y-16), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-28), MAX_X-(MAX_X-28), MAX_Y-(MAX_Y-18), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-30), MAX_X-(MAX_X-31), MAX_Y-(MAX_Y-17), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-28), MAX_X-(MAX_X-28), MAX_Y-(MAX_Y-18), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+
     }
 
 
     private void mapa_level_2() {
-        /** ----------------
-         *                 |
-         *                 |
-         *                 |
-         *                 | */
-        // plataforma (1-10, 3) -> (início-fim; altura)
-        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-10), MAX_Y-(MAX_Y-3), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
-        // parede (1-3, 11) -> (base-fim; posição em x)
-        gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_X-(MAX_X-3), MAX_X-(MAX_X-11), Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+        // primeiro nivel
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-2), MAX_Y-(MAX_Y-3), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-2), MAX_Y-(MAX_Y-4), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-1), MAX_Y-(MAX_Y-5), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-8), MAX_X-(MAX_X-9), MAX_Y-(MAX_Y-2), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-5), MAX_X-(MAX_X-5), MAX_Y-(MAX_Y-2), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
+        gera_PlataformaByCoord(MAX_X-(MAX_X-12), MAX_X-(MAX_X-16), MAX_Y-(MAX_Y-4), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_Y-(MAX_Y-3), MAX_X-(MAX_X-12), Blocos.Mid_1, Blocos.Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_Y-(MAX_Y-3), MAX_X-(MAX_X-16), Blocos.Mid_1, Blocos.Mid_1);
+        preenche(MAX_X-(MAX_X-13), MAX_Y-(MAX_Y-3), Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-19), MAX_X-(MAX_X-20), MAX_Y-(MAX_Y-2), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
-        /** ----------------
-         *  |
-         *  |
-         *  |
-         *  |
-         */
-        // plataforma (1-10, 3) -> (início-fim; altura)
-        gera_PlataformaByCoord(MAX_X-(MAX_X-20), MAX_X-1, MAX_Y-(MAX_Y-3), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-23), MAX_X-(MAX_X-27), MAX_Y-(MAX_Y-4), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_Y-(MAX_Y-3), MAX_X-(MAX_X-23), Blocos.Mid_1, Blocos.Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_Y-(MAX_Y-3), MAX_X-(MAX_X-27), Blocos.Mid_1, Blocos.Mid_1);
+        preenche(MAX_X-(MAX_X-24), MAX_Y-(MAX_Y-3), Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-30), MAX_X-(MAX_X-31), MAX_Y-(MAX_Y-2), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
-        // parede (1-3, 11) -> (base-fim; posição em x)
-        gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_X-(MAX_X-3), MAX_X-(MAX_X-19), Blocos.Ground_Left_1, Blocos.Wall_Mid_Right_1);
+        // segundo nivel
+        gera_PlataformaByCoord(MAX_X-(MAX_X-2), MAX_X-(MAX_X-24), MAX_Y-(MAX_Y-8), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-25), MAX_X-2, MAX_Y-(MAX_Y-8), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-25), MAX_X-(MAX_X-28), MAX_Y-(MAX_Y-9), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-29), MAX_X-2, MAX_Y-(MAX_Y-9), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-29), MAX_X-2, MAX_Y-(MAX_Y-10), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-29), MAX_X-2, MAX_Y-(MAX_Y-11), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-29), MAX_X-2, MAX_Y-(MAX_Y-12), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-2), MAX_Y-(MAX_Y-12), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-1), MAX_Y-(MAX_Y-13), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-4), MAX_X-(MAX_X-5), MAX_Y-(MAX_Y-11), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-8), MAX_X-(MAX_X-9), MAX_Y-(MAX_Y-10), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-12), MAX_X-(MAX_X-14), MAX_Y-(MAX_Y-13), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-17), MAX_X-(MAX_X-19), MAX_Y-(MAX_Y-10), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+
+        // terceiro nivel
+        gera_PlataformaByCoord(MAX_X-(MAX_X-2), MAX_X-(MAX_X-3), MAX_Y-(MAX_Y-18), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-3), MAX_X-(MAX_X-6), MAX_Y-(MAX_Y-15), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-6), MAX_X-(MAX_X-21), MAX_Y-(MAX_Y-16), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-13), MAX_Y-(MAX_Y-16), MAX_X-(MAX_X-21), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-6), MAX_X-(MAX_X-21), MAX_Y-(MAX_Y-16), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-22), MAX_X-(MAX_X-25), MAX_Y-(MAX_Y-13), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-13), MAX_Y-(MAX_Y-17), MAX_X-(MAX_X-26), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-26), MAX_X-(MAX_X-30), MAX_Y-(MAX_Y-17), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-3, MAX_X-2, MAX_Y-(MAX_Y-19), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
+        
     }
 
     private void mapa_level_3() {

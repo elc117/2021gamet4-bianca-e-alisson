@@ -6,6 +6,8 @@ import com.artemis.systems.IteratingSystem;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.paradigmas.game.bloco.BlocoCodigo;
+import com.paradigmas.game.dictionary.Blocos;
 import com.paradigmas.game.entity.component.CollidableComponent;
 import com.paradigmas.game.entity.component.RigidBodyComponent;
 import com.paradigmas.game.entity.component.TransformComponent;
@@ -19,6 +21,7 @@ public class MovimentSystem extends IteratingSystem {
     private World world;
     Array<Rectangle> tiles = new Array<>();
 
+    // Construtor
     public MovimentSystem(World world) {
         super(Aspect.all(TransformComponent.class, RigidBodyComponent.class));
         this.world = world;
@@ -83,31 +86,33 @@ public class MovimentSystem extends IteratingSystem {
                 // se colidir, a velocidade vai pra 0.
                 if(rectangle.overlaps(tile)) {
 
-                    // TODO: Sumir com o "codigo" ao ser tocado;
-                    /*
                     int x = world.worldToMap(cTransform.position.x);
                     int y = world.worldToMap(cTransform.position.y);
 
-                    if (Blocos.getBlocoById(world.getMap()[x+18][y][1]).equals(Blocos.Codigo_1)) {
-                        System.out.println("AAAAA");
-                    } else {
-
-                    if (Blocos.getBlocoById(world.getMap()[x-1][y][1]).equals(Blocos.Codigo_1)) {
-                            BlocoCodigo.cond = true;
-                        } else {
-
-                    */
-
                     if (velocity.x > 0) {
                         // Colidindo com uma parede à direita
-                        cCollidable.onRightWall = true;
+                        BlocoCodigo bloco =  Blocos.getBlocoCodigoById(world.getMap()[x+1][y][1]);
 
+                        if (bloco == Blocos.Codigo_1) {
+                            world.getMap()[x+1][y][1] = 0;
+                            World.quantObjetivos--;
+                        } else {
+                            cCollidable.onRightWall = true;
+                            velocity.x = 0;
+                        }
                     } else {
                         // Colidindo com uma parede à esquerda
-                        cCollidable.onLeftWall = true;
+                        BlocoCodigo bloco = Blocos.getBlocoCodigoById(world.getMap()[x-1][y][1]);
+
+                        if (bloco == Blocos.Codigo_1) {
+                            world.getMap()[x-1][y][1] = 0;
+                            World.quantObjetivos--;
+                        } else {
+                            cCollidable.onLeftWall = true;
+                            velocity.x = 0;
+                        }
                     }
 
-                    velocity.x = 0;
                     break;
                 }
             }
@@ -134,22 +139,41 @@ public class MovimentSystem extends IteratingSystem {
             for(Rectangle tile : tiles) {
                 // se colidir, a velocidade vai pra 0.
                 if(rectangle.overlaps(tile)) {
+
+                    int x = world.worldToMap(cTransform.position.x);
+                    int y = world.worldToMap(cTransform.position.y);
+
                     // está subindo
                     if (velocity.y > 0) {
-                        cTransform.position.y = tile.y - rectangle.height;
+                        BlocoCodigo bloco =  Blocos.getBlocoCodigoById(world.getMap()[x][y][1]);
 
-                        // Colidindo com o teto
-                        cCollidable.onCeiling = true;
+                        if (bloco == Blocos.Codigo_1) {
+                            world.getMap()[x][y][1] = 0;
+                            World.quantObjetivos--;
+                        } else {
+                            cTransform.position.y = tile.y - rectangle.height;
+
+                            // Colidindo com o teto
+                            cCollidable.onCeiling = true;
+                            velocity.y = 0;
+                        }
                     }
                     else {
                         // descendo
-                        cTransform.position.y = tile.y + tile.height;
+                        BlocoCodigo bloco =  Blocos.getBlocoCodigoById(world.getMap()[x][y-1][1]);
 
-                        // Colidindo com o chão
-                        cCollidable.onGround = true;
+                        if (bloco == Blocos.Codigo_1) {
+                            world.getMap()[x][y-1][1] = 0;
+                            World.quantObjetivos--;
+                        } else {
+                            cTransform.position.y = tile.y + tile.height;
+
+                            // Colidindo com o chão
+                            cCollidable.onGround = true;
+                            velocity.y = 0;
+                        }
                     }
 
-                    velocity.y = 0;
                     break;
                 }
             }

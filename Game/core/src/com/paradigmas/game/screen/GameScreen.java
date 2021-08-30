@@ -13,7 +13,6 @@ import com.badlogic.gdx.math.Vector3;
 import com.paradigmas.game.ParadigmasGame;
 import com.paradigmas.game.entity.component.RigidBodyComponent;
 import com.paradigmas.game.entity.component.TransformComponent;
-import com.paradigmas.game.entity.system.PlayerControllerSystem;
 import com.paradigmas.game.world.World;
 
 public class GameScreen extends ScreenAdapter {
@@ -47,10 +46,10 @@ public class GameScreen extends ScreenAdapter {
 
         world.update(delta);
 
-        if(PlayerControllerSystem.NextFase && level < LEVEL_MAX) {
+        if(World.quantObjetivos == 0 && level < LEVEL_MAX) {
             level++;
             world.regenerate(level);
-            PlayerControllerSystem.NextFase = false;
+            World.quantObjetivos = 1;
         }
         else if (level >= LEVEL_MAX) {
             show();

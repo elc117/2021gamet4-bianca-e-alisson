@@ -2,6 +2,7 @@ package com.paradigmas.game.entity.system;
 
 import com.paradigmas.game.bloco.Bloco;
 import com.paradigmas.game.dictionary.Blocos;
+import com.paradigmas.game.world.World;
 
 public class MapsMakerSystem {  // TODO: extends IteratingSystem
     private static final int LEVEL_1 = 1;
@@ -30,8 +31,8 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
 
     // Construção do mapa
     public int[][][] createMap(int level) {
-        /** Qualquer valor de x maior que 34, vai dar erro,
-         *  ou valores de y maiores que 20 */
+        /* Qualquer valor de x maior que 34, vai dar erro,
+           ou valores de y maiores que 20 */
 
         // Básico
         gera_Fundo();   // preenche a camada 0 com terra e a 1 com ar
@@ -42,15 +43,19 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
         switch (level)
         {
             case LEVEL_1:
-                mapa_level_1();
+                mapa_level_3();
+                World.quantObjetivos = 2;
+                //mapa_level_1();
                 break;
 
             case LEVEL_2:
                 mapa_level_2();
+                World.quantObjetivos = 3;
                 break;
 
             case LEVEL_3:
                 mapa_level_3();
+                World.quantObjetivos = 5;
                 break;
 
             case LEVEL_4:
@@ -131,10 +136,10 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
     private void preenche(int x, int y, Bloco bloco) {
         for(; y > 0; y--) {
             int xx = x;
-            while(Blocos.getBlocoById(map[xx][y][1]) == Blocos.AIR) {
+            while(Blocos.AIR == Blocos.getBlocoById(map[xx][y][1])) {
                 map[xx][y][1] = Blocos.getIdByBloco(bloco);
                 map[xx][y][0] = Blocos.getIdByBloco(bloco);
-                xx  ++;
+                xx++;
             }
         }
     }
@@ -142,6 +147,7 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
 
     /// MAPAS
     private void mapa_level_1() {
+       
         // primeiro nivel
         gera_PlataformaByCoord(MAX_X-(MAX_X-14), MAX_X-(MAX_X-15), MAX_Y-(MAX_Y-1), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
         gera_PlataformaByCoord(MAX_X-(MAX_X-18), MAX_X-(MAX_X-19), MAX_Y-(MAX_Y-1), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
@@ -236,7 +242,15 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
     }
 
     private void mapa_level_3() {
+        // plataforma (1-10, 3) -> (início-fim; altura)
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-10), MAX_Y-(MAX_Y-3), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Ground_Right_1);
 
+        // parede (1-3, 11) -> (base-fim; posição em x)
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_X-(MAX_X-3), MAX_X-(MAX_X-11), Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
+
+        map[9][4][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+        map[11][4][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+        map[3][7][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
     }
 
     private void mapa_level_4() {

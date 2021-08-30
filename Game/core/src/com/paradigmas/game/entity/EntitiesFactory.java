@@ -13,8 +13,7 @@ import com.paradigmas.game.entity.component.SpriteComponent;
 import com.paradigmas.game.entity.component.TransformComponent;
 import com.paradigmas.game.resource.Assets;
 
-public class EntitiesFactory
-{
+public class EntitiesFactory {
     private ComponentMapper<PlayerComponent> mPlayer;
     private ComponentMapper<SpriteComponent> mSprite;
     private ComponentMapper<TransformComponent> mTransform;
@@ -22,14 +21,15 @@ public class EntitiesFactory
     private ComponentMapper<CollidableComponent> mCollidable;
     private ComponentMapper<JumpComponent> mJump;
 
-    public int createPlayer(World world, float x, float y)
-    {
+    private Texture texture;
+
+    public int createPlayer(World world, float x, float y) {
         int entity = world.create();
 
         TransformComponent cTransform = mTransform.create(entity);
         cTransform.position.set(x, y);
 
-        Texture texture = Assets.manager.get(Assets.playerH);
+        texture = Assets.manager.get(Assets.playerH);
 
         SpriteComponent cSprite = mSprite.create(entity);
         cSprite.sprite = new Sprite(texture);
@@ -45,5 +45,9 @@ public class EntitiesFactory
         JumpComponent cJump = mJump.create(entity);
 
         return entity;
+    }
+
+    public void setTexture(Texture texture) {
+        this.texture = texture;
     }
 }

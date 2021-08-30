@@ -6,7 +6,7 @@ public class Bloco {
 
     public static final int TILE_SIZE = 24;
 
-    public final Texture texture;
+    public Texture texture;
 
     public Bloco(Texture texture)
     {
@@ -15,5 +15,9 @@ public class Bloco {
 
     public boolean isSolid() {
         return true;
+    }
+
+    public void setTexture(Texture texture) {
+        this.texture = texture;
     }
 }

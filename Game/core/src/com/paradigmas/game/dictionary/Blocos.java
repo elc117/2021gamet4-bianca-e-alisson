@@ -3,6 +3,7 @@ package com.paradigmas.game.dictionary;
 import com.badlogic.gdx.utils.IntMap;
 import com.paradigmas.game.bloco.Bloco;
 import com.paradigmas.game.bloco.BlocoAir;
+import com.paradigmas.game.bloco.BlocoCodigo;
 import com.paradigmas.game.resource.Assets;
 
 public class Blocos
@@ -19,7 +20,7 @@ public class Blocos
     public static final int Ground_Mid_1_ID = ID++;
     public static final int Ground_Right_1_ID = ID++;
 
-    //public static final int Ramp_Left_1_ID = ID++;
+    public static final int Ramp_Left_1_ID = ID++;
     //public static final int Ramp_Right_1_ID = ID++;
 
     public static final int Mid_1_ID = ID++;
@@ -44,9 +45,6 @@ public class Blocos
     public static final Bloco Ground_Mid_1;
     public static final Bloco Ground_Right_1;
 
-    //public static final Bloco Ramp_Left_1;
-    //public static final Bloco Ramp_Right_1;
-
     public static final Bloco Mid_1;
 
     public static final Bloco Platt_Left_1;
@@ -62,6 +60,15 @@ public class Blocos
     public static Bloco getBlocoById(int id)
     {
         return REGISTRY.get(id);
+    }
+
+    public static BlocoCodigo getBlocoCodigoById(int id)
+    {
+        if (REGISTRY.get(id) == Blocos.Codigo_1){
+            return (BlocoCodigo) REGISTRY.get(id);
+        }
+
+        return null;
     }
 
     // Informe um bloco para saber seu ID
@@ -90,9 +97,6 @@ public class Blocos
         Ground_Mid_1 = register(Ground_Mid_1_ID, new Bloco(Assets.manager.get(Assets.Ground_Mid_1)));
         Ground_Right_1 = register(Ground_Right_1_ID, new Bloco(Assets.manager.get(Assets.Ground_Right_1)));
 
-        // RAMP:
-        //Ramp_Left_1 = register(Ramp_Left_1_ID, new Bloco(Assets.manager.get(Assets.Ramp_Left_1)));
-        //Ramp_Right_1 = register(Ramp_Right_1_ID, new Bloco(Assets.manager.get(Assets.Ramp_Right_1)));
 
         // Preenchimento
         Mid_1 = register(Mid_1_ID, new Bloco(Assets.manager.get(Assets.Mid_1)));
@@ -107,6 +111,6 @@ public class Blocos
         Wall_Mid_Left_1 = register(Wall_Mid_Left_1_ID, new Bloco(Assets.manager.get(Assets.Wall_Mid_Left_1)));
 
         // OBJECTIVES
-        Codigo_1 = register(Codigo_1_ID, new Bloco(Assets.manager.get(Assets.Codigo_1)));
+        Codigo_1 = register(Codigo_1_ID, new BlocoCodigo(Assets.manager.get(Assets.Codigo_1)));
     }
 }

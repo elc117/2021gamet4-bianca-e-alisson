@@ -32,13 +32,14 @@ public class World {
     private final EntitiesFactory entitiesFactory;
 
     private final int player;
-    private final int seaLevel = 7;
     private final float gravity = -570;
+
+    public static int quantObjetivos;
 
     // construtor
     public World(OrthographicCamera camera) {
         WorldConfigurationBuilder worldConfigBuilder = new WorldConfigurationBuilder()
-                .with(new PlayerControllerSystem())
+                .with(new PlayerControllerSystem(this))
                 .with(new MovimentSystem(this))
                 .with(new TileRenderSystem(this, camera))
                 .with(new SpriteRenderSystem(camera));
@@ -70,9 +71,6 @@ public class World {
         artemisWorld.setDelta(delta);
         artemisWorld.process();
     }
-
-
-
 
 
     // pega um bloco a partir das coodenadas do mapa
@@ -138,10 +136,6 @@ public class World {
         return map[0][0].length;
     }
 
-    public int getSeaLevel() {
-        return seaLevel;
-    }
-
     public int getPlayer() {
         return player;
     }
@@ -176,5 +170,9 @@ public class World {
     // valida se a coordenada está dentro do espaço de jogo
     public boolean isValid(int x, int y) {
         return x >= 0 && x < getWidth() && y >= 0 && y < getHeight();
+    }
+
+    public int[][][] getMap() {
+        return map;
     }
 }

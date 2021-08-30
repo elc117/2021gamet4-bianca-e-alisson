@@ -3,6 +3,7 @@ package com.paradigmas.game.dictionary;
 import com.badlogic.gdx.utils.IntMap;
 import com.paradigmas.game.bloco.Bloco;
 import com.paradigmas.game.bloco.BlocoAir;
+import com.paradigmas.game.bloco.BlocoCodigo;
 import com.paradigmas.game.resource.Assets;
 
 public class Blocos
@@ -64,6 +65,15 @@ public class Blocos
         return REGISTRY.get(id);
     }
 
+    public static BlocoCodigo getBlocoCodigoById(int id)
+    {
+        if (REGISTRY.get(id) == Blocos.Codigo_1){
+            return (BlocoCodigo) REGISTRY.get(id);
+        }
+
+        return null;
+    }
+
     // Informe um bloco para saber seu ID
     public static int getIdByBloco(Bloco bloco)
     {
@@ -107,6 +117,6 @@ public class Blocos
         Wall_Mid_Left_1 = register(Wall_Mid_Left_1_ID, new Bloco(Assets.manager.get(Assets.Wall_Mid_Left_1)));
 
         // OBJECTIVES
-        Codigo_1 = register(Codigo_1_ID, new Bloco(Assets.manager.get(Assets.Codigo_1)));
+        Codigo_1 = register(Codigo_1_ID, new BlocoCodigo(Assets.manager.get(Assets.Codigo_1)));
     }
 }

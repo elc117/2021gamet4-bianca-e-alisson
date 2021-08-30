@@ -7,11 +7,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.assets.AssetDescriptor;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.Array;
 import com.paradigmas.game.entity.component.CollidableComponent;
 import com.paradigmas.game.entity.component.JumpComponent;
 import com.paradigmas.game.entity.component.PlayerComponent;
 import com.paradigmas.game.entity.component.RigidBodyComponent;
+import com.paradigmas.game.entity.component.SpriteComponent;
 import com.paradigmas.game.entity.component.TransformComponent;
+import com.paradigmas.game.resource.Assets;
+import com.paradigmas.game.world.World;
+
+import java.util.Timer;
 
 public class PlayerControllerSystem extends IteratingSystem {
 
@@ -20,8 +28,10 @@ public class PlayerControllerSystem extends IteratingSystem {
     private ComponentMapper<CollidableComponent> mCollidable;
     private ComponentMapper<JumpComponent> mJump;
     private ComponentMapper<TransformComponent> mTransform;
+    private ComponentMapper<SpriteComponent> mSprite;
 
-    /** teste de comentário */
+    private final World world;
+
     private boolean moveRight;
     private boolean moveLeft;
     private boolean jump;
@@ -32,13 +42,18 @@ public class PlayerControllerSystem extends IteratingSystem {
     private boolean pause;
     private boolean menu;
 
+    int i = 0;
+    final Array<AssetDescriptor<Texture>> assetDescriptors = new Array<>();
+    Timer timer = new Timer();
+
     public static boolean NextFase;
 
-    public PlayerControllerSystem() {
+    public PlayerControllerSystem(World world) {
         super(Aspect.all(PlayerComponent.class, RigidBodyComponent.class,
                 JumpComponent.class, CollidableComponent.class));
 
         Gdx.input.setInputProcessor(new InputMultiplexer(new GameInputAdapter()));
+        this.world = world;
     }
 
     @Override
@@ -48,11 +63,15 @@ public class PlayerControllerSystem extends IteratingSystem {
         JumpComponent cJump = mJump.get(entityId);
         CollidableComponent cCollidable = mCollidable.get(entityId);
         TransformComponent cTransform = mTransform.get(entityId);
+        final SpriteComponent cSprite = mSprite.get(entityId);
+
+        assetDescriptors.clear();
+        assetDescriptors.add(Assets.playerH);
 
         float walkSpeed = 100;
         long tempoCorrente = System.currentTimeMillis();
 
-        if(coffe && cPlayer.have_coffe()) {
+        if (coffe && cPlayer.have_coffe()) {
             walkSpeed = cPlayer.buffedWalkSpeed;
             cPlayer.coffe--;
 
@@ -62,12 +81,11 @@ public class PlayerControllerSystem extends IteratingSystem {
         } else if (!temp) {
             walkSpeed = cPlayer.normalWalkSpeed;
         }
-        
-        if(temp) {
+
+        if (temp) {
             walkSpeed = cPlayer.buffedWalkSpeed;
 
-            if(tempoCorrente > tempoFinal)
-            {
+            if (tempoCorrente > tempoFinal) {
                 temp = false;
             }
         }
@@ -77,9 +95,43 @@ public class PlayerControllerSystem extends IteratingSystem {
                 cRigidBody.velocity.x = 0;
             } else if (moveLeft) {
                 cRigidBody.velocity.x = -walkSpeed;
+
             } else if (moveRight) {
+                assetDescriptors.clear();
+                assetDescriptors.add(Assets.Run__000);
+                assetDescriptors.add(Assets.Run__001);
+                assetDescriptors.add(Assets.Run__002);
+                assetDescriptors.add(Assets.Run__003);
+                assetDescriptors.add(Assets.Run__004);
+                assetDescriptors.add(Assets.Run__005);
+                assetDescriptors.add(Assets.Run__006);
+                assetDescriptors.add(Assets.Run__007);
+                assetDescriptors.add(Assets.Run__008);
+                assetDescriptors.add(Assets.Run__009);
+
                 cRigidBody.velocity.x = walkSpeed;
+
+                /*
+                if(cCollidable.onGround) {
+                    cSprite.sprite = new Sprite(Assets.manager.get(assetDescriptors.get(i)));
+                    if (i < 9) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                }
+
+
+                timer.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        cSprite.sprite = new Sprite(Assets.manager.get(assetDescriptors.get(i)));
+                        i++;
+                    }
+                }, 1, 200);*/
             }
+
+            //timer.cancel();
         }
 
         if (cJump.canJump && cCollidable.onGround /*|| cCollidable.onRightWall || cCollidable.onLeftWall)*/ && jump) {
@@ -145,11 +197,11 @@ public class PlayerControllerSystem extends IteratingSystem {
 
             /// skils/buffs/extras
             // Z
-            if(Gdx.input.isKeyJustPressed(Input.Keys.Z)) {
+            if (Gdx.input.isKeyJustPressed(Input.Keys.Z)) {
                 coffe = true;
             }
 
-            if(Gdx.input.isKeyJustPressed(Input.Keys.X)) {
+            if (Gdx.input.isKeyJustPressed(Input.Keys.X)) {
                 NextFase = true;
             }
 

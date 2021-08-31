@@ -36,7 +36,7 @@ public class PreloadScreen extends ScreenAdapter {
     @Override
     public void render(float delta) {
         update();
-        clearScreen(Color.BLACK);
+        clearScreen(Color.DARK_GRAY);
         draw();
     }
 
@@ -58,7 +58,7 @@ public class PreloadScreen extends ScreenAdapter {
         shapeRenderer.setProjectionMatrix(camera.projection);
         shapeRenderer.setTransformMatrix(camera.view);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(Color.GREEN);
+        shapeRenderer.setColor(Color.LIGHT_GRAY);
         shapeRenderer.rect(
                 (ParadigmasGame.SCREEN_WIDTH - 400) / 2, ParadigmasGame.SCREEN_HEIGHT / 2,
                 progress * 400, 50);

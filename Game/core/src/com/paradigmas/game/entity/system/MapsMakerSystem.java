@@ -50,7 +50,7 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
 
             case LEVEL_2:
                 mapa_level_2();
-                World.quantObjetivos = 6;
+                World.quantObjetivos = 5;
                 break;
 
             case LEVEL_3:

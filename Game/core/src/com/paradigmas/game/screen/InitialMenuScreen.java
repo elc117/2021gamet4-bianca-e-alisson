@@ -22,22 +22,22 @@ import com.paradigmas.game.tools.GdxUtils;
 
 public class InitialMenuScreen extends ScreenAdapter {
 
-        private static final int PLAY_BUTTON_Y = (int) ParadigmasGame.SCREEN_HEIGHT/5;
-        private static final int BUTTONS_Y = PLAY_BUTTON_Y + 24;
-        private static final int OPTIONS_BUTTON_X = 400;
-        private static final int SELECT_LEVELS_BUTTON_X = 2100;
+        private static final int PLAY_BUTTON_Y = ParadigmasGame.SCREEN_HEIGHT /5;
+        //private static final int BUTTONS_Y = PLAY_BUTTON_Y + 24;
+        //private static final int OPTIONS_BUTTON_X = 400;
+        //private static final int SELECT_LEVELS_BUTTON_X = 2100;*/
 
         private Texture backgroundTexture;
         private Texture playTexture;
         private Texture playPressTexture;
-        private Texture optionsTexture;
-        private Texture optionsPressTexture;
-        private Texture selectLevelsTexture;
-        private Texture selectLevelsPressTexture;
-        private Texture instructionsTexture;
-        private Texture instructionsPressTexture;
-        private Texture minigamesTexture;
-        private Texture minigamesPressTexture;
+        //private Texture optionsTexture;
+        //private Texture optionsPressTexture;
+        //private Texture selectLevelsTexture;
+        //private Texture selectLevelsPressTexture;
+        //private Texture instructionsTexture;
+        //private Texture instructionsPressTexture;
+        //private Texture minigamesTexture;
+        //private Texture minigamesPressTexture;*/
         private BitmapFont font;
 
         private Stage stage;
@@ -66,7 +66,7 @@ public class InitialMenuScreen extends ScreenAdapter {
             ImageButton play = new ImageButton(
                     new TextureRegionDrawable(new TextureRegion(playTexture)),
                     new TextureRegionDrawable(new TextureRegion(playPressTexture)));
-            play.setPosition(ParadigmasGame.SCREEN_WIDTH/2 - playTexture.getWidth()/2, PLAY_BUTTON_Y);
+            play.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - playTexture.getWidth()/2), PLAY_BUTTON_Y);
 
             play.addListener(new ActorGestureListener() {
                 @Override
@@ -84,6 +84,11 @@ public class InitialMenuScreen extends ScreenAdapter {
                     }
             });
             stage.addActor(play);
+
+            Image image = new Image(Assets.manager.get(Assets.menu_icon_1));
+            image.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - playTexture.getWidth()/2)-75, PLAY_BUTTON_Y*2+75);
+
+            stage.addActor(image);
 
             //Options Button
             /*optionsTexture = assetManager.get(Constants.MENU_OPTIONS);

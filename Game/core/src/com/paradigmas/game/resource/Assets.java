@@ -48,6 +48,10 @@ public class Assets {
     /** TODO: MUDAR O TAMANHO DO PERSONAGEM E FAZER A ANIMAÇÃO DA MOVIMENTAÇÃO*/
     @Asset public static final AssetDescriptor<Texture> playerH = new AssetDescriptor<>("Personagem_principal_H/Cow__000.png", Texture.class);
 
+    //IDLLE
+    @Asset public static final AssetDescriptor<Texture> Idle_right_000 = new AssetDescriptor<>("Personagem_principal_H/Idle_right_000.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Idle_left_000 = new AssetDescriptor<>("Personagem_principal_H/Idle_left_000.png", Texture.class);
+
     // RUN
     @Asset public static final AssetDescriptor<Texture> Run__000 = new AssetDescriptor<>("Personagem_principal_H/Run__000.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Run__001 = new AssetDescriptor<>("Personagem_principal_H/Run__001.png", Texture.class);
@@ -59,6 +63,10 @@ public class Assets {
     @Asset public static final AssetDescriptor<Texture> Run__007 = new AssetDescriptor<>("Personagem_principal_H/Run__007.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Run__008 = new AssetDescriptor<>("Personagem_principal_H/Run__008.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Run__009 = new AssetDescriptor<>("Personagem_principal_H/Run__009.png", Texture.class);
+
+    /// * BUTTONS
+    // MENU
+    @Asset public static final AssetDescriptor<Texture> menu_icon_1 = new AssetDescriptor<>("Mapa_Texturas/menu_icon_1.png", Texture.class);
 
     /// * BUTTONS
     @Asset public static final AssetDescriptor<Texture> Start = new AssetDescriptor<>("buttons/Start.png", Texture.class);

@@ -8,7 +8,7 @@ import com.paradigmas.game.screen.PreloadScreen;
 
 public class ParadigmasGame extends Game {
     private static ParadigmasGame instance;
-    public static final String NAME = "ParadigmasGame";
+    public static final String NAME = "Paradigmas Simulator";
     public static final boolean DEBUG = false; // muda para true para debugar
     public static final int SCREEN_WIDTH = 840;
     public static final int SCREEN_HEIGHT = 504;

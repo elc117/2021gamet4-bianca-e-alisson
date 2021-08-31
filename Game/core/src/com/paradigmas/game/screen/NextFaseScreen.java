@@ -62,7 +62,7 @@ public class NextFaseScreen extends ScreenAdapter {
                             int button) {
                 super.tap(event, x, y, count, button);
 
-                world.regenerate(1);
+                world.regenerate(level);
             }
         });
         stage.addActor(play);

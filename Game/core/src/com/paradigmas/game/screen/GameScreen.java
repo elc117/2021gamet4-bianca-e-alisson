@@ -47,8 +47,14 @@ public class GameScreen extends ScreenAdapter {
         world.update(delta);
 
         if(World.quantObjetivos == 0 && level < LEVEL_MAX) {
+            World.quantObjetivos = 1;
             level++;
-            ParadigmasGame.getInstance().setScreen(new NextFaseScreen(ParadigmasGame.getInstance(), world, level));
+
+            World aux = world;
+            world = new World(camera);
+            world.regenerate(level);
+            aux.dispose();
+            //ParadigmasGame.getInstance().setScreen(new NextFaseScreen(ParadigmasGame.getInstance(), world, level));
         }
         else if (level >= LEVEL_MAX) {
             show();

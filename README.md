@@ -43,8 +43,6 @@ A movimentação do personagem pelas plataformas se dá usando as setas do tecla
 
 * `Seta_Esquerda` - Anda para a esquerda;
 
-* `Seta_Baixo` - Agacha.
-
 #### Talvez:
 
 * `Z` - Toma café (buff de velocidade);
@@ -56,13 +54,3 @@ A movimentação do personagem pelas plataformas se dá usando as setas do tecla
 * `V + Seta_pra_cima / espaço` - Salto maior;
 
 * `P` - Tranca o semestre (Pause)/Destranca (Continue);
-
-
-## OBS: Devido ao excesso de bugs, ainda não roda na web.
-### Erro:
-```
-Execution failed for task ':html:compileGwt'.
-Process 'command 'C:\Program Files\Java\jdk-11.0.12\bin\java.exe'' finished with non-zero exit value 1.
-```
-
-Optei pela minha sanidade atual.

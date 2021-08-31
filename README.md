@@ -57,3 +57,4 @@ O arquivo jar pode ser encontrado no inicio da página com o nome de "_desktop-1
 Fizemos um floxograma da ideia de execução do jogo, para sinzetizar e organizar as ideias atuais, também para conseguir acompanhar a situação e andamento do projeto.
 
 Acesse clicando [aqui](https://lucid.app/lucidchart/invitations/accept/inv_e31a1ce6-f058-4ad0-b4f5-15f1ef634a1a).
+Se não tiver/quiser cria uma conta pode abrir essa [foto]().

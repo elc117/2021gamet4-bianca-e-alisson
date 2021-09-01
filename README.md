@@ -51,7 +51,10 @@ A movimentação do personagem pelas plataformas se dá usando as setas do tecla
 * `P` - Tranca o semestre (Pause)/Destranca (Continue);
 
 ## JAR
-O arquivo jar pode ser encontrado no inicio da página com o nome de "_desktop-1.0.jar_", mas pode baixar clicando [aqui](https://github.com/elc117/2021gamet4-bianca-e-alisson/raw/main/desktop-1.0.jar).
+O arquivo jar pode ser encontrado no inicio da página com o nome de "_Paradigmas Simulator.jar_", mas pode baixar clicando [aqui](https://github.com/elc117/2021gamet4-bianca-e-alisson/raw/main/desktop-1.0.jar).
+
+## Itch.io
+Para acessar a página do jogo na plataforma itch.io, clique [aqui](https://atomiqui.itch.io/paradigmas-simulator).
 
 ## Fluxograma do Game
 Fizemos um floxograma da ideia de execução do jogo, para sinzetizar e organizar as ideias atuais, também para conseguir acompanhar a situação e andamento do projeto.

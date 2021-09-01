@@ -20,9 +20,14 @@ public class GameScreen extends ScreenAdapter {
     protected OrthographicCamera camera;
     protected World world;
     SpriteBatch batch;
-    protected int level = 1;
+    protected int level;
 
     protected final Vector3 screenCoordinate = new Vector3();
+
+    public GameScreen(int level) {
+        super();
+        this.level = level;
+    }
 
     @Override
     public void show() {
@@ -33,10 +38,6 @@ public class GameScreen extends ScreenAdapter {
 
         world = new World(camera);
         world.regenerate(1);
-    }
-
-    public void show(boolean bool) {
-
     }
 
     @Override
@@ -50,14 +51,10 @@ public class GameScreen extends ScreenAdapter {
             World.quantObjetivos = 1;
             level++;
 
-            World aux = world;
-            world = new World(camera);
-            world.regenerate(level);
-            aux.dispose();
-            //ParadigmasGame.getInstance().setScreen(new NextFaseScreen(ParadigmasGame.getInstance(), world, level));
+            ParadigmasGame.getInstance().setScreen(new NextFaseScreen(ParadigmasGame.getInstance(), world, level, camera));
         }
         else if (level >= LEVEL_MAX) {
-            show();
+            ParadigmasGame.getInstance().setScreen(new InitialMenuScreen(ParadigmasGame.getInstance()));
         }
 
         if (ParadigmasGame.DEBUG) {

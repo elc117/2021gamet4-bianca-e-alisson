@@ -69,9 +69,10 @@ public class Assets {
     @Asset public static final AssetDescriptor<Texture> menu_icon_1 = new AssetDescriptor<>("Mapa_Texturas/menu_icon_1.png", Texture.class);
 
     /// * BUTTONS
-    @Asset public static final AssetDescriptor<Texture> Start = new AssetDescriptor<>("buttons/Start.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> On_Start = new AssetDescriptor<>("buttons/On_Start.png", Texture.class);
-
+    @Asset public static final AssetDescriptor<Texture> Start = new AssetDescriptor<>("buttons/Start2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_Start = new AssetDescriptor<>("buttons/On_Start2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Controls = new AssetDescriptor<>("buttons/controls2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_Controls = new AssetDescriptor<>("buttons/on_controls2.png", Texture.class);
 
     public static void load() {
         Texture.setAssetManager(manager);

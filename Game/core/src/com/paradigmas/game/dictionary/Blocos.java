@@ -20,9 +20,6 @@ public class Blocos
     public static final int Ground_Mid_1_ID = ID++;
     public static final int Ground_Right_1_ID = ID++;
 
-    public static final int Ramp_Left_1_ID = ID++;
-    //public static final int Ramp_Right_1_ID = ID++;
-
     public static final int Mid_1_ID = ID++;
 
     public static final int Platt_Left_1_ID = ID++;

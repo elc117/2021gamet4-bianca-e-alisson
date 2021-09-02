@@ -39,7 +39,7 @@ public class NextFaseScreen extends ScreenAdapter {
     public void show() {
         stage = new Stage(new FitViewport(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT));
         Gdx.input.setInputProcessor(stage);
-        backgroundTexture = Assets.manager.get(Assets.menu_background_001);
+        backgroundTexture = Assets.manager.get(Assets.menu_background_002);
         Image background = new Image(backgroundTexture);
         stage.addActor(background);
         font = new BitmapFont(false);

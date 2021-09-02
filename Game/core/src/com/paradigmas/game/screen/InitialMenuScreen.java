@@ -22,7 +22,7 @@ import com.paradigmas.game.tools.GdxUtils;
 
 public class InitialMenuScreen extends ScreenAdapter {
 
-        private static final int PLAY_BUTTON_Y = (int) ParadigmasGame.SCREEN_HEIGHT/5;
+        private static final int PLAY_BUTTON_Y = (int) ParadigmasGame.SCREEN_HEIGHT/4;
         private static final int BUTTONS_Y = PLAY_BUTTON_Y + 24;
         private static final int OPTIONS_BUTTON_X = 400;
         private static final int SELECT_LEVELS_BUTTON_X = 2100;
@@ -30,8 +30,8 @@ public class InitialMenuScreen extends ScreenAdapter {
         private Texture backgroundTexture;
         private Texture playTexture;
         private Texture playPressTexture;
-        private Texture optionsTexture;
-        private Texture optionsPressTexture;
+        private Texture controlsTexture;
+        private Texture controlsPressTexture;
         private Texture selectLevelsTexture;
         private Texture selectLevelsPressTexture;
         private Texture instructionsTexture;
@@ -51,7 +51,7 @@ public class InitialMenuScreen extends ScreenAdapter {
         public void show() {
             stage = new Stage(new FitViewport(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT));
             Gdx.input.setInputProcessor(stage);
-            backgroundTexture = Assets.manager.get(Assets.menu_background_001);
+            backgroundTexture = Assets.manager.get(Assets.menu_background_002);
             Image background = new Image(backgroundTexture);
             stage.addActor(background);
             font = new BitmapFont(false);
@@ -85,26 +85,33 @@ public class InitialMenuScreen extends ScreenAdapter {
             });
             stage.addActor(play);
 
-            //Options Button
-            /*optionsTexture = assetManager.get(Constants.MENU_OPTIONS);
-            optionsPressTexture = assetManager.get(Constants.MENU_OPTIONS_PRESSED);
-            ImageButton options = new ImageButton(
-                    new TextureRegionDrawable(new TextureRegion(optionsTexture)),
-                    new TextureRegionDrawable(new TextureRegion(optionsPressTexture)));
-            options.setPosition(OPTIONS_BUTTON_X, PLAY_BUTTON_Y);
+            //controls Button
+            controlsTexture = Assets.manager.get(Assets.Controls);
+            controlsPressTexture = Assets.manager.get(Assets.On_Controls);
+            ImageButton controls = new ImageButton(
+                    new TextureRegionDrawable(new TextureRegion(controlsTexture)),
+                    new TextureRegionDrawable(new TextureRegion(controlsPressTexture)));
+            controls.setPosition(ParadigmasGame.SCREEN_WIDTH/2 - controlsTexture.getWidth()/2, ParadigmasGame.SCREEN_HEIGHT/6-5);
 
-            options.addListener(new ActorGestureListener() {
+            controls.addListener(new ActorGestureListener() {
                 @Override
                 public void tap(InputEvent event, float x, float y, int count,
                                 int button) {
                     super.tap(event, x, y, count, button);
-                    ScreenManager.getInstance().showScreen(ScreenEnum.OPTIONS_SCREEN, game);
+
+                    Screen currentScreen = game.getScreen();
+
+                    ParadigmasGame.getInstance().setScreen(new GameScreen());
+
+                    if (currentScreen != null) {
+                        currentScreen.dispose();
+                    }
                 }
             });
-            stage.addActor(options);
+            stage.addActor(controls);
 
 
-            //Intructions Button
+            /*//Intructions Button
             instructionsTexture = assetManager.get(Constants.MENU_INSTRUCTIONS);
             instructionsPressTexture = assetManager.get(Constants.MENU_INSTRUCTIONS_PRESSED);
             ImageButton instructions = new ImageButton(
@@ -138,10 +145,10 @@ public class InitialMenuScreen extends ScreenAdapter {
                     ScreenManager.getInstance().showScreen(ScreenEnum.SELECT_LEVELS_SCREEM, game, SelectLevelsType.ONE);
                 }
             });
-            stage.addActor(selectLevels);
+            stage.addActor(selectLevels);*/
 
             //Minigames Button
-            minigamesTexture = assetManager.get(Constants.MENU_MINIGAMES);
+            /*minigamesTexture = assetManager.get(Constants.MENU_MINIGAMES);
             minigamesPressTexture = assetManager.get(Constants.MENU_MINIGAMES_PRESSED);
             ImageButton minigames = new ImageButton(
                     new TextureRegionDrawable(new TextureRegion(minigamesTexture)),

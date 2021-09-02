@@ -9,6 +9,7 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.Array;
 import com.paradigmas.game.entity.component.CollidableComponent;
 import com.paradigmas.game.entity.component.JumpComponent;
@@ -94,9 +95,14 @@ public class PlayerControllerSystem extends IteratingSystem {
             if (moveLeft == moveRight) {
                 cRigidBody.velocity.x = 0;
             } else if (moveLeft) {
+                cSprite.sprite = new Sprite(Assets.manager.get(Assets.Idle_left_000));
                 cRigidBody.velocity.x = -walkSpeed;
 
             } else if (moveRight) {
+                cSprite.sprite = new Sprite(Assets.manager.get(Assets.Idle_right_000));
+                cRigidBody.velocity.x = walkSpeed;
+
+                /*
                 assetDescriptors.clear();
                 assetDescriptors.add(Assets.Run__000);
                 assetDescriptors.add(Assets.Run__001);
@@ -109,9 +115,6 @@ public class PlayerControllerSystem extends IteratingSystem {
                 assetDescriptors.add(Assets.Run__008);
                 assetDescriptors.add(Assets.Run__009);
 
-                cRigidBody.velocity.x = walkSpeed;
-
-                /*
                 if(cCollidable.onGround) {
                     cSprite.sprite = new Sprite(Assets.manager.get(assetDescriptors.get(i)));
                     if (i < 9) {

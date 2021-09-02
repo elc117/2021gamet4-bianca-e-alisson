@@ -5,7 +5,6 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.paradigmas.game.ParadigmasGame;
 import com.paradigmas.game.resource.Assets;
@@ -16,13 +15,12 @@ public class PreloadScreen extends ScreenAdapter {
     protected OrthographicCamera camera;
     protected World world;
     private ShapeRenderer shapeRenderer;
-    SpriteBatch batch;
 
     private float progress = 0;
 
     @Override
     public void show() {
-        batch = new SpriteBatch();
+        //batch = new SpriteBatch();
         shapeRenderer = new ShapeRenderer();
 
         camera = new OrthographicCamera(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT);
@@ -36,14 +34,13 @@ public class PreloadScreen extends ScreenAdapter {
     @Override
     public void render(float delta) {
         update();
-        clearScreen(Color.BLACK);
+        clearScreen(Color.DARK_GRAY);
         draw();
     }
 
     private void update() {
         if(Assets.manager.update()) {
             ParadigmasGame.getInstance().setScreen(new InitialMenuScreen(ParadigmasGame.getInstance()));
-            //insects.setScreen(new MenuScreen(insects));
         } else {
             progress = Assets.manager.getProgress();
         }
@@ -58,7 +55,7 @@ public class PreloadScreen extends ScreenAdapter {
         shapeRenderer.setProjectionMatrix(camera.projection);
         shapeRenderer.setTransformMatrix(camera.view);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(Color.GREEN);
+        shapeRenderer.setColor(Color.LIGHT_GRAY);
         shapeRenderer.rect(
                 (ParadigmasGame.SCREEN_WIDTH - 400) / 2, ParadigmasGame.SCREEN_HEIGHT / 2,
                 progress * 400, 50);

@@ -35,8 +35,8 @@ public class InitialMenuScreen extends ScreenAdapter {
         private final ParadigmasGame game;
 
 
-        public InitialMenuScreen(ParadigmasGame game) {
-            this.game = game;
+        public InitialMenuScreen() {
+            this.game = ParadigmasGame.getInstance();
         }
 
         public void show() {
@@ -69,7 +69,7 @@ public class InitialMenuScreen extends ScreenAdapter {
 
                         Screen currentScreen = game.getScreen();
 
-                        ParadigmasGame.getInstance().setScreen(new GameScreen(1));
+                        game.setScreen(new GameScreen(1));
 
                         if (currentScreen != null) {
                             currentScreen.dispose();
@@ -95,7 +95,7 @@ public class InitialMenuScreen extends ScreenAdapter {
 
                     Screen currentScreen = game.getScreen();
 
-                    ParadigmasGame.getInstance().setScreen(new ControlsScreen());
+                    game.setScreen(new ControlsScreen());
 
                     if (currentScreen != null) {
                         currentScreen.dispose();

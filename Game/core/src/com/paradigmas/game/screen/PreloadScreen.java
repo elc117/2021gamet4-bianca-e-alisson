@@ -12,15 +12,15 @@ import com.paradigmas.game.world.World;
 
 public class PreloadScreen extends ScreenAdapter {
 
-    protected OrthographicCamera camera;
-    protected World world;
+    private OrthographicCamera camera;
+    private World world;
+    private ParadigmasGame game;
     private ShapeRenderer shapeRenderer;
-
     private float progress = 0;
 
     @Override
     public void show() {
-        //batch = new SpriteBatch();
+        game = ParadigmasGame.getInstance();
         shapeRenderer = new ShapeRenderer();
 
         camera = new OrthographicCamera(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT);
@@ -40,7 +40,7 @@ public class PreloadScreen extends ScreenAdapter {
 
     private void update() {
         if(Assets.manager.update()) {
-            ParadigmasGame.getInstance().setScreen(new InitialMenuScreen(ParadigmasGame.getInstance()));
+            game.setScreen(new InitialMenuScreen());
         } else {
             progress = Assets.manager.getProgress();
         }

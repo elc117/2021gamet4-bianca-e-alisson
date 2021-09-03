@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -18,7 +17,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.paradigmas.game.ParadigmasGame;
 import com.paradigmas.game.resource.Assets;
 import com.paradigmas.game.tools.GdxUtils;
-import com.paradigmas.game.world.World;
 
 // TODO: DAR OS CREDITOS AO INSEC
 
@@ -32,21 +30,18 @@ public class NextFaseScreen extends ScreenAdapter {
 
     private int level;
     private Stage stage;
-    private World world;
     private BitmapFont font;
-    private OrthographicCamera camera;
     private final ParadigmasGame game;
 
-    public NextFaseScreen(ParadigmasGame game, World world, int level, OrthographicCamera camera) {
-        this.game = game;
-        this.world = world;
+    public NextFaseScreen(int level) {
+        this.game = ParadigmasGame.getInstance();
         this.level = level;
-        this.camera = camera;
     }
 
     public void show() {
         stage = new Stage(new FitViewport(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT));
         Gdx.input.setInputProcessor(stage);
+
         backgroundTexture = Assets.manager.get(Assets.nextfase_background_001);
         Image background = new Image(backgroundTexture);
         stage.addActor(background);
@@ -57,7 +52,7 @@ public class NextFaseScreen extends ScreenAdapter {
 
         /*game.backgroundAudioID = game.getAudioHandler().playBackGroundMusic();*/
 
-        //Play Button
+        //Next Button
         skipTexture = Assets.manager.get(Assets.Skip);
         skipPressTexture = Assets.manager.get(Assets.On_Skip);
         ImageButton skip = new ImageButton(
@@ -67,22 +62,15 @@ public class NextFaseScreen extends ScreenAdapter {
 
         skip.addListener(new ActorGestureListener() {
             @Override
-            public void tap(InputEvent event, float x, float y, int count,
-                            int button) {
+            public void tap(InputEvent event, float x, float y, int count, int button) {
                 super.tap(event, x, y, count, button);
 
                 Screen currentScreen = game.getScreen();
-                World currentWorld = world;
 
-                level++;
-                ParadigmasGame.getInstance().setScreen(new GameScreen(level));
+                game.setScreen(new GameScreen(level));
 
                 if (currentScreen != null) {
                     currentScreen.dispose();
-                }
-
-                if (currentWorld != null) {
-                    currentWorld.dispose();
                 }
             }
         });

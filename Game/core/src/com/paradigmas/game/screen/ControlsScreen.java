@@ -57,7 +57,7 @@ public class ControlsScreen extends ScreenAdapter {
 
                 Screen currentScreen = ParadigmasGame.getInstance().getScreen();
 
-                ParadigmasGame.getInstance().setScreen(new InitialMenuScreen(ParadigmasGame.getInstance()));
+                ParadigmasGame.getInstance().setScreen(new InitialMenuScreen());
 
                 if (currentScreen != null) {
                     currentScreen.dispose();

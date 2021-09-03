@@ -27,8 +27,8 @@ public class NextFaseScreen extends ScreenAdapter {
     private static final int PLAY_BUTTON_Y = ParadigmasGame.SCREEN_HEIGHT /5;
 
     private Texture backgroundTexture;
-    private Texture playTexture;
-    private Texture playPressTexture;
+    private Texture skipTexture;
+    private Texture skipPressTexture;
 
     private int level;
     private Stage stage;
@@ -47,9 +47,10 @@ public class NextFaseScreen extends ScreenAdapter {
     public void show() {
         stage = new Stage(new FitViewport(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT));
         Gdx.input.setInputProcessor(stage);
-        backgroundTexture = Assets.manager.get(Assets.menu_background_002);
+        backgroundTexture = Assets.manager.get(Assets.nextfase_background_001);
         Image background = new Image(backgroundTexture);
         stage.addActor(background);
+
         font = new BitmapFont(false);
         font.setColor(Color.DARK_GRAY);
         font.getData().setScale(2f);
@@ -57,14 +58,14 @@ public class NextFaseScreen extends ScreenAdapter {
         /*game.backgroundAudioID = game.getAudioHandler().playBackGroundMusic();*/
 
         //Play Button
-        playTexture = Assets.manager.get(Assets.Start);
-        playPressTexture = Assets.manager.get(Assets.On_Start);
-        ImageButton play = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(playTexture)),
-                new TextureRegionDrawable(new TextureRegion(playPressTexture)));
-        play.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - playTexture.getWidth()/2), PLAY_BUTTON_Y);
+        skipTexture = Assets.manager.get(Assets.Skip);
+        skipPressTexture = Assets.manager.get(Assets.On_Skip);
+        ImageButton skip = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(skipTexture)),
+                new TextureRegionDrawable(new TextureRegion(skipPressTexture)));
+        skip.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - skipTexture.getWidth()/2), PLAY_BUTTON_Y);
 
-        play.addListener(new ActorGestureListener() {
+        skip.addListener(new ActorGestureListener() {
             @Override
             public void tap(InputEvent event, float x, float y, int count,
                             int button) {
@@ -73,6 +74,7 @@ public class NextFaseScreen extends ScreenAdapter {
                 Screen currentScreen = game.getScreen();
                 World currentWorld = world;
 
+                level++;
                 ParadigmasGame.getInstance().setScreen(new GameScreen(level));
 
                 if (currentScreen != null) {
@@ -84,7 +86,7 @@ public class NextFaseScreen extends ScreenAdapter {
                 }
             }
         });
-        stage.addActor(play);
+        stage.addActor(skip);
 
     }
 

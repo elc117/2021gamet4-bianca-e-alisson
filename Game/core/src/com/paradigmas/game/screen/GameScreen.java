@@ -40,7 +40,7 @@ public class GameScreen extends ScreenAdapter {
         world = new World(camera);
         world.regenerate(1);
 
-        finalTime = System.currentTimeMillis() + 10_000;
+        // finalTime = System.currentTimeMillis() + 10_000;
     }
 
     @Override
@@ -61,9 +61,9 @@ public class GameScreen extends ScreenAdapter {
 
             ParadigmasGame.getInstance().setScreen(new NextFaseScreen(ParadigmasGame.getInstance(), world, level, camera));
         }
-        else if (level >= LEVEL_MAX || currentTime >= finalTime) {
-            ParadigmasGame.getInstance().setScreen(new InitialMenuScreen(ParadigmasGame.getInstance()));
-        }
+        //else if (level >= LEVEL_MAX || currentTime >= finalTime) {
+            //ParadigmasGame.getInstance().setScreen(new InitialMenuScreen(ParadigmasGame.getInstance()));
+        //}
 
         if (ParadigmasGame.DEBUG) {
             if (Gdx.input.isKeyJustPressed(Input.Keys.B)) {

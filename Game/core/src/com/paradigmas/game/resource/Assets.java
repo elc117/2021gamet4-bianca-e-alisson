@@ -35,6 +35,9 @@ public class Assets {
     // menu
     @Asset public static final AssetDescriptor<Texture> menu_background_002 = new AssetDescriptor<>("Mapa_Texturas/menu_background_002.jpg", Texture.class);
 
+    // next fase
+    @Asset public static final AssetDescriptor<Texture> nextfase_background_001 = new AssetDescriptor<>("Mapa_Texturas/nextfase_background_001.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> nextfase_background_002 = new AssetDescriptor<>("Mapa_Texturas/nextfase_background_002.png", Texture.class);
 
     @Asset public static final AssetDescriptor<Texture> dirt = new AssetDescriptor<>("Mapa_Texturas/Dirt_texture.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> cobblestone = new AssetDescriptor<>("Mapa_Texturas/Pedra_texture.png", Texture.class);
@@ -73,6 +76,8 @@ public class Assets {
     @Asset public static final AssetDescriptor<Texture> On_Start = new AssetDescriptor<>("buttons/On_Start2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Controls = new AssetDescriptor<>("buttons/controls2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> On_Controls = new AssetDescriptor<>("buttons/on_controls2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Skip = new AssetDescriptor<>("buttons/skip2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_Skip = new AssetDescriptor<>("buttons/on_skip2.png", Texture.class);
 
     public static void load() {
         Texture.setAssetManager(manager);

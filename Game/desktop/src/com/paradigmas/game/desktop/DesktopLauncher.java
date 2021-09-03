@@ -16,11 +16,6 @@ public class DesktopLauncher {
         config.pauseWhenMinimized = true;
         //config.addIcon(Assets.manager.get(Assets.Codigo_1), );
 
-        //config.setWindowedMode(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT);
-        //config.setResizable(false);
-        //config.useVsync(true);
-        //config.setTitle(ParadigmasGame.NAME);
-        //config.setFromDisplayMode(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT);
 
         new LwjglApplication(ParadigmasGame.getInstance(), config);
     }

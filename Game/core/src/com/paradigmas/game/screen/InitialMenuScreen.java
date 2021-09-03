@@ -23,24 +23,14 @@ import com.paradigmas.game.tools.GdxUtils;
 public class InitialMenuScreen extends ScreenAdapter {
 
         private static final int PLAY_BUTTON_Y = ParadigmasGame.SCREEN_HEIGHT /5;
-        //private static final int BUTTONS_Y = PLAY_BUTTON_Y + 24;
-        //private static final int OPTIONS_BUTTON_X = 400;
 
         private Texture backgroundTexture;
         private Texture playTexture;
         private Texture playPressTexture;
         private Texture controlsPressTexture;
         private Texture controlsTexture;
-        //private Texture optionsTexture;
-        //private Texture optionsPressTexture;
-        //private Texture selectLevelsTexture;
-        //private Texture selectLevelsPressTexture;
-        //private Texture instructionsTexture;
-        //private Texture instructionsPressTexture;
-        //private Texture minigamesTexture;
-        //private Texture minigamesPressTexture;*/
-        private BitmapFont font;
 
+        private BitmapFont font;
         private Stage stage;
         private final ParadigmasGame game;
 
@@ -52,9 +42,11 @@ public class InitialMenuScreen extends ScreenAdapter {
         public void show() {
             stage = new Stage(new FitViewport(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT));
             Gdx.input.setInputProcessor(stage);
+
             backgroundTexture = Assets.manager.get(Assets.menu_background_002);
             Image background = new Image(backgroundTexture);
             stage.addActor(background);
+
             font = new BitmapFont(false);
             font.setColor(Color.DARK_GRAY);
             font.getData().setScale(2f);
@@ -103,7 +95,7 @@ public class InitialMenuScreen extends ScreenAdapter {
 
                     Screen currentScreen = game.getScreen();
 
-                    //ParadigmasGame.getInstance().setScreen(new GameScreen(1));
+                    ParadigmasGame.getInstance().setScreen(new ControlsScreen());
 
                     if (currentScreen != null) {
                         currentScreen.dispose();
@@ -207,10 +199,12 @@ public class InitialMenuScreen extends ScreenAdapter {
             GdxUtils.clearScreen();
             stage.act(delta);
             stage.draw();
+            String vers =  (String) "" + System.currentTimeMillis();
+
             stage.getBatch().begin();
-            font.draw(stage.getBatch(), "1.0.1",
-                    (ParadigmasGame.SCREEN_WIDTH * .87f), (ParadigmasGame.SCREEN_HEIGHT * .95f));
+            font.draw(stage.getBatch(), vers, (ParadigmasGame.SCREEN_WIDTH * .87f), (ParadigmasGame.SCREEN_HEIGHT * .95f));
             stage.getBatch().end();
+
             //game.getAudioHandler().updateMusic();
         }
 

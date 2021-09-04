@@ -22,8 +22,8 @@ public class LoseScreen extends ScreenAdapter {
     private static final int PLAY_BUTTON_Y = ParadigmasGame.SCREEN_HEIGHT /5;
 
     private Texture backgroundTexture;
-    private Texture skipTexture;
-    private Texture skipPressTexture;
+    private Texture retryTexture;
+    private Texture retryPressTexture;
 
     private int level;
     private Stage stage;
@@ -40,7 +40,7 @@ public class LoseScreen extends ScreenAdapter {
         stage = new Stage(new FitViewport(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT));
         Gdx.input.setInputProcessor(stage);
 
-        backgroundTexture = Assets.manager.get(Assets.nextfase_background_001);
+        backgroundTexture = Assets.manager.get(Assets.lose_background_001);
         Image background = new Image(backgroundTexture);
         stage.addActor(background);
 
@@ -51,14 +51,14 @@ public class LoseScreen extends ScreenAdapter {
         /*game.backgroundAudioID = game.getAudioHandler().playBackGroundMusic();*/
 
         //Retry Button
-        skipTexture = Assets.manager.get(Assets.cobblestone);
-        skipPressTexture = Assets.manager.get(Assets.On_Skip);
-        ImageButton skip = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(skipTexture)),
-                new TextureRegionDrawable(new TextureRegion(skipPressTexture)));
-        skip.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - skipTexture.getWidth()/2), PLAY_BUTTON_Y);
+        retryTexture = Assets.manager.get(Assets.Retry);
+        retryPressTexture = Assets.manager.get(Assets.On_Retry);
+        ImageButton retry = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(retryTexture)),
+                new TextureRegionDrawable(new TextureRegion(retryPressTexture)));
+        retry.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - retryTexture.getWidth()/2), PLAY_BUTTON_Y);
 
-        skip.addListener(new ActorGestureListener() {
+        retry.addListener(new ActorGestureListener() {
             @Override
             public void tap(InputEvent event, float x, float y, int count, int button) {
                 super.tap(event, x, y, count, button);
@@ -72,7 +72,7 @@ public class LoseScreen extends ScreenAdapter {
                 }
             }
         });
-        stage.addActor(skip);
+        stage.addActor(retry);
     }
 
     public void resize(int width, int height) {

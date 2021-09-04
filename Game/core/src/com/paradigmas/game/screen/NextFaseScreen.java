@@ -25,8 +25,8 @@ public class NextFaseScreen extends ScreenAdapter {
     private static final int PLAY_BUTTON_Y = ParadigmasGame.SCREEN_HEIGHT /5;
 
     private Texture backgroundTexture;
-    private Texture skipTexture;
-    private Texture skipPressTexture;
+    private Texture nextFaseTexture;
+    private Texture nextFasePressTexture;
 
     private int level;
     private Stage stage;
@@ -53,18 +53,17 @@ public class NextFaseScreen extends ScreenAdapter {
         /*game.backgroundAudioID = game.getAudioHandler().playBackGroundMusic();*/
 
         //Next Button
-        skipTexture = Assets.manager.get(Assets.Skip);
-        skipPressTexture = Assets.manager.get(Assets.On_Skip);
-        ImageButton skip = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(skipTexture)),
-                new TextureRegionDrawable(new TextureRegion(skipPressTexture)));
-        skip.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - skipTexture.getWidth()/2), PLAY_BUTTON_Y);
+        nextFaseTexture = Assets.manager.get(Assets.NextFase);
+        nextFasePressTexture = Assets.manager.get(Assets.On_NextFase);
+        ImageButton nextFase = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(nextFaseTexture)),
+                new TextureRegionDrawable(new TextureRegion(nextFasePressTexture)));
+        nextFase.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - nextFaseTexture.getWidth()/2), PLAY_BUTTON_Y);
 
-        skip.addListener(new ActorGestureListener() {
+        nextFase.addListener(new ActorGestureListener() {
             @Override
             public void tap(InputEvent event, float x, float y, int count, int button) {
                 super.tap(event, x, y, count, button);
-
                 Screen currentScreen = game.getScreen();
 
                 game.setScreen(new GameScreen(level));
@@ -74,7 +73,7 @@ public class NextFaseScreen extends ScreenAdapter {
                 }
             }
         });
-        stage.addActor(skip);
+        stage.addActor(nextFase);
 
     }
 

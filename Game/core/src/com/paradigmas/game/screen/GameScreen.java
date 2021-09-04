@@ -42,7 +42,7 @@ public class GameScreen extends ScreenAdapter {
         world = new World(camera);
         world.regenerate(level);
 
-        finalTime = System.currentTimeMillis() + 30_000;
+        finalTime = System.currentTimeMillis() + 300_000;
     }
 
     @Override
@@ -80,6 +80,7 @@ public class GameScreen extends ScreenAdapter {
             level++;
 
             game.setScreen(new NextFaseScreen(level));
+
             if (currentScreen != null) {
                 currentScreen.dispose();
             }

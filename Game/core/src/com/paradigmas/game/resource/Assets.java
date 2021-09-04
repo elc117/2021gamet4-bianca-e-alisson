@@ -14,22 +14,22 @@ public class Assets {
 
     /// * BLOCOS:
     // Ground
-    @Asset public static final AssetDescriptor<Texture> Ground_Left_1 = new AssetDescriptor<>("Mapa_Texturas/Ground_Left_1.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> Ground_Mid_1 = new AssetDescriptor<>("Mapa_Texturas/Ground_Mid_1.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> Ground_Right_1 = new AssetDescriptor<>("Mapa_Texturas/Ground_Right_1.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Ground_Left_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Ground_Mid_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Ground_Right_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
 
 
     // Preenchimento
-    @Asset public static final AssetDescriptor<Texture> Mid_1 = new AssetDescriptor<>("Mapa_Texturas/Mid_1.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Mid_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
 
     // Plattaform
-    @Asset public static final AssetDescriptor<Texture> Platt_Left_1 = new AssetDescriptor<>("Mapa_Texturas/Platt_Left_1.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> Platt_Mid_1 = new AssetDescriptor<>("Mapa_Texturas/Platt_Mid_1.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> Platt_Right_1 = new AssetDescriptor<>("Mapa_Texturas/Platt_Right_1.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Platt_Left_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Platt_Mid_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Platt_Right_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
 
     // Wall
-    @Asset public static final AssetDescriptor<Texture> Wall_Mid_Right_1 = new AssetDescriptor<>("Mapa_Texturas/Wall_Mid-Right_1.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> Wall_Mid_Left_1 = new AssetDescriptor<>("Mapa_Texturas/Wall_Mid-Left_1.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Wall_Mid_Right_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Wall_Mid_Left_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
 
     /// * BackGround
     // menu
@@ -37,7 +37,9 @@ public class Assets {
 
     // next fase
     @Asset public static final AssetDescriptor<Texture> nextfase_background_001 = new AssetDescriptor<>("Mapa_Texturas/nextfase_background_001.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> nextfase_background_002 = new AssetDescriptor<>("Mapa_Texturas/nextfase_background_002.png", Texture.class);
+
+    // lose
+    @Asset public static final AssetDescriptor<Texture> lose_background_001 = new AssetDescriptor<>("Mapa_Texturas/lose_background_001.png", Texture.class);
 
     @Asset public static final AssetDescriptor<Texture> dirt = new AssetDescriptor<>("Mapa_Texturas/Dirt_texture.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> cobblestone = new AssetDescriptor<>("Mapa_Texturas/Pedra_texture.png", Texture.class);
@@ -46,6 +48,8 @@ public class Assets {
 
     /// * OBJECTIVES
     @Asset public static final AssetDescriptor<Texture> Codigo_1 = new AssetDescriptor<>("Objectives/Codigo_1.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Potion = new AssetDescriptor<>("Objectives/potion.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Sleepy = new AssetDescriptor<>("Objectives/sleepy.png", Texture.class);
 
     /// * ENTIDADES:
     /** TODO: MUDAR O TAMANHO DO PERSONAGEM E FAZER A ANIMAÇÃO DA MOVIMENTAÇÃO*/
@@ -76,8 +80,10 @@ public class Assets {
     @Asset public static final AssetDescriptor<Texture> On_Start = new AssetDescriptor<>("buttons/On_Start2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Controls = new AssetDescriptor<>("buttons/controls2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> On_Controls = new AssetDescriptor<>("buttons/on_controls2.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> Skip = new AssetDescriptor<>("buttons/skip2.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> On_Skip = new AssetDescriptor<>("buttons/on_skip2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> NextFase = new AssetDescriptor<>("buttons/skip2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_NextFase = new AssetDescriptor<>("buttons/on_skip2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Retry = new AssetDescriptor<>("buttons/retry2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_Retry = new AssetDescriptor<>("buttons/on_retry2.png", Texture.class);
 
     public static void load() {
         Texture.setAssetManager(manager);

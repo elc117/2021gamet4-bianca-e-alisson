@@ -42,7 +42,7 @@ public class GameScreen extends ScreenAdapter {
         world = new World(camera);
         world.regenerate(level);
 
-        finalTime = System.currentTimeMillis() + 300_000;
+        finalTime = System.currentTimeMillis() + 30_000;
     }
 
     @Override
@@ -89,7 +89,7 @@ public class GameScreen extends ScreenAdapter {
             if (currentScreen != null) {
                 currentScreen.dispose();
             }
-        } else if (level >= LEVEL_MAX) {
+        } else if (level > LEVEL_MAX) {
             game.setScreen(new InitialMenuScreen());
             if (currentScreen != null) {
                 currentScreen.dispose();

@@ -55,19 +55,22 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
 
             case LEVEL_3:
                 mapa_level_3();
-                World.quantObjetivos = 7;
+                World.quantObjetivos = 3;
                 break;
 
             case LEVEL_4:
                 mapa_level_4();
+                World.quantObjetivos = 7;
                 break;
 
             case LEVEL_5:
                 mapa_level_5();
+                World.quantObjetivos = 8;
                 break;
 
             case LEVEL_6:
                 mapa_level_6();
+                World.quantObjetivos = 3;
                 break;
         }
 
@@ -310,10 +313,34 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
     private void mapa_level_3() {
 
         // primeiro nivel
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-14), MAX_Y-(MAX_Y-6), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-14), MAX_X-(MAX_X-19), MAX_Y-(MAX_Y-3), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-20), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-6), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        map[MAX_X-(MAX_X-31)][MAX_Y-(MAX_Y-3)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+        // segundo nivel
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-1), MAX_Y-(MAX_Y-9), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-5), MAX_X-(MAX_X-29), MAX_Y-(MAX_Y-11), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-33), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-9), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+
+        // segundo nivel
+        gera_PlataformaByCoord(MAX_X-(MAX_X-4), MAX_X-(MAX_X-6), MAX_Y-(MAX_Y-18), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-10), MAX_X-(MAX_X-11), MAX_Y-(MAX_Y-15), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-16), MAX_X-(MAX_X-18), MAX_Y-(MAX_Y-14), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-23), MAX_X-(MAX_X-24), MAX_Y-(MAX_Y-15), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-28), MAX_X-(MAX_X-30), MAX_Y-(MAX_Y-18), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        map[MAX_X-(MAX_X-5)][MAX_Y-(MAX_Y-19)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+        map[MAX_X-(MAX_X-29)][MAX_Y-(MAX_Y-19)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+    }
+
+    private void mapa_level_4() {
+
+        // primeiro nivel
         gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-4), MAX_Y-(MAX_Y-8), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
         gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-2), MAX_Y-(MAX_Y-6), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
         gera_ParedeByCoord(MAX_Y-(MAX_Y-3), MAX_Y-(MAX_Y-7), MAX_X-(MAX_X-4), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
-        gera_PlataformaByCoord(MAX_X-(MAX_X-2), MAX_X-(MAX_X-3), MAX_Y-(MAX_Y-2), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-2), MAX_X-(MAX_X-3), MAX_Y-(MAX_Y-3), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
 
         map[MAX_X-(MAX_X-1)][MAX_Y-(MAX_Y-7)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
@@ -326,7 +353,7 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
         gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_Y-(MAX_Y-2), MAX_X-(MAX_X-31), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
         map[MAX_X-(MAX_X-33)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
-                // sleepy
+        // sleepy
         map[MAX_X-(MAX_X-18)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
         map[MAX_X-(MAX_X-10)][MAX_Y-(MAX_Y-3)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
 
@@ -335,7 +362,7 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
 
         map[MAX_X-(MAX_X-31)][MAX_Y-(MAX_Y-6)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
-                // sleepy
+        // sleepy
         map[MAX_X-(MAX_X-22)][MAX_Y-(MAX_Y-5)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
 
         // terceiro nivel
@@ -349,10 +376,10 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
         gera_ParedeByCoord(MAX_Y-(MAX_Y-9), MAX_Y-(MAX_Y-11), MAX_X-(MAX_X-29), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
         map[MAX_X-(MAX_X-32)][MAX_Y-(MAX_Y-9)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
-                // poção
+        // poção
         map[MAX_X-(MAX_X-24)][MAX_Y-(MAX_Y-12)][1] = Blocos.getIdByBloco(Blocos.Potion);
         map[MAX_X-(MAX_X-1)][MAX_Y-(MAX_Y-9)][1] = Blocos.getIdByBloco(Blocos.Potion);
-                // sleepy
+        // sleepy
         map[MAX_X-(MAX_X-18)][MAX_Y-(MAX_Y-12)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
         map[MAX_X-(MAX_X-30)][MAX_Y-(MAX_Y-13)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
 
@@ -365,8 +392,6 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
         gera_PlataformaByCoord(MAX_X-(MAX_X-4), MAX_X-(MAX_X-7), MAX_Y-(MAX_Y-16), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
         gera_PlataformaByCoord(MAX_X-(MAX_X-9), MAX_X-(MAX_X-10), MAX_Y-(MAX_Y-18), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
         gera_PlataformaByCoord(MAX_X-(MAX_X-13), MAX_X-(MAX_X-13), MAX_Y-(MAX_Y-18), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
-        map[MAX_X-(MAX_X-13)][MAX_Y-(MAX_Y-19)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
-
         gera_PlataformaByCoord(MAX_X-(MAX_X-19), MAX_X-(MAX_X-30), MAX_Y-(MAX_Y-14), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
         gera_ParedeByCoord(MAX_Y-(MAX_Y-11), MAX_Y-(MAX_Y-14), MAX_X-(MAX_X-31), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
         gera_PlataformaByCoord(MAX_X-(MAX_X-32), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-11), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
@@ -376,20 +401,104 @@ public class MapsMakerSystem {  // TODO: extends IteratingSystem
         gera_PlataformaByCoord(MAX_X-(MAX_X-19), MAX_X-(MAX_X-32), MAX_Y-(MAX_Y-17), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
         map[MAX_X-(MAX_X-31)][MAX_Y-(MAX_Y-18)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
-                // poção
+        // poção
         map[MAX_X-(MAX_X-30)][MAX_Y-(MAX_Y-18)][1] = Blocos.getIdByBloco(Blocos.Potion);
         map[MAX_X-(MAX_X-32)][MAX_Y-(MAX_Y-12)][1] = Blocos.getIdByBloco(Blocos.Potion);
-                // sleepy
+        // sleepy
         map[MAX_X-(MAX_X-8)][MAX_Y-(MAX_Y-15)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
-
-    }
-
-    private void mapa_level_4() {
     }
 
     private void mapa_level_5() {
+
+        // lado esquerdo
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-4), MAX_Y-(MAX_Y-17), MAX_X-(MAX_X-14), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-1), MAX_Y-(MAX_Y-2), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-3), MAX_X-(MAX_X-13), MAX_Y-(MAX_Y-4), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-11), MAX_Y-(MAX_Y-8), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-9), MAX_Y-(MAX_Y-10), MAX_X-(MAX_X-1), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-3), MAX_X-(MAX_X-13), MAX_Y-(MAX_Y-12), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-2), MAX_Y-(MAX_Y-15), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-4), MAX_X-(MAX_X-10), MAX_Y-(MAX_Y-18), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-5), MAX_Y-(MAX_Y-6), MAX_X-(MAX_X-13), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
+
+        map[MAX_X-(MAX_X-12)][MAX_Y-(MAX_Y-16)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+        // sleepy
+        map[MAX_X-(MAX_X-8)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
+        map[MAX_X-(MAX_X-5)][MAX_Y-(MAX_Y-5)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
+        map[MAX_X-(MAX_X-9)][MAX_Y-(MAX_Y-13)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
+
+        // lado direito
+        map[MAX_X-(MAX_X-33)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+        gera_PlataformaByCoord(MAX_X-(MAX_X-17), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-3), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-16), MAX_X-(MAX_X-17), MAX_Y-(MAX_Y-6), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-15), MAX_X-(MAX_X-16), MAX_Y-(MAX_Y-7), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-21), MAX_X-(MAX_X-22), MAX_Y-(MAX_Y-6), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-22), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-7), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        map[MAX_X-(MAX_X-30)][MAX_Y-(MAX_Y-4)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+        // poção
+        map[MAX_X-(MAX_X-33)][MAX_Y-(MAX_Y-4)][1] = Blocos.getIdByBloco(Blocos.Potion);
+        // sleepy
+        map[MAX_X-(MAX_X-19)][MAX_Y-(MAX_Y-4)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
+
+        gera_PlataformaByCoord(MAX_X-(MAX_X-17), MAX_X-(MAX_X-17), MAX_Y-(MAX_Y-10), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-15), MAX_X-(MAX_X-15), MAX_Y-(MAX_Y-12), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-17), MAX_X-(MAX_X-17), MAX_Y-(MAX_Y-14), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        map[MAX_X-(MAX_X-17)][MAX_Y-(MAX_Y-15)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+        // poção
+        map[MAX_X-(MAX_X-15)][MAX_Y-(MAX_Y-8)][1] = Blocos.getIdByBloco(Blocos.Potion);
+        // sleepy
+        map[MAX_X-(MAX_X-33)][MAX_Y-(MAX_Y-8)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
+        map[MAX_X-(MAX_X-15)][MAX_Y-(MAX_Y-16)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
+
+        gera_ParedeByCoord(MAX_Y-(MAX_Y-10), MAX_Y-(MAX_Y-16), MAX_X-(MAX_X-18), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-19), MAX_X-(MAX_X-30), MAX_Y-(MAX_Y-10), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        map[MAX_X-(MAX_X-19)][MAX_Y-(MAX_Y-11)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+        gera_PlataformaByCoord(MAX_X-(MAX_X-33), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-13), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        map[MAX_X-(MAX_X-33)][MAX_Y-(MAX_Y-14)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+        gera_PlataformaByCoord(MAX_X-(MAX_X-19), MAX_X-(MAX_X-28), MAX_Y-(MAX_Y-13), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        map[MAX_X-(MAX_X-22)][MAX_Y-(MAX_Y-14)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+        gera_PlataformaByCoord(MAX_X-(MAX_X-15), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-17), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        map[MAX_X-(MAX_X-30)][MAX_Y-(MAX_Y-18)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+        // poção
+        map[MAX_X-(MAX_X-19)][MAX_Y-(MAX_Y-14)][1] = Blocos.getIdByBloco(Blocos.Potion);
+        // sleepy
+        map[MAX_X-(MAX_X-26)][MAX_Y-(MAX_Y-14)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
+
+
+
     }
 
     private void mapa_level_6() {
+
+        gera_PlataformaByCoord(MAX_X-(MAX_X-5), MAX_X-(MAX_X-6), MAX_Y-(MAX_Y-3), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-11), MAX_X-(MAX_X-12), MAX_Y-(MAX_Y-5), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-17), MAX_X-(MAX_X-18), MAX_Y-(MAX_Y-6), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-23), MAX_X-(MAX_X-24), MAX_Y-(MAX_Y-8), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-27), MAX_X-(MAX_X-29), MAX_Y-(MAX_Y-4), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+
+        map[MAX_X-(MAX_X-28)][MAX_Y-(MAX_Y-5)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+        gera_PlataformaByCoord(MAX_X-(MAX_X-29), MAX_X-(MAX_X-30), MAX_Y-(MAX_Y-10), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-32), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-13), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-29), MAX_X-(MAX_X-28), MAX_Y-(MAX_Y-17), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-23), MAX_X-(MAX_X-24), MAX_Y-(MAX_Y-15), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-17), MAX_X-(MAX_X-18), MAX_Y-(MAX_Y-17), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-13), MAX_X-(MAX_X-15), MAX_Y-(MAX_Y-12), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+
+        map[MAX_X-(MAX_X-14)][MAX_Y-(MAX_Y-13)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+
+        gera_PlataformaByCoord(MAX_X-(MAX_X-9), MAX_X-(MAX_X-10), MAX_Y-(MAX_Y-15), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-6), MAX_X-(MAX_X-6), MAX_Y-(MAX_Y-17), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+        gera_PlataformaByCoord(MAX_X-(MAX_X-2), MAX_X-(MAX_X-2), MAX_Y-(MAX_Y-13), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
+
+        map[MAX_X-(MAX_X-2)][MAX_Y-(MAX_Y-14)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
     }
 }

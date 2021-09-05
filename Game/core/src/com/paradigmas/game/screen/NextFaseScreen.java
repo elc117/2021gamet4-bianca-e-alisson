@@ -76,106 +76,31 @@ public class NextFaseScreen extends ScreenAdapter {
         });
         stage.addActor(skip);
 
+        //quit Button
+        // TODO: trocar as variavel de textura
+        skipTexture = Assets.manager.get(Assets.Skip);
+        skipPressTexture = Assets.manager.get(Assets.On_Skip);
+        ImageButton quit = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(skipTexture)),
+                new TextureRegionDrawable(new TextureRegion(skipPressTexture)));
+        quit.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - skipTexture.getWidth()/2), PLAY_BUTTON_Y-(PLAY_BUTTON_Y/2));
+
+        quit.addListener(new ActorGestureListener() {
+            @Override
+            public void tap(InputEvent event, float x, float y, int count, int button) {
+                super.tap(event, x, y, count, button);
+
+                Screen currentScreen = game.getScreen();
+
+                game.setScreen(new GameScreen(level));
+
+                if (currentScreen != null) {
+                    currentScreen.dispose();
+                }
+            }
+        });
+        stage.addActor(quit);
     }
-
-    /*
-        private Texture backgroundTexture;
-        private Texture nextTexture;
-        private Texture nextPressTexture;
-
-        private Stage stage;
-        private World world;
-        private int level;
-        private OrthographicCamera camera;
-
-        World aux = world;
-        world = new World(camera);
-        world.regenerate(level);
-        aux.dispose();
-
-        --------------------------------------------------------------------------------------------------------
-
-        Image image = new Image(Assets.manager.get(Assets.menu_icon_1));
-        image.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - playTexture.getWidth()/2)-75, PLAY_BUTTON_Y*2+75);
-
-        stage.addActor(image);
-
-        --------------------------------------------------------------------------------------------------------
-
-        //Options Button
-        optionsTexture = assetManager.get(Constants.MENU_OPTIONS);
-        optionsPressTexture = assetManager.get(Constants.MENU_OPTIONS_PRESSED);
-        ImageButton options = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(optionsTexture)),
-                new TextureRegionDrawable(new TextureRegion(optionsPressTexture)));
-        options.setPosition(OPTIONS_BUTTON_X, PLAY_BUTTON_Y);
-
-        options.addListener(new ActorGestureListener() {
-            @Override
-            public void tap(InputEvent event, float x, float y, int count,
-                            int button) {
-                super.tap(event, x, y, count, button);
-                ScreenManager.getInstance().showScreen(ScreenEnum.OPTIONS_SCREEN, game);
-            }
-        });
-        stage.addActor(options);
-
-
-        //Intructions Button
-        instructionsTexture = assetManager.get(Constants.MENU_INSTRUCTIONS);
-        instructionsPressTexture = assetManager.get(Constants.MENU_INSTRUCTIONS_PRESSED);
-        ImageButton instructions = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(instructionsTexture)),
-                new TextureRegionDrawable(new TextureRegion(instructionsPressTexture)));
-        instructions.setPosition(OPTIONS_BUTTON_X, PLAY_BUTTON_Y + 210);
-
-        instructions.addListener(new ActorGestureListener() {
-            @Override
-            public void tap(InputEvent event, float x, float y, int count,
-                            int button) {
-                super.tap(event, x, y, count, button);
-                ScreenManager.getInstance().showScreen(ScreenEnum.INSTRUCTIONS_SCREEN, game);
-            }
-        });
-        stage.addActor(instructions);
-
-        //Select Levels Button
-        selectLevelsTexture = assetManager.get(Constants.MENU_SELECT_LEVEL);
-        selectLevelsPressTexture = assetManager.get(Constants.MENU_SELECT_LEVEL_PRESSED);
-        ImageButton selectLevels = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(selectLevelsTexture)),
-                new TextureRegionDrawable(new TextureRegion(selectLevelsPressTexture)));
-        selectLevels.setPosition(SELECT_LEVELS_BUTTON_X, PLAY_BUTTON_Y);
-
-        selectLevels.addListener(new ActorGestureListener() {
-            @Override
-            public void tap(InputEvent event, float x, float y, int count,
-                            int button) {
-                super.tap(event, x, y, count, button);
-                ScreenManager.getInstance().showScreen(ScreenEnum.SELECT_LEVELS_SCREEM, game, SelectLevelsType.ONE);
-            }
-        });
-        stage.addActor(selectLevels);
-
-        //Minigames Button
-        minigamesTexture = assetManager.get(Constants.MENU_MINIGAMES);
-        minigamesPressTexture = assetManager.get(Constants.MENU_MINIGAMES_PRESSED);
-        ImageButton minigames = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(minigamesTexture)),
-                new TextureRegionDrawable(new TextureRegion(minigamesPressTexture)));
-        minigames.setPosition(SELECT_LEVELS_BUTTON_X, PLAY_BUTTON_Y + 210);
-
-        minigames.addListener(new ActorGestureListener() {
-            @Override
-            public void tap(InputEvent event, float x, float y, int count,
-                            int button) {
-                super.tap(event, x, y, count, button);
-                ScreenManager.getInstance().showScreen(ScreenEnum.MINIGAMES_SCREEN, game);
-            }
-        });
-        stage.addActor(minigames);
-
-    */
 
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);

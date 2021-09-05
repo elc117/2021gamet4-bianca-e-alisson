@@ -22,18 +22,12 @@ import net.namekdev.entity_tracker.EntityTracker;
 import net.namekdev.entity_tracker.ui.EntityTrackerMainWindow;
 
 public class World {
-
-    //public static final int BG = 0; //BackGround (layer 0)
-    public static final int FG = 1; //ForeGround (layer 1)
-
     private EntityTrackerMainWindow entityTrackerWindow;
     private int[][][] map = new int[ParadigmasGame.SCREEN_WIDTH / 24][ParadigmasGame.SCREEN_HEIGHT / 24][2];
     private final com.artemis.World artemisWorld;
     private final EntitiesFactory entitiesFactory;
-
-    private final int player;
     private final float gravity = -570;
-
+    private final int player;
     public static int quantObjetivos;
 
     // construtor
@@ -72,7 +66,6 @@ public class World {
         artemisWorld.process();
     }
 
-
     // pega um bloco a partir das coodenadas do mapa
     public Bloco getBloco(int x, int y, int layer) {
         return Blocos.getBlocoById(map[x][y][layer]);
@@ -86,7 +79,7 @@ public class World {
     // recebe uma coordenada do mapa e retorna se aquele bloco é sólido.
     public boolean isSolid(int x, int y) {
         //valida          pega o bloco e verifica se é solido
-        return isValid(x, y) && getBloco(x, y, FG).isSolid();
+        return isValid(x, y) && getBloco(x, y, 1).isSolid();
     }
 
     // Recebe uma coord do world -> converte pra mapa e verifica se é solido.

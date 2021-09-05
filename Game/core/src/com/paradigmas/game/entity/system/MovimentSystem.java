@@ -145,18 +145,11 @@ public class MovimentSystem extends IteratingSystem {
 
                     // está subindo
                     if (velocity.y > 0) {
-                        BlocoCodigo bloco =  Blocos.getBlocoCodigoById(world.getMap()[x][y][1]);
+                        cTransform.position.y = tile.y - rectangle.height;
 
-                        if (bloco == Blocos.Codigo_1) {
-                            world.getMap()[x][y][1] = 0;
-                            World.quantObjetivos--;
-                        } else {
-                            cTransform.position.y = tile.y - rectangle.height;
-
-                            // Colidindo com o teto
-                            cCollidable.onCeiling = true;
-                            velocity.y = 0;
-                        }
+                        // Colidindo com o teto
+                        cCollidable.onCeiling = true;
+                        velocity.y = 0;
                     }
                     else {
                         // descendo

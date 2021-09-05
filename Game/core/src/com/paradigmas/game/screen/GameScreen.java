@@ -1,7 +1,6 @@
 package com.paradigmas.game.screen;
 
 import static com.paradigmas.game.ParadigmasGame.LEVEL_MAX;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;

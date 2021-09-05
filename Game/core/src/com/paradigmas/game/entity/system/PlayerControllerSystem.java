@@ -7,10 +7,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.assets.AssetDescriptor;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.utils.Array;
+import com.paradigmas.game.ParadigmasGame;
 import com.paradigmas.game.entity.component.CollidableComponent;
 import com.paradigmas.game.entity.component.JumpComponent;
 import com.paradigmas.game.entity.component.PlayerComponent;
@@ -19,8 +17,6 @@ import com.paradigmas.game.entity.component.SpriteComponent;
 import com.paradigmas.game.entity.component.TransformComponent;
 import com.paradigmas.game.resource.Assets;
 import com.paradigmas.game.world.World;
-
-import java.util.Timer;
 
 public class PlayerControllerSystem extends IteratingSystem {
 
@@ -32,22 +28,14 @@ public class PlayerControllerSystem extends IteratingSystem {
     private ComponentMapper<SpriteComponent> mSprite;
 
     private final World world;
-
     private boolean moveRight;
     private boolean moveLeft;
     private boolean jump;
-    private boolean down;
     private boolean coffe;
     private boolean temp;
     private long tempoFinal;
     private boolean pause;
-    private boolean menu;
-
-    int i = 0;
-    final Array<AssetDescriptor<Texture>> assetDescriptors = new Array<>();
-    Timer timer = new Timer();
-
-    public static boolean NextFase;
+    //private boolean menu;
 
     public PlayerControllerSystem(World world) {
         super(Aspect.all(PlayerComponent.class, RigidBodyComponent.class,
@@ -55,6 +43,7 @@ public class PlayerControllerSystem extends IteratingSystem {
 
         Gdx.input.setInputProcessor(new InputMultiplexer(new GameInputAdapter()));
         this.world = world;
+        this.pause = false;
     }
 
     @Override
@@ -65,9 +54,6 @@ public class PlayerControllerSystem extends IteratingSystem {
         CollidableComponent cCollidable = mCollidable.get(entityId);
         TransformComponent cTransform = mTransform.get(entityId);
         final SpriteComponent cSprite = mSprite.get(entityId);
-
-        assetDescriptors.clear();
-        assetDescriptors.add(Assets.playerH);
 
         float walkSpeed = 100;
         long tempoCorrente = System.currentTimeMillis();
@@ -101,59 +87,19 @@ public class PlayerControllerSystem extends IteratingSystem {
             } else if (moveRight) {
                 cSprite.sprite = new Sprite(Assets.manager.get(Assets.Idle_right_000));
                 cRigidBody.velocity.x = walkSpeed;
-
-                /*
-                assetDescriptors.clear();
-                assetDescriptors.add(Assets.Run__000);
-                assetDescriptors.add(Assets.Run__001);
-                assetDescriptors.add(Assets.Run__002);
-                assetDescriptors.add(Assets.Run__003);
-                assetDescriptors.add(Assets.Run__004);
-                assetDescriptors.add(Assets.Run__005);
-                assetDescriptors.add(Assets.Run__006);
-                assetDescriptors.add(Assets.Run__007);
-                assetDescriptors.add(Assets.Run__008);
-                assetDescriptors.add(Assets.Run__009);
-
-                if(cCollidable.onGround) {
-                    cSprite.sprite = new Sprite(Assets.manager.get(assetDescriptors.get(i)));
-                    if (i < 9) {
-                        i++;
-                    } else {
-                        i = 0;
-                    }
-                }
-
-
-                timer.scheduleAtFixedRate(new TimerTask() {
-                    @Override
-                    public void run() {
-                        cSprite.sprite = new Sprite(Assets.manager.get(assetDescriptors.get(i)));
-                        i++;
-                    }
-                }, 1, 200);*/
             }
-
-            //timer.cancel();
         }
 
         if (cJump.canJump && cCollidable.onGround /*|| cCollidable.onRightWall || cCollidable.onLeftWall)*/ && jump) {
             cRigidBody.velocity.y = cJump.jumpSpeed;
         }
 
-
-        /*if ((Gdx.input.isKeyJustPressed(Input.Keys.V) || Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
-                && cCollidable.onGround) {
-            if (down) {
-                cPlayer.walkSpeed *= 2;
-                cTransform.scaleY *= 2;
-                down = false;
-            } else {
-                cPlayer.walkSpeed /= 2;
-                cTransform.scaleY /= 2;
-                down = true;
-            }
-        }*/
+        if (pause) {
+            ParadigmasGame.getInstance().pause();
+        } else {
+            ParadigmasGame.getInstance().resume();
+            //pause
+        }
     }
 
     private class GameInputAdapter extends InputAdapter {
@@ -179,22 +125,13 @@ public class PlayerControllerSystem extends IteratingSystem {
                 case Input.Keys.DOWN:
                 case Input.Keys.V:
                 case Input.Keys.S:
-                    down = true;
+                    //down = true;
                     break;
 
                 // D
                 case Input.Keys.RIGHT:
                 case Input.Keys.D:
                     moveRight = true;
-                    break;
-
-                /// Pause/Resume / Menu
-                case Input.Keys.P:
-                    pause = true;
-                    break;
-
-                case Input.Keys.ESCAPE:
-                    menu = true;
                     break;
             }
 
@@ -204,8 +141,9 @@ public class PlayerControllerSystem extends IteratingSystem {
                 coffe = true;
             }
 
-            if (Gdx.input.isKeyJustPressed(Input.Keys.X)) {
-                NextFase = true;
+            //Pause/resume
+            if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
+                pause = !pause;
             }
 
             return true;
@@ -232,27 +170,13 @@ public class PlayerControllerSystem extends IteratingSystem {
                 case Input.Keys.DOWN:
                 case Input.Keys.V:
                 case Input.Keys.S:
-                    down = false;
+                    //down = false;
                     break;
 
                 // D
                 case Input.Keys.RIGHT:
                 case Input.Keys.D:
                     moveRight = false;
-                    break;
-
-                /// skils/buffs/extras
-                // Z
-                // é por tempo;
-
-
-                /// Pause/Resume / Menu
-                case Input.Keys.P:
-                    pause = false;
-                    break;
-
-                case Input.Keys.ESCAPE:
-                    menu = false;
                     break;
             }
 

@@ -55,7 +55,7 @@ public class PreloadScreen extends ScreenAdapter {
         shapeRenderer.setProjectionMatrix(camera.projection);
         shapeRenderer.setTransformMatrix(camera.view);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(Color.LIGHT_GRAY);
+        shapeRenderer.setColor(Color.ROYAL);
         shapeRenderer.rect(
                 (ParadigmasGame.SCREEN_WIDTH - 400) / 2, ParadigmasGame.SCREEN_HEIGHT / 2,
                 progress * 400, 50);

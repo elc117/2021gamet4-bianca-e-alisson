@@ -78,7 +78,7 @@ public class GameScreen extends ScreenAdapter {
             World.quantObjetivos = 1;
             level++;
 
-            game.setScreen(new NextFaseScreen(level));
+            game.setScreen(new NextFaseScreen(level, finalTime-currentTime));
             if (currentScreen != null) {
                 currentScreen.dispose();
             }

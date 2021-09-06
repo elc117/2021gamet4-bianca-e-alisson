@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.Array;
 import com.paradigmas.game.bloco.BlocoCodigo;
 import com.paradigmas.game.dictionary.Blocos;
 import com.paradigmas.game.entity.component.CollidableComponent;
+import com.paradigmas.game.entity.component.PlayerComponent;
 import com.paradigmas.game.entity.component.RigidBodyComponent;
 import com.paradigmas.game.entity.component.TransformComponent;
 import com.paradigmas.game.world.World;
@@ -93,9 +94,14 @@ public class MovimentSystem extends IteratingSystem {
                         // Colidindo com uma parede à direita
                         BlocoCodigo bloco =  Blocos.getBlocoCodigoById(world.getMap()[x+1][y][1]);
 
-                        if (bloco == Blocos.Codigo_1) {
+                        if (bloco == Blocos.Codigo_1 || bloco == Blocos.COBBLESTONE) {
+                            if (bloco == Blocos.Codigo_1) {
+                                World.quantObjetivos--;
+                            } else {
+                                PlayerComponent.coffe++;
+                            }
+
                             world.getMap()[x+1][y][1] = 0;
-                            World.quantObjetivos--;
                         } else {
                             cCollidable.onRightWall = true;
                             velocity.x = 0;
@@ -104,9 +110,13 @@ public class MovimentSystem extends IteratingSystem {
                         // Colidindo com uma parede à esquerda
                         BlocoCodigo bloco = Blocos.getBlocoCodigoById(world.getMap()[x-1][y][1]);
 
-                        if (bloco == Blocos.Codigo_1) {
+                        if (bloco == Blocos.Codigo_1 || bloco == Blocos.COBBLESTONE) {
+                            if (bloco == Blocos.Codigo_1) {
+                                World.quantObjetivos--;
+                            } else {
+                                PlayerComponent.coffe++;
+                            }
                             world.getMap()[x-1][y][1] = 0;
-                            World.quantObjetivos--;
                         } else {
                             cCollidable.onLeftWall = true;
                             velocity.x = 0;
@@ -155,9 +165,13 @@ public class MovimentSystem extends IteratingSystem {
                         // descendo
                         BlocoCodigo bloco =  Blocos.getBlocoCodigoById(world.getMap()[x][y-1][1]);
 
-                        if (bloco == Blocos.Codigo_1) {
+                        if (bloco == Blocos.Codigo_1 || bloco == Blocos.COBBLESTONE) {
+                            if (bloco == Blocos.Codigo_1) {
+                                World.quantObjetivos--;
+                            } else {
+                                PlayerComponent.coffe++;
+                            }
                             world.getMap()[x][y-1][1] = 0;
-                            World.quantObjetivos--;
                         } else {
                             cTransform.position.y = tile.y + tile.height;
 

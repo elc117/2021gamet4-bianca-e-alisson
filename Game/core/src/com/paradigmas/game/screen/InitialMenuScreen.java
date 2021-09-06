@@ -29,10 +29,17 @@ public class InitialMenuScreen extends ScreenAdapter {
         private Texture controlsTexture;
         private Stage stage;
         private final ParadigmasGame game;
+        private int continueGame;
 
 
         public InitialMenuScreen() {
             this.game = ParadigmasGame.getInstance();
+            this.continueGame = 0;
+        }
+
+        public InitialMenuScreen(int level) {
+            this.game = ParadigmasGame.getInstance();
+            this.continueGame = level;
         }
 
         public void show() {
@@ -70,6 +77,34 @@ public class InitialMenuScreen extends ScreenAdapter {
             });
             stage.addActor(play);
 
+            //ContinueGame button
+            controlsTexture = Assets.manager.get(Assets.Controls);
+            controlsPressTexture = Assets.manager.get(Assets.On_Controls);
+            ImageButton contGame = new ImageButton(
+                    new TextureRegionDrawable(new TextureRegion(controlsTexture)),
+                    new TextureRegionDrawable(new TextureRegion(controlsPressTexture)));
+            contGame.setPosition(ParadigmasGame.SCREEN_WIDTH/2 - controlsTexture.getWidth()/2, PLAY_BUTTON_Y-(PLAY_BUTTON_Y/2));
+
+            contGame.addListener(new ActorGestureListener() {
+                @Override
+                public void tap(InputEvent event, float x, float y, int count,
+                                int button) {
+                    super.tap(event, x, y, count, button);
+
+                    if(continueGame != 0) {
+                        Screen currentScreen = game.getScreen();
+
+                        game.setScreen(new GameScreen(continueGame));
+
+                        if (currentScreen != null) {
+                            currentScreen.dispose();
+                        }
+                    } else {
+                        ;
+                    }
+                }
+            });
+            stage.addActor(contGame);
 
             //controls Button
             controlsTexture = Assets.manager.get(Assets.Controls);
@@ -77,7 +112,7 @@ public class InitialMenuScreen extends ScreenAdapter {
             ImageButton controls = new ImageButton(
                     new TextureRegionDrawable(new TextureRegion(controlsTexture)),
                     new TextureRegionDrawable(new TextureRegion(controlsPressTexture)));
-            controls.setPosition(ParadigmasGame.SCREEN_WIDTH/2 - controlsTexture.getWidth()/2, ParadigmasGame.SCREEN_HEIGHT/6-50);
+            controls.setPosition(ParadigmasGame.SCREEN_WIDTH/2 - controlsTexture.getWidth()/2, PLAY_BUTTON_Y-(PLAY_BUTTON_Y));
 
             controls.addListener(new ActorGestureListener() {
                 @Override

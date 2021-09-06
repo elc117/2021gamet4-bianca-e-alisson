@@ -18,9 +18,8 @@ import com.paradigmas.game.ParadigmasGame;
 import com.paradigmas.game.resource.Assets;
 import com.paradigmas.game.tools.GdxUtils;
 
-public class LoseScreen extends ScreenAdapter {
+public class FinalScreen extends ScreenAdapter {
     private static final int PLAY_BUTTON_Y = ParadigmasGame.SCREEN_HEIGHT /5;
-
     private Texture backgroundTexture;
     private Texture skipTexture;
     private Texture skipPressTexture;
@@ -30,8 +29,7 @@ public class LoseScreen extends ScreenAdapter {
     private BitmapFont font;
     private final ParadigmasGame game;
 
-
-    public LoseScreen(int level) {
+    public FinalScreen(int level) {
         this.level = level;
         this.game = ParadigmasGame.getInstance();
     }
@@ -50,7 +48,8 @@ public class LoseScreen extends ScreenAdapter {
 
         /*game.backgroundAudioID = game.getAudioHandler().playBackGroundMusic();*/
 
-        //Retry Button
+        //RestartarGame Button
+        // TODO: trocar as variavel de textura
         skipTexture = Assets.manager.get(Assets.Start);
         skipPressTexture = Assets.manager.get(Assets.On_Start);
         ImageButton skip = new ImageButton(
@@ -65,7 +64,7 @@ public class LoseScreen extends ScreenAdapter {
 
                 Screen currentScreen = game.getScreen();
 
-                game.setScreen(new GameScreen(level));
+                game.setScreen(new InitialMenuScreen(level));
 
                 if (currentScreen != null) {
                     currentScreen.dispose();
@@ -73,31 +72,6 @@ public class LoseScreen extends ScreenAdapter {
             }
         });
         stage.addActor(skip);
-
-        //quit Button
-        // TODO: trocar as variavel de textura
-        skipTexture = Assets.manager.get(Assets.Skip);
-        skipPressTexture = Assets.manager.get(Assets.On_Skip);
-        ImageButton quit = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(skipTexture)),
-                new TextureRegionDrawable(new TextureRegion(skipPressTexture)));
-        quit.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - skipTexture.getWidth()/2), PLAY_BUTTON_Y-(PLAY_BUTTON_Y/2));
-
-        quit.addListener(new ActorGestureListener() {
-            @Override
-            public void tap(InputEvent event, float x, float y, int count, int button) {
-                super.tap(event, x, y, count, button);
-
-                Screen currentScreen = game.getScreen();
-
-                game.setScreen(new FinalScreen(level));
-
-                if (currentScreen != null) {
-                    currentScreen.dispose();
-                }
-            }
-        });
-        stage.addActor(quit);
     }
 
     public void resize(int width, int height) {

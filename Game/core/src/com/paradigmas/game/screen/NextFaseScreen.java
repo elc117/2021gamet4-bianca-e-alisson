@@ -29,13 +29,15 @@ public class NextFaseScreen extends ScreenAdapter {
     private Texture skipPressTexture;
 
     private int level;
+    private float tempRestante;
     private Stage stage;
     private BitmapFont font;
     private final ParadigmasGame game;
 
-    public NextFaseScreen(int level) {
+    public NextFaseScreen(int level, float tempRestante) {
         this.game = ParadigmasGame.getInstance();
         this.level = level;
+        this.tempRestante = tempRestante;
     }
 
     public void show() {
@@ -92,7 +94,7 @@ public class NextFaseScreen extends ScreenAdapter {
 
                 Screen currentScreen = game.getScreen();
 
-                game.setScreen(new GameScreen(level));
+                game.setScreen(new InitialMenuScreen());
 
                 if (currentScreen != null) {
                     currentScreen.dispose();
@@ -111,8 +113,8 @@ public class NextFaseScreen extends ScreenAdapter {
         stage.act(delta);
         stage.draw();
         stage.getBatch().begin();
-        font.draw(stage.getBatch(), "1.0.1",
-                (ParadigmasGame.SCREEN_WIDTH * .87f), (ParadigmasGame.SCREEN_HEIGHT * .95f));
+        font.draw(stage.getBatch(), "Tempo restante: " + ((int) tempRestante) /1000 + "s.",
+                (24), (ParadigmasGame.SCREEN_HEIGHT * .95f));
         stage.getBatch().end();
         //game.getAudioHandler().updateMusic();
     }

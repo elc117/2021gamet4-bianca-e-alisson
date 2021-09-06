@@ -45,7 +45,7 @@ public class MapsMakerSystem {
             case LEVEL_1:
                 mapa_level_1();
                 World.quantObjetivos = 5;
-                World.tempo = 67_000;
+                World.tempo = 70_000;
                 break;
 
             case LEVEL_2:
@@ -69,7 +69,7 @@ public class MapsMakerSystem {
             case LEVEL_5:
                 mapa_level_5();
                 World.quantObjetivos = 8;
-                World.tempo = 52_000;
+                World.tempo = 60_000;
                 break;
 
             case LEVEL_6:

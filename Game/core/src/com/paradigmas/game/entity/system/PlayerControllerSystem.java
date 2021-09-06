@@ -8,7 +8,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.paradigmas.game.ParadigmasGame;
 import com.paradigmas.game.entity.component.CollidableComponent;
 import com.paradigmas.game.entity.component.JumpComponent;
 import com.paradigmas.game.entity.component.PlayerComponent;
@@ -92,13 +91,6 @@ public class PlayerControllerSystem extends IteratingSystem {
 
         if (cJump.canJump && cCollidable.onGround /*|| cCollidable.onRightWall || cCollidable.onLeftWall)*/ && jump) {
             cRigidBody.velocity.y = cJump.jumpSpeed;
-        }
-
-        if (pause) {
-            ParadigmasGame.getInstance().pause();
-        } else {
-            ParadigmasGame.getInstance().resume();
-            //pause
         }
     }
 

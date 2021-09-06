@@ -41,7 +41,7 @@ public class GameScreen extends ScreenAdapter {
         world = new World(camera);
         world.regenerate(level);
 
-        finalTime = System.currentTimeMillis() + 30_000;
+        finalTime = System.currentTimeMillis() + World.tempo;
     }
 
     @Override

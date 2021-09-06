@@ -48,6 +48,7 @@ public class Assets {
 
     /// * OBJECTIVES
     @Asset public static final AssetDescriptor<Texture> Codigo_1 = new AssetDescriptor<>("Objectives/Codigo_1.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Coffe = new AssetDescriptor<>("Objectives/java_logo-coffe.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Potion = new AssetDescriptor<>("Objectives/potion.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Sleepy = new AssetDescriptor<>("Objectives/sleepy.png", Texture.class);
 

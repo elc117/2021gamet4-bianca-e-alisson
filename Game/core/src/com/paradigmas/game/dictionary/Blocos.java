@@ -31,6 +31,7 @@ public class Blocos
 
 
     public static final int Codigo_1_ID = ID++;
+    public static final int Coffe_ID = ID++;
     public static final int Potion_ID = ID++;
     public static final int Sleepy_ID = ID++;
 
@@ -54,6 +55,7 @@ public class Blocos
     public static final Bloco Wall_Mid_Right_1;
 
     public static final Bloco Codigo_1;
+    public static final Bloco Coffe;
     public static final Bloco Potion;
     public static final Bloco Sleepy;
 
@@ -112,7 +114,8 @@ public class Blocos
         Wall_Mid_Left_1 = register(Wall_Mid_Left_1_ID, new Bloco(Assets.manager.get(Assets.Wall_Mid_Left_1)));
 
         // OBJECTIVES
-        Codigo_1 = register(Codigo_1_ID, new BlocoCodigo(Assets.manager.get(Assets.Codigo_1)));
+        Codigo_1 = register(Codigo_1_ID, new Bloco(Assets.manager.get(Assets.Codigo_1)));
+        Coffe = register(Coffe_ID, new Bloco(Assets.manager.get(Assets.Coffe)));
         Potion = register(Potion_ID, new BlocoCodigo(Assets.manager.get(Assets.Potion)));
         Sleepy = register(Sleepy_ID, new BlocoCodigo(Assets.manager.get(Assets.Sleepy)));
 

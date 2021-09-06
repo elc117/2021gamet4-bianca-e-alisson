@@ -22,13 +22,15 @@ import net.namekdev.entity_tracker.EntityTracker;
 import net.namekdev.entity_tracker.ui.EntityTrackerMainWindow;
 
 public class World {
+
     private EntityTrackerMainWindow entityTrackerWindow;
-    private int[][][] map = new int[ParadigmasGame.SCREEN_WIDTH / 24][ParadigmasGame.SCREEN_HEIGHT / 24][2];
+    private int[][][] map = new int[ParadigmasGame.SCREEN_WIDTH / 24][(ParadigmasGame.SCREEN_HEIGHT / 24)+2][2];
     private final com.artemis.World artemisWorld;
     private final EntitiesFactory entitiesFactory;
     private final float gravity = -570;
     private final int player;
     public static int quantObjetivos;
+    public static long tempo;
 
     // construtor
     public World(OrthographicCamera camera) {
@@ -123,10 +125,6 @@ public class World {
 
     public int getHeight() {
         return map[0].length;
-    }
-
-    public int getLayer() {
-        return map[0][0].length;
     }
 
     public int getPlayer() {

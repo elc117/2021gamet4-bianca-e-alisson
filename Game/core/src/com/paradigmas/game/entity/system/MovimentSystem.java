@@ -6,7 +6,7 @@ import com.artemis.systems.IteratingSystem;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import com.paradigmas.game.bloco.BlocoCodigo;
+import com.paradigmas.game.bloco.Bloco;
 import com.paradigmas.game.dictionary.Blocos;
 import com.paradigmas.game.entity.component.CollidableComponent;
 import com.paradigmas.game.entity.component.PlayerComponent;
@@ -92,9 +92,9 @@ public class MovimentSystem extends IteratingSystem {
 
                     if (velocity.x > 0) {
                         // Colidindo com uma parede à direita
-                        BlocoCodigo bloco =  Blocos.getBlocoCodigoById(world.getMap()[x+1][y][1]);
+                        Bloco bloco =  Blocos.getBlocoById(world.getMap()[x+1][y][1]);
 
-                        if (bloco == Blocos.Codigo_1 || bloco == Blocos.COBBLESTONE) {
+                        if (bloco == Blocos.Codigo_1 || bloco == Blocos.Coffe) {
                             if (bloco == Blocos.Codigo_1) {
                                 World.quantObjetivos--;
                             } else {
@@ -108,9 +108,9 @@ public class MovimentSystem extends IteratingSystem {
                         }
                     } else {
                         // Colidindo com uma parede à esquerda
-                        BlocoCodigo bloco = Blocos.getBlocoCodigoById(world.getMap()[x-1][y][1]);
+                        Bloco bloco =  Blocos.getBlocoById(world.getMap()[x-1][y][1]);
 
-                        if (bloco == Blocos.Codigo_1 || bloco == Blocos.COBBLESTONE) {
+                        if (bloco == Blocos.Codigo_1 || bloco == Blocos.Coffe) {
                             if (bloco == Blocos.Codigo_1) {
                                 World.quantObjetivos--;
                             } else {
@@ -163,9 +163,9 @@ public class MovimentSystem extends IteratingSystem {
                     }
                     else {
                         // descendo
-                        BlocoCodigo bloco =  Blocos.getBlocoCodigoById(world.getMap()[x][y-1][1]);
+                        Bloco bloco =  Blocos.getBlocoById(world.getMap()[x][y-1][1]);
 
-                        if (bloco == Blocos.Codigo_1 || bloco == Blocos.COBBLESTONE) {
+                        if (bloco == Blocos.Codigo_1 || bloco == Blocos.Coffe) {
                             if (bloco == Blocos.Codigo_1) {
                                 World.quantObjetivos--;
                             } else {

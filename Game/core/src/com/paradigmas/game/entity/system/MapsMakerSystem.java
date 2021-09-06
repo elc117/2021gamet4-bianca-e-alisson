@@ -260,6 +260,8 @@ public class MapsMakerSystem {
 
         gera_PlataformaByCoord(MAX_X-(MAX_X-17), MAX_X-(MAX_X-19), MAX_Y-(MAX_Y-10), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
+                // TODO: CAFÉ
+        map[MAX_X-(MAX_X-20)][MAX_Y-(MAX_Y-14)][1] = Blocos.getIdByBloco(Blocos.Coffe);
 
         // terceiro nivel
         gera_PlataformaByCoord(MAX_X-(MAX_X-2), MAX_X-(MAX_X-3), MAX_Y-(MAX_Y-18), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
@@ -343,6 +345,8 @@ public class MapsMakerSystem {
         gera_ParedeByCoord(MAX_Y-(MAX_Y-9), MAX_Y-(MAX_Y-11), MAX_X-(MAX_X-29), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
         map[MAX_X-(MAX_X-32)][MAX_Y-(MAX_Y-9)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
+                // TODO: CAFÉ
+        map[MAX_X-(MAX_X-1)][MAX_Y-(MAX_Y-9)][1] = Blocos.getIdByBloco(Blocos.Coffe);
 
         // quarto nivel
         gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-2), MAX_Y-(MAX_Y-18), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
@@ -392,6 +396,8 @@ public class MapsMakerSystem {
         gera_PlataformaByCoord(MAX_X-(MAX_X-22), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-7), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
         map[MAX_X-(MAX_X-30)][MAX_Y-(MAX_Y-4)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
+                // TODO: CAFÉ
+        map[MAX_X-(MAX_X-33)][MAX_Y-(MAX_Y-4)][1] = Blocos.getIdByBloco(Blocos.Coffe);
 
         gera_PlataformaByCoord(MAX_X-(MAX_X-17), MAX_X-(MAX_X-17), MAX_Y-(MAX_Y-10), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
         gera_PlataformaByCoord(MAX_X-(MAX_X-15), MAX_X-(MAX_X-15), MAX_Y-(MAX_Y-12), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);

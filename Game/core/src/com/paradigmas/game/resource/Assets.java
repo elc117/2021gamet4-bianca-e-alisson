@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.Texture;
 import net.dermetfan.gdx.assets.AnnotationAssetManager;
 
 public class Assets {
-
     public static final AnnotationAssetManager manager = new AnnotationAssetManager(new InternalFileHandleResolver());
 
     /// * BLOCOS:
@@ -17,7 +16,6 @@ public class Assets {
     @Asset public static final AssetDescriptor<Texture> Ground_Left_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Ground_Mid_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Ground_Right_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
-
 
     // Preenchimento
     @Asset public static final AssetDescriptor<Texture> Mid_1 = new AssetDescriptor<>("Mapa_Texturas/teste.png", Texture.class);
@@ -61,7 +59,7 @@ public class Assets {
     @Asset public static final AssetDescriptor<Texture> Idle_right_000 = new AssetDescriptor<>("Personagem_principal_H/Idle_right_000.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Idle_left_000 = new AssetDescriptor<>("Personagem_principal_H/Idle_left_000.png", Texture.class);
 
-    // RUN
+    /*// RUN
     @Asset public static final AssetDescriptor<Texture> Run__000 = new AssetDescriptor<>("Personagem_principal_H/Run__000.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Run__001 = new AssetDescriptor<>("Personagem_principal_H/Run__001.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Run__002 = new AssetDescriptor<>("Personagem_principal_H/Run__002.png", Texture.class);
@@ -72,17 +70,25 @@ public class Assets {
     @Asset public static final AssetDescriptor<Texture> Run__007 = new AssetDescriptor<>("Personagem_principal_H/Run__007.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Run__008 = new AssetDescriptor<>("Personagem_principal_H/Run__008.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Run__009 = new AssetDescriptor<>("Personagem_principal_H/Run__009.png", Texture.class);
+    */
+
 
     /// * BUTTONS
     // MENU
     @Asset public static final AssetDescriptor<Texture> menu_icon_1 = new AssetDescriptor<>("Mapa_Texturas/menu_icon_1.png", Texture.class);
 
+<<<<<<< Updated upstream
     @Asset public static final AssetDescriptor<Texture> Start = new AssetDescriptor<>("buttons/start2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> On_Start = new AssetDescriptor<>("buttons/On_Start2.png", Texture.class);
+=======
+    /// * BUTTONS
+    @Asset public static final AssetDescriptor<Texture> Start = new AssetDescriptor<>("buttons/start2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_Start = new AssetDescriptor<>("buttons/on_start2.png", Texture.class);
+>>>>>>> Stashed changes
     @Asset public static final AssetDescriptor<Texture> Controls = new AssetDescriptor<>("buttons/controls2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> On_Controls = new AssetDescriptor<>("buttons/on_controls2.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> NextFase = new AssetDescriptor<>("buttons/skip2.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> On_NextFase = new AssetDescriptor<>("buttons/on_skip2.png", Texture.class);
+    //@Asset public static final AssetDescriptor<Texture> NextFase = new AssetDescriptor<>("buttons/skip2.png", Texture.class);
+    //@Asset public static final AssetDescriptor<Texture> On_NextFase = new AssetDescriptor<>("buttons/on_skip2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Retry = new AssetDescriptor<>("buttons/retry2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> On_Retry = new AssetDescriptor<>("buttons/on_retry2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Continue = new AssetDescriptor<>("buttons/continue2.png", Texture.class);
@@ -91,8 +97,8 @@ public class Assets {
     @Asset public static final AssetDescriptor<Texture> On_next = new AssetDescriptor<>("buttons/on_next2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> quit = new AssetDescriptor<>("buttons/quit2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> On_quit = new AssetDescriptor<>("buttons/on_quit2.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> retry = new AssetDescriptor<>("buttons/retry2.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> On_retry = new AssetDescriptor<>("buttons/on_retry2.png", Texture.class);
+    //@Asset public static final AssetDescriptor<Texture> retry = new AssetDescriptor<>("buttons/retry2.png", Texture.class);
+    //@Asset public static final AssetDescriptor<Texture> On_retry = new AssetDescriptor<>("buttons/on_retry2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> back = new AssetDescriptor<>("buttons/back2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> On_back = new AssetDescriptor<>("buttons/on_back2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> menu = new AssetDescriptor<>("buttons/menu2.png", Texture.class);
@@ -100,7 +106,6 @@ public class Assets {
 
     public static void load() {
         Texture.setAssetManager(manager);
-
         manager.load(Assets.class);
     }
 }

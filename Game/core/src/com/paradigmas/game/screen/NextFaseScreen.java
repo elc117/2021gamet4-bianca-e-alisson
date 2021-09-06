@@ -27,6 +27,8 @@ public class NextFaseScreen extends ScreenAdapter {
     private Texture backgroundTexture;
     private Texture nextFaseTexture;
     private Texture nextFasePressTexture;
+    private Texture quitTexture;
+    private Texture quitPressTexture;
 
     private int level;
     private float tempRestante;
@@ -79,12 +81,12 @@ public class NextFaseScreen extends ScreenAdapter {
 
         //quit Button
         // TODO: trocar as variavel de textura
-        skipTexture = Assets.manager.get(Assets.Skip);
-        skipPressTexture = Assets.manager.get(Assets.On_Skip);
+        quitTexture = Assets.manager.get(Assets.Start);
+        quitPressTexture = Assets.manager.get(Assets.Start);
         ImageButton quit = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(skipTexture)),
-                new TextureRegionDrawable(new TextureRegion(skipPressTexture)));
-        quit.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - skipTexture.getWidth()/2), PLAY_BUTTON_Y-(PLAY_BUTTON_Y/2));
+                new TextureRegionDrawable(new TextureRegion(quitTexture)),
+                new TextureRegionDrawable(new TextureRegion(quitPressTexture)));
+        quit.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - quitTexture.getWidth()/2), PLAY_BUTTON_Y-(PLAY_BUTTON_Y/2));
 
         quit.addListener(new ActorGestureListener() {
             @Override
@@ -93,7 +95,7 @@ public class NextFaseScreen extends ScreenAdapter {
 
                 Screen currentScreen = game.getScreen();
 
-                game.setScreen(new InitialMenuScreen());
+                game.setScreen(new FinalScreen(level-1));
 
                 if (currentScreen != null) {
                     currentScreen.dispose();

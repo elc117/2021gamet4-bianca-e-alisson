@@ -24,6 +24,8 @@ public class LoseScreen extends ScreenAdapter {
     private Texture backgroundTexture;
     private Texture retryTexture;
     private Texture retryPressTexture;
+    private Texture quitTexture;
+    private Texture quitPressTexture;
 
     private int level;
     private Stage stage;
@@ -51,14 +53,6 @@ public class LoseScreen extends ScreenAdapter {
         /*game.backgroundAudioID = game.getAudioHandler().playBackGroundMusic();*/
 
         //Retry Button
-        skipTexture = Assets.manager.get(Assets.Start);
-        skipPressTexture = Assets.manager.get(Assets.On_Start);
-        ImageButton skip = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(skipTexture)),
-                new TextureRegionDrawable(new TextureRegion(skipPressTexture)));
-        skip.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - skipTexture.getWidth()/2), PLAY_BUTTON_Y);
-
-        skip.addListener(new ActorGestureListener() {
         retryTexture = Assets.manager.get(Assets.Retry);
         retryPressTexture = Assets.manager.get(Assets.On_Retry);
         ImageButton retry = new ImageButton(
@@ -84,12 +78,12 @@ public class LoseScreen extends ScreenAdapter {
 
         //quit Button
         // TODO: trocar as variavel de textura
-        skipTexture = Assets.manager.get(Assets.Skip);
-        skipPressTexture = Assets.manager.get(Assets.On_Skip);
+        quitTexture = Assets.manager.get(Assets.Start);
+        quitPressTexture = Assets.manager.get(Assets.Start);
         ImageButton quit = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(skipTexture)),
-                new TextureRegionDrawable(new TextureRegion(skipPressTexture)));
-        quit.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - skipTexture.getWidth()/2), PLAY_BUTTON_Y-(PLAY_BUTTON_Y/2));
+                new TextureRegionDrawable(new TextureRegion(quitTexture)),
+                new TextureRegionDrawable(new TextureRegion(quitPressTexture)));
+        quit.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - quitTexture.getWidth()/2), PLAY_BUTTON_Y-(PLAY_BUTTON_Y/2));
 
         quit.addListener(new ActorGestureListener() {
             @Override

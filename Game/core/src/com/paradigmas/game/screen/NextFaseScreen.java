@@ -23,15 +23,13 @@ import com.paradigmas.game.tools.GdxUtils;
 public class NextFaseScreen extends ScreenAdapter {
 
     private static final int PLAY_BUTTON_Y = ParadigmasGame.SCREEN_HEIGHT /5;
-
     private Texture backgroundTexture;
     private Texture nextFaseTexture;
     private Texture nextFasePressTexture;
     private Texture quitTexture;
     private Texture quitPressTexture;
-
-    private int level;
     private float tempRestante;
+    private int level;
     private Stage stage;
     private BitmapFont font;
     private final ParadigmasGame game;
@@ -70,7 +68,7 @@ public class NextFaseScreen extends ScreenAdapter {
                 super.tap(event, x, y, count, button);
                 Screen currentScreen = game.getScreen();
 
-                game.setScreen(new GameScreen(level));
+                game.setScreen(new PreFaseScreen(level));
 
                 if (currentScreen != null) {
                     currentScreen.dispose();

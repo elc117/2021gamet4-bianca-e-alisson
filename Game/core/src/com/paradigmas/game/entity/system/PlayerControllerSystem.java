@@ -129,7 +129,7 @@ public class PlayerControllerSystem extends IteratingSystem {
 
             /// skils/buffs/extras
             // Z
-            if (Gdx.input.isKeyJustPressed(Input.Keys.Z)) {
+            if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
                 coffe = true;
             }
 

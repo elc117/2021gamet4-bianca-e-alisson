@@ -73,7 +73,7 @@ project(":desktop") {
 
     dependencies {
         implementation project(":core")
-        api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
         api "com.badlogicgames.gdx-controllers:gdx-controllers-desktop:$gdxControllersVersion"
@@ -107,7 +107,7 @@ project(":core") {
         api "net.onedaybeard.artemis:artemis-odb:$artemisVersion"
         api "net.namekdev.entity_tracker:artemis-entity-tracker:$artemisEntityTrackerVersion"
         api "net.namekdev.entity_tracker:artemis-entity-tracker-gui:$artemisEntityTrackerVersion"
-        compile "net.dermetfan.libgdx-utils:libgdx-utils:$gdxUtilsVersion"
+        api "net.dermetfan.libgdx-utils:libgdx-utils:$gdxUtilsVersion"
     }
 
     idea {

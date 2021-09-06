@@ -8,12 +8,10 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.paradigmas.game.ParadigmasGame;
 import com.paradigmas.game.resource.Assets;
-import com.paradigmas.game.world.World;
 
 public class PreloadScreen extends ScreenAdapter {
 
     private OrthographicCamera camera;
-    private World world;
     private ParadigmasGame game;
     private ShapeRenderer shapeRenderer;
     private float progress = 0;

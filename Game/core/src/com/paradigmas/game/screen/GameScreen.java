@@ -11,8 +11,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
 import com.paradigmas.game.ParadigmasGame;
 import com.paradigmas.game.entity.component.RigidBodyComponent;
 import com.paradigmas.game.entity.component.TransformComponent;
@@ -28,7 +26,6 @@ public class GameScreen extends ScreenAdapter {
     private int level;
     private boolean controle;
     SpriteBatch batch;
-    Viewport view;
 
     public GameScreen(int level) {
         super();
@@ -54,7 +51,6 @@ public class GameScreen extends ScreenAdapter {
         world.regenerate(level);
 
         finalTime = System.currentTimeMillis() + World.tempo;
-        view = new FitViewport(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT, camera);
     }
 
     @Override
@@ -94,7 +90,7 @@ public class GameScreen extends ScreenAdapter {
                 currentScreen.dispose();
             }
         }
-        if (World.quantObjetivos == 0 && level <= LEVEL_MAX) {
+        if (World.quantObjetivos == 0 && level < LEVEL_MAX) {
             World.quantObjetivos = 1;
             level++;
 
@@ -107,7 +103,7 @@ public class GameScreen extends ScreenAdapter {
             if (currentScreen != null) {
                 currentScreen.dispose();
             }
-        } else if (level > LEVEL_MAX) {
+        } else if (level >= LEVEL_MAX) {
             game.setScreen(new FinalScreen(level));
             if (currentScreen != null) {
                 currentScreen.dispose();

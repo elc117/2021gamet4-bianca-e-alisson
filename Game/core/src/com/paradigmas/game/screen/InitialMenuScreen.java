@@ -69,7 +69,7 @@ public class InitialMenuScreen extends ScreenAdapter {
 
                         Screen currentScreen = game.getScreen();
 
-                        game.setScreen(new GameScreen(LVL1-2));
+                        game.setScreen(new PreFaseScreen(LVL1-2));
 
                         if (currentScreen != null) {
                             currentScreen.dispose();

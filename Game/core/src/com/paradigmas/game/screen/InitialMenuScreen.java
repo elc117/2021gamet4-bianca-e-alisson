@@ -58,7 +58,7 @@ public class InitialMenuScreen extends ScreenAdapter {
             ImageButton play = new ImageButton(
                     new TextureRegionDrawable(new TextureRegion(playTexture)),
                     new TextureRegionDrawable(new TextureRegion(playPressTexture)));
-            play.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - playTexture.getWidth()/2), PLAY_BUTTON_Y);
+            play.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - playTexture.getWidth()/2), PLAY_BUTTON_Y+PLAY_BUTTON_Y/2);
 
             play.addListener(new ActorGestureListener() {
                 @Override
@@ -78,12 +78,12 @@ public class InitialMenuScreen extends ScreenAdapter {
             stage.addActor(play);
 
             //ContinueGame button
-            controlsTexture = Assets.manager.get(Assets.Controls);
-            controlsPressTexture = Assets.manager.get(Assets.On_Controls);
+            controlsTexture = Assets.manager.get(Assets.Continue);
+            controlsPressTexture = Assets.manager.get(Assets.On_Continue);
             ImageButton contGame = new ImageButton(
                     new TextureRegionDrawable(new TextureRegion(controlsTexture)),
                     new TextureRegionDrawable(new TextureRegion(controlsPressTexture)));
-            contGame.setPosition(ParadigmasGame.SCREEN_WIDTH/2 - controlsTexture.getWidth()/2, PLAY_BUTTON_Y-(PLAY_BUTTON_Y/2));
+            contGame.setPosition(ParadigmasGame.SCREEN_WIDTH/2 - controlsTexture.getWidth()/2, PLAY_BUTTON_Y);
 
             contGame.addListener(new ActorGestureListener() {
                 @Override
@@ -112,7 +112,7 @@ public class InitialMenuScreen extends ScreenAdapter {
             ImageButton controls = new ImageButton(
                     new TextureRegionDrawable(new TextureRegion(controlsTexture)),
                     new TextureRegionDrawable(new TextureRegion(controlsPressTexture)));
-            controls.setPosition(ParadigmasGame.SCREEN_WIDTH/2 - controlsTexture.getWidth()/2, PLAY_BUTTON_Y-(PLAY_BUTTON_Y));
+            controls.setPosition(ParadigmasGame.SCREEN_WIDTH/2 - controlsTexture.getWidth()/2, PLAY_BUTTON_Y-(PLAY_BUTTON_Y/2));
 
             controls.addListener(new ActorGestureListener() {
                 @Override
@@ -133,6 +133,7 @@ public class InitialMenuScreen extends ScreenAdapter {
 
             Image image = new Image(Assets.manager.get(Assets.menu_icon_1));
             image.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/2 - playTexture.getWidth()/2)-75, PLAY_BUTTON_Y*2+75);
+            //image.setColor(Color.BLUE);
 
             stage.addActor(image);
         }

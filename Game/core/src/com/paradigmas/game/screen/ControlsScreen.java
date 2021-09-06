@@ -32,17 +32,17 @@ public class ControlsScreen extends ScreenAdapter {
         stage = new Stage(new FitViewport(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT));
         Gdx.input.setInputProcessor(stage);
 
-        backgroundTexture = Assets.manager.get(Assets.menu_background_002);
+        backgroundTexture = Assets.manager.get(Assets.comandos_background_002);
         Image background = new Image(backgroundTexture);
         stage.addActor(background);
 
         //return Button
-        returnTexture = Assets.manager.get(Assets.Controls);
-        returnPressTexture = Assets.manager.get(Assets.On_Controls);
+        returnTexture = Assets.manager.get(Assets.back);
+        returnPressTexture = Assets.manager.get(Assets.On_back);
         ImageButton returnToMenu = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(returnTexture)),
                 new TextureRegionDrawable(new TextureRegion(returnPressTexture)));
-        returnToMenu.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/3 - returnTexture.getWidth()/2), ParadigmasGame.SCREEN_HEIGHT /15);
+        returnToMenu.setPosition((float)(ParadigmasGame.SCREEN_WIDTH/3 - returnTexture.getWidth()/2), ParadigmasGame.SCREEN_HEIGHT /11 - (returnTexture.getHeight()/2));
 
         returnToMenu.addListener(new ActorGestureListener() {
             @Override
@@ -67,7 +67,7 @@ public class ControlsScreen extends ScreenAdapter {
         ImageButton play = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(playTexture)),
                 new TextureRegionDrawable(new TextureRegion(playPressTexture)));
-        play.setPosition((float)((ParadigmasGame.SCREEN_WIDTH/3)*2 - returnTexture.getWidth()/2), ParadigmasGame.SCREEN_HEIGHT /15);
+        play.setPosition((float)((ParadigmasGame.SCREEN_WIDTH/3)*2 - returnTexture.getWidth()/2), ParadigmasGame.SCREEN_HEIGHT /11 - (playTexture.getHeight()/2));
 
         play.addListener(new ActorGestureListener() {
             @Override

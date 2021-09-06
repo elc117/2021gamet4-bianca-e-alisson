@@ -29,7 +29,6 @@ public class Blocos
     public static final int Wall_Mid_Left_1_ID = ID++;
     public static final int Wall_Mid_Right_1_ID = ID++;
 
-
     public static final int Codigo_1_ID = ID++;
     public static final int Coffe_ID = ID++;
     public static final int Potion_ID = ID++;
@@ -56,8 +55,6 @@ public class Blocos
 
     public static final Bloco Codigo_1;
     public static final Bloco Coffe;
-    public static final Bloco Potion;
-    public static final Bloco Sleepy;
 
     // O mapa é uma matriz de ID's, passe uma posição da matriz para saber qual bloco está lá
     public static Bloco getBlocoById(int id)
@@ -116,9 +113,5 @@ public class Blocos
         // OBJECTIVES
         Codigo_1 = register(Codigo_1_ID, new Bloco(Assets.manager.get(Assets.Codigo_1)));
         Coffe = register(Coffe_ID, new Bloco(Assets.manager.get(Assets.Coffe)));
-        Potion = register(Potion_ID, new BlocoCodigo(Assets.manager.get(Assets.Potion)));
-        Sleepy = register(Sleepy_ID, new BlocoCodigo(Assets.manager.get(Assets.Sleepy)));
-
-
     }
 }

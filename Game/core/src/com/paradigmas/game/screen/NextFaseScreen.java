@@ -57,8 +57,8 @@ public class NextFaseScreen extends ScreenAdapter {
         /*game.backgroundAudioID = game.getAudioHandler().playBackGroundMusic();*/
 
         //Next Button
-        nextFaseTexture = Assets.manager.get(Assets.NextFase);
-        nextFasePressTexture = Assets.manager.get(Assets.On_NextFase);
+        nextFaseTexture = Assets.manager.get(Assets.next);
+        nextFasePressTexture = Assets.manager.get(Assets.On_next);
         ImageButton nextFase = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(nextFaseTexture)),
                 new TextureRegionDrawable(new TextureRegion(nextFasePressTexture)));
@@ -81,8 +81,8 @@ public class NextFaseScreen extends ScreenAdapter {
 
         //quit Button
         // TODO: trocar as variavel de textura
-        quitTexture = Assets.manager.get(Assets.Start);
-        quitPressTexture = Assets.manager.get(Assets.Start);
+        quitTexture = Assets.manager.get(Assets.quit);
+        quitPressTexture = Assets.manager.get(Assets.On_quit);
         ImageButton quit = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(quitTexture)),
                 new TextureRegionDrawable(new TextureRegion(quitPressTexture)));
@@ -95,7 +95,7 @@ public class NextFaseScreen extends ScreenAdapter {
 
                 Screen currentScreen = game.getScreen();
 
-                game.setScreen(new FinalScreen(level-1));
+                game.setScreen(new InitialMenuScreen(level-1));
 
                 if (currentScreen != null) {
                     currentScreen.dispose();

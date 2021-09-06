@@ -21,6 +21,9 @@ import com.paradigmas.game.entity.system.TileRenderSystem;
 import net.namekdev.entity_tracker.EntityTracker;
 import net.namekdev.entity_tracker.ui.EntityTrackerMainWindow;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+
 public class World {
 
     private EntityTrackerMainWindow entityTrackerWindow;
@@ -31,6 +34,7 @@ public class World {
     private final int player;
     public static int quantObjetivos;
     public static long tempo;
+    Graphics2D graphic;
 
     // construtor
     public World(OrthographicCamera camera) {
@@ -54,6 +58,12 @@ public class World {
 
         entitiesFactory = new EntitiesFactory();
         artemisWorld.inject(entitiesFactory);
+
+        BufferedImage image = new BufferedImage(50, 50, BufferedImage.TYPE_INT_RGB);
+        graphic = image.createGraphics();
+
+
+        //public void paint(Graphics g) { Graphics2D g2d = (Graphics2D)g.create(); g2d.draw(image,x,y,null); g2d.dispose(); }
 
         // TODO: definir um lugar certo para o spawn do personagem
         player = entitiesFactory.createPlayer(artemisWorld, 2 * Bloco.TILE_SIZE, 6 * Bloco.TILE_SIZE); // getHeight()

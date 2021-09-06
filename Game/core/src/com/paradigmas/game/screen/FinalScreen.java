@@ -38,7 +38,7 @@ public class FinalScreen extends ScreenAdapter {
         stage = new Stage(new FitViewport(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT));
         Gdx.input.setInputProcessor(stage);
 
-        backgroundTexture = Assets.manager.get(Assets.nextfase_background_001);
+        backgroundTexture = Assets.manager.get(Assets.final_background_001);
         Image background = new Image(backgroundTexture);
         stage.addActor(background);
 
@@ -50,8 +50,8 @@ public class FinalScreen extends ScreenAdapter {
 
         //RestartarGame Button
         // TODO: trocar as variavel de textura
-        skipTexture = Assets.manager.get(Assets.Start);
-        skipPressTexture = Assets.manager.get(Assets.On_Start);
+        skipTexture = Assets.manager.get(Assets.menu_icon_1);
+        skipPressTexture = Assets.manager.get(Assets.menu);
         ImageButton skip = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(skipTexture)),
                 new TextureRegionDrawable(new TextureRegion(skipPressTexture)));
@@ -64,7 +64,7 @@ public class FinalScreen extends ScreenAdapter {
 
                 Screen currentScreen = game.getScreen();
 
-                game.setScreen(new InitialMenuScreen(level));
+                game.setScreen(new InitialMenuScreen(level-1));
 
                 if (currentScreen != null) {
                     currentScreen.dispose();

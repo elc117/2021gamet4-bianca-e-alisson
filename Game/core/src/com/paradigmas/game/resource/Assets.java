@@ -34,6 +34,8 @@ public class Assets {
     /// * BackGround
     // menu
     @Asset public static final AssetDescriptor<Texture> menu_background_002 = new AssetDescriptor<>("Mapa_Texturas/menu_background_002.jpg", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> comandos_background_002 = new AssetDescriptor<>("Mapa_Texturas/comandos_background.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> final_background_001 = new AssetDescriptor<>("Mapa_Texturas/final_background_001.png", Texture.class);
 
     // next fase
     @Asset public static final AssetDescriptor<Texture> nextfase_background_001 = new AssetDescriptor<>("Mapa_Texturas/nextfase_background_001.png", Texture.class);
@@ -49,8 +51,7 @@ public class Assets {
     /// * OBJECTIVES
     @Asset public static final AssetDescriptor<Texture> Codigo_1 = new AssetDescriptor<>("Objectives/Codigo_1.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Coffe = new AssetDescriptor<>("Objectives/java_logo-coffe.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> Potion = new AssetDescriptor<>("Objectives/potion.png", Texture.class);
-    @Asset public static final AssetDescriptor<Texture> Sleepy = new AssetDescriptor<>("Objectives/sleepy.png", Texture.class);
+
 
     /// * ENTIDADES:
     /** TODO: MUDAR O TAMANHO DO PERSONAGEM E FAZER A ANIMAÇÃO DA MOVIMENTAÇÃO*/
@@ -85,6 +86,18 @@ public class Assets {
     @Asset public static final AssetDescriptor<Texture> On_NextFase = new AssetDescriptor<>("buttons/on_skip2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> Retry = new AssetDescriptor<>("buttons/retry2.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> On_Retry = new AssetDescriptor<>("buttons/on_retry2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> Continue = new AssetDescriptor<>("buttons/continue2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_Continue = new AssetDescriptor<>("buttons/on_continue2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> next = new AssetDescriptor<>("buttons/next2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_next = new AssetDescriptor<>("buttons/on_next2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> quit = new AssetDescriptor<>("buttons/quit2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_quit = new AssetDescriptor<>("buttons/on_quit2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> retry = new AssetDescriptor<>("buttons/retry2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_retry = new AssetDescriptor<>("buttons/on_retry2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> back = new AssetDescriptor<>("buttons/back2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_back = new AssetDescriptor<>("buttons/on_back2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> menu = new AssetDescriptor<>("buttons/menu2.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> On_menu = new AssetDescriptor<>("buttons/on_menu2.png", Texture.class);
 
     public static void load() {
         Texture.setAssetManager(manager);

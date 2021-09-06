@@ -45,7 +45,7 @@ public class MapsMakerSystem {
             case LEVEL_1:
                 mapa_level_1();
                 World.quantObjetivos = 5;
-                World.tempo = 90_000;
+                World.tempo = 10_000;
                 break;
 
             case LEVEL_2:
@@ -283,19 +283,6 @@ public class MapsMakerSystem {
     }
 
     private void mapa_level_3() {
-        // plataforma (1-10, 3) -> (início-fim; altura)
-        gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-10), MAX_Y-(MAX_Y-3), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Ground_Right_1);
-
-        // parede (1-3, 11) -> (base-fim; posição em x)
-        gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_X-(MAX_X-3), MAX_X-(MAX_X-11), Blocos.Ground_Right_1, Blocos.Wall_Mid_Right_1);
-
-        map[9][4][1] = Blocos.getIdByBloco(Blocos.COBBLESTONE);
-        map[16][4][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
-        map[20][4][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
-        map[11][4][1] = Blocos.getIdByBloco(Blocos.COBBLESTONE);
-        map[3][7][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
-        //map[16][7][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
-
         // primeiro nivel
         gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-14), MAX_Y-(MAX_Y-6), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
         gera_PlataformaByCoord(MAX_X-(MAX_X-14), MAX_X-(MAX_X-19), MAX_Y-(MAX_Y-3), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);

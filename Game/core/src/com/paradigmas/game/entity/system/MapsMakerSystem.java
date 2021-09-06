@@ -45,37 +45,37 @@ public class MapsMakerSystem {
             case LEVEL_1:
                 mapa_level_1();
                 World.quantObjetivos = 5;
-                World.tempo = 10_000;
+                World.tempo = 67_000;
                 break;
 
             case LEVEL_2:
                 mapa_level_2();
                 World.quantObjetivos = 6;
-                World.tempo = 90_000;
+                World.tempo = 55_000;
                 break;
 
             case LEVEL_3:
                 mapa_level_3();
                 World.quantObjetivos = 3;
-                World.tempo = 90_000;
+                World.tempo = 40_000;
                 break;
 
             case LEVEL_4:
                 mapa_level_4();
                 World.quantObjetivos = 7;
-                World.tempo = 90_000;
+                World.tempo = 55_000;
                 break;
 
             case LEVEL_5:
                 mapa_level_5();
                 World.quantObjetivos = 8;
-                World.tempo = 90_000;
+                World.tempo = 52_000;
                 break;
 
             case LEVEL_6:
                 mapa_level_6();
                 World.quantObjetivos = 3;
-                World.tempo = 90_000;
+                World.tempo = 40_000;
                 break;
         }
 

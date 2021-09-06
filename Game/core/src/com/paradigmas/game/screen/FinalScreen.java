@@ -50,8 +50,8 @@ public class FinalScreen extends ScreenAdapter {
 
         //RestartarGame Button
         // TODO: trocar as variavel de textura
-        skipTexture = Assets.manager.get(Assets.menu_icon_1);
-        skipPressTexture = Assets.manager.get(Assets.menu);
+        skipTexture = Assets.manager.get(Assets.menu);
+        skipPressTexture = Assets.manager.get(Assets.On_menu);
         ImageButton skip = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(skipTexture)),
                 new TextureRegionDrawable(new TextureRegion(skipPressTexture)));

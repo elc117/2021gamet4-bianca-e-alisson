@@ -87,7 +87,7 @@ public class GameScreen extends ScreenAdapter {
             if (currentScreen != null) {
                 currentScreen.dispose();
             }
-        } else if (level >= LEVEL_MAX) {
+        } else if (level > LEVEL_MAX) {
             game.setScreen(new InitialMenuScreen());
             if (currentScreen != null) {
                 currentScreen.dispose();

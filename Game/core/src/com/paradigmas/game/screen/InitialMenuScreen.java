@@ -22,6 +22,7 @@ public class InitialMenuScreen extends ScreenAdapter {
 
         private static final int PLAY_BUTTON_Y = ParadigmasGame.SCREEN_HEIGHT /5;
 
+        private final int LVL1 = 1;
         private Texture backgroundTexture;
         private Texture playTexture;
         private Texture playPressTexture;
@@ -68,7 +69,7 @@ public class InitialMenuScreen extends ScreenAdapter {
 
                         Screen currentScreen = game.getScreen();
 
-                        game.setScreen(new GameScreen(1));
+                        game.setScreen(new GameScreen(LVL1-2));
 
                         if (currentScreen != null) {
                             currentScreen.dispose();

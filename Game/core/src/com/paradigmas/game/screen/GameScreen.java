@@ -26,6 +26,7 @@ public class GameScreen extends ScreenAdapter {
     private long finalTime;
     private World world;
     private int level;
+    private boolean controle;
     SpriteBatch batch;
     Viewport view;
 
@@ -33,6 +34,13 @@ public class GameScreen extends ScreenAdapter {
         super();
         this.game = ParadigmasGame.getInstance();
         this.level = level;
+        if(level == -1) {
+            this.level = 1;
+            controle = true;
+        }
+        else {
+            controle = false;
+        }
     }
 
     @Override
@@ -79,6 +87,13 @@ public class GameScreen extends ScreenAdapter {
         long currentTime = System.currentTimeMillis();
 
         Screen currentScreen = game.getScreen();
+        if(controle){
+            game.setScreen(new GameScreen(level));
+            controle = false;
+            if (currentScreen != null) {
+                currentScreen.dispose();
+            }
+        }
         if (World.quantObjetivos == 0 && level <= LEVEL_MAX) {
             World.quantObjetivos = 1;
             level++;

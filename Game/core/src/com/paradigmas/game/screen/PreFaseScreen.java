@@ -46,12 +46,12 @@ public class PreFaseScreen extends ScreenAdapter {
         stage = new Stage(new FitViewport(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT));
         Gdx.input.setInputProcessor(stage);
 
-        backgroundTexture = Assets.manager.get(Assets.comandos_background_002);
+        backgroundTexture = Assets.manager.get(Assets.base_background);
         Image background = new Image(backgroundTexture);
         stage.addActor(background);
 
         font = new BitmapFont(false);
-        font.setColor(Color.DARK_GRAY);
+        font.setColor(Color.WHITE);
         font.getData().setScale(2f);
 
         //Next Button

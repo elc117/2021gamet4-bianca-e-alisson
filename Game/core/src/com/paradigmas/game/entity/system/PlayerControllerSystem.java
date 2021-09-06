@@ -101,7 +101,6 @@ public class PlayerControllerSystem extends IteratingSystem {
 
                 /// Movimentação básica:
                 // W
-                case Input.Keys.SPACE:
                 case Input.Keys.UP:
                 case Input.Keys.W:
                     jump = true;
@@ -146,7 +145,6 @@ public class PlayerControllerSystem extends IteratingSystem {
             switch (keycode) {
 
                 // W
-                case Input.Keys.SPACE:
                 case Input.Keys.UP:
                 case Input.Keys.W:
                     jump = false;

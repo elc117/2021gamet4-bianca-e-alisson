@@ -45,7 +45,7 @@ public class MapsMakerSystem {
             case LEVEL_1:
                 mapa_level_1();
                 World.quantObjetivos = 5;
-                World.tempo = 10_000;
+                World.tempo = 90_000;
                 break;
 
             case LEVEL_2:
@@ -166,10 +166,6 @@ public class MapsMakerSystem {
         map[MAX_X-2][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
         gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-1), MAX_Y-(MAX_Y-3), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
-                // sleepy
-        map[MAX_X-(MAX_X-4)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
-        map[MAX_X-(MAX_X-17)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
-        map[MAX_X-(MAX_X-32)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
 
         // segundo nivel
         gera_PlataformaByCoord(MAX_X-(MAX_X-3), MAX_X-1, MAX_Y-(MAX_Y-4), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
@@ -343,17 +339,11 @@ public class MapsMakerSystem {
         gera_ParedeByCoord(MAX_Y-(MAX_Y-1), MAX_Y-(MAX_Y-2), MAX_X-(MAX_X-31), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
         map[MAX_X-(MAX_X-33)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
-        // sleepy
-        map[MAX_X-(MAX_X-18)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
-        map[MAX_X-(MAX_X-10)][MAX_Y-(MAX_Y-3)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
-
         // segundo nivel
         gera_PlataformaByCoord(MAX_X-(MAX_X-7), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-8), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
 
         map[MAX_X-(MAX_X-31)][MAX_Y-(MAX_Y-6)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
-        // sleepy
-        map[MAX_X-(MAX_X-22)][MAX_Y-(MAX_Y-5)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
 
         // terceiro nivel
         gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-2), MAX_Y-(MAX_Y-12), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
@@ -404,11 +394,6 @@ public class MapsMakerSystem {
         gera_ParedeByCoord(MAX_Y-(MAX_Y-5), MAX_Y-(MAX_Y-6), MAX_X-(MAX_X-13), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
 
         map[MAX_X-(MAX_X-12)][MAX_Y-(MAX_Y-16)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
-
-        // sleepy
-        map[MAX_X-(MAX_X-8)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
-        map[MAX_X-(MAX_X-5)][MAX_Y-(MAX_Y-5)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
-        map[MAX_X-(MAX_X-9)][MAX_Y-(MAX_Y-13)][1] = Blocos.getIdByBloco(Blocos.Sleepy);
 
         // lado direito
         map[MAX_X-(MAX_X-33)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);

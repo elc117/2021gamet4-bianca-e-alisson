@@ -61,4 +61,4 @@ Fizemos um floxograma da ideia de execução do jogo, para sinzetizar e organiza
 
 Acesse clicando [aqui](https://lucid.app/lucidchart/invitations/accept/inv_e31a1ce6-f058-4ad0-b4f5-15f1ef634a1a).
 
-Se não tiver/quiser cria uma conta pode abrir essa [imagem](https://github.com/elc117/2021gamet4-bianca-e-alisson/blob/main/Conteudo/Fluxograma%20da%20execu%C3%A7%C3%A3o%20do%20Jogo.pdf) (pode estar desatualizado).
+Se não tiver/quiser cria uma conta pode abrir essa [imagem](https://github.com/elc117/2021gamet4-bianca-e-alisson/blob/main/Conteudo/Fluxograma%20da%20execu%C3%A7%C3%A3o%20do%20Jogo.png) (pode estar desatualizado).

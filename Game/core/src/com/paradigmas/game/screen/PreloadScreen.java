@@ -38,7 +38,7 @@ public class PreloadScreen extends ScreenAdapter {
 
     private void update() {
         if(Assets.manager.update()) {
-            game.setScreen(new InitialMenuScreen());
+            game.setScreen(new StoryScreen());
         } else {
             progress = Assets.manager.getProgress();
         }

@@ -32,7 +32,7 @@ public class StoryScreen extends ScreenAdapter  {
         stage = new Stage(new FitViewport(ParadigmasGame.SCREEN_WIDTH, ParadigmasGame.SCREEN_HEIGHT));
         Gdx.input.setInputProcessor(stage);
 
-        backgroundTexture = Assets.manager.get(Assets.base_background);
+        backgroundTexture = Assets.manager.get(Assets.story_background);
         Image background = new Image(backgroundTexture);
         stage.addActor(background);
 

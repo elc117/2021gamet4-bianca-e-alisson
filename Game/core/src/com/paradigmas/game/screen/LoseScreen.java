@@ -72,7 +72,7 @@ public class LoseScreen extends ScreenAdapter {
         //quit Button
         // TODO: trocar as variavel de textura
         quitTexture = Assets.manager.get(Assets.quit);
-        quitPressTexture = Assets.manager.get(Assets.Start);
+        quitPressTexture = Assets.manager.get(Assets.On_quit);
         ImageButton quit = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(quitTexture)),
                 new TextureRegionDrawable(new TextureRegion(quitPressTexture)));

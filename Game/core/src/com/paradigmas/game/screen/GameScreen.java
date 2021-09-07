@@ -90,7 +90,7 @@ public class GameScreen extends ScreenAdapter {
                 currentScreen.dispose();
             }
         }
-        if (World.quantObjetivos == 0 && level < LEVEL_MAX) {
+        if (World.quantObjetivos == 0 && level <= LEVEL_MAX) {
             World.quantObjetivos = 1;
             level++;
 
@@ -103,7 +103,7 @@ public class GameScreen extends ScreenAdapter {
             if (currentScreen != null) {
                 currentScreen.dispose();
             }
-        } else if (level >= LEVEL_MAX) {
+        } else if (level > LEVEL_MAX) {
             game.setScreen(new FinalScreen(level));
             if (currentScreen != null) {
                 currentScreen.dispose();

@@ -255,7 +255,7 @@ public class MapsMakerSystem {
         gera_PlataformaByCoord(MAX_X-(MAX_X-8), MAX_X-(MAX_X-9), MAX_Y-(MAX_Y-10), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
         gera_PlataformaByCoord(MAX_X-(MAX_X-12), MAX_X-(MAX_X-14), MAX_Y-(MAX_Y-13), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
 
-        map[MAX_X-(MAX_X-32)][MAX_Y-(MAX_Y-14)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+        map[MAX_X-(MAX_X-32)][MAX_Y-(MAX_Y-13)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
         map[MAX_X-(MAX_X-13)][MAX_Y-(MAX_Y-14)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
         gera_PlataformaByCoord(MAX_X-(MAX_X-17), MAX_X-(MAX_X-19), MAX_Y-(MAX_Y-10), Blocos.Platt_Mid_1, Blocos.Platt_Mid_1, Blocos.Platt_Mid_1);
@@ -289,7 +289,7 @@ public class MapsMakerSystem {
         gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-14), MAX_Y-(MAX_Y-6), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
         gera_PlataformaByCoord(MAX_X-(MAX_X-14), MAX_X-(MAX_X-19), MAX_Y-(MAX_Y-3), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
         gera_PlataformaByCoord(MAX_X-(MAX_X-20), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-6), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
-        map[MAX_X-(MAX_X-31)][MAX_Y-(MAX_Y-3)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+        map[MAX_X-(MAX_X-31)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
         // segundo nivel
         gera_PlataformaByCoord(MAX_X-(MAX_X-1), MAX_X-(MAX_X-1), MAX_Y-(MAX_Y-9), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
@@ -331,7 +331,7 @@ public class MapsMakerSystem {
         // segundo nivel
         gera_PlataformaByCoord(MAX_X-(MAX_X-7), MAX_X-(MAX_X-33), MAX_Y-(MAX_Y-8), Blocos.Mid_1, Blocos.Mid_1, Blocos.Mid_1);
 
-        map[MAX_X-(MAX_X-31)][MAX_Y-(MAX_Y-6)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+        map[MAX_X-(MAX_X-31)][MAX_Y-(MAX_Y-5)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
 
         // terceiro nivel
@@ -384,7 +384,7 @@ public class MapsMakerSystem {
         gera_PlataformaByCoord(MAX_X-(MAX_X-4), MAX_X-(MAX_X-10), MAX_Y-(MAX_Y-18), Blocos.Mid_1, Blocos.Mid_1, Blocos.Platt_Mid_1);
         gera_ParedeByCoord(MAX_Y-(MAX_Y-5), MAX_Y-(MAX_Y-6), MAX_X-(MAX_X-13), Blocos.Ground_Left_1, Blocos.Wall_Mid_Left_1);
 
-        map[MAX_X-(MAX_X-12)][MAX_Y-(MAX_Y-16)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
+        map[MAX_X-(MAX_X-12)][MAX_Y-(MAX_Y-13)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);
 
         // lado direito
         map[MAX_X-(MAX_X-33)][MAX_Y-(MAX_Y-1)][1] = Blocos.getIdByBloco(Blocos.Codigo_1);

@@ -35,6 +35,7 @@ public class Assets {
     @Asset public static final AssetDescriptor<Texture> comandos_background_002 = new AssetDescriptor<>("Mapa_Texturas/comandos_background.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> final_background_001 = new AssetDescriptor<>("Mapa_Texturas/final_background_001.png", Texture.class);
     @Asset public static final AssetDescriptor<Texture> base_background = new AssetDescriptor<>("Mapa_Texturas/base_background.png", Texture.class);
+    @Asset public static final AssetDescriptor<Texture> story_background = new AssetDescriptor<>("Mapa_Texturas/historia_background.png", Texture.class);
 
     // next fase
     @Asset public static final AssetDescriptor<Texture> nextfase_background_001 = new AssetDescriptor<>("Mapa_Texturas/nextfase_background_001.png", Texture.class);

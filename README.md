@@ -32,6 +32,10 @@ A movimentação do personagem pelas plataformas se dá usando as setas do tecla
 * `D / Seta_Direita` - Anda para a direita;
 * `SPACE` - Toma café (buff de velocidade);
 
+## InGame:
+![image](https://user-images.githubusercontent.com/84454233/132268070-c86b3ef2-fce0-4cc3-b87d-4b9937314941.png)
+
+
 ## JAR
 O arquivo jar pode ser encontrado no inicio da página com o nome de "_Paradigmas Simulator.jar_", mas pode baixar clicando [aqui](https://github.com/elc117/2021gamet4-bianca-e-alisson/raw/main/desktop-1.0.jar).
 

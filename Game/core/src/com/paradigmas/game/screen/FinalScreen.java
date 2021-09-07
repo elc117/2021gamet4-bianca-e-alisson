@@ -57,7 +57,7 @@ public class FinalScreen extends ScreenAdapter {
 
                 Screen currentScreen = game.getScreen();
 
-                game.setScreen(new InitialMenuScreen(level-1));
+                game.setScreen(new InitialMenuScreen(level));
 
                 if (currentScreen != null) {
                     currentScreen.dispose();

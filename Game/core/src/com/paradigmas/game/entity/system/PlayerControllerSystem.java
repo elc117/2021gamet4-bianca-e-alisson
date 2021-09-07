@@ -30,10 +30,9 @@ public class PlayerControllerSystem extends IteratingSystem {
     private boolean moveRight;
     private boolean moveLeft;
     private boolean jump;
-    private boolean coffe;
+    private boolean coffe = false;
     private boolean temp;
     private long tempoFinal;
-    private boolean pause;
     //private boolean menu;
 
     public PlayerControllerSystem(World world) {
@@ -42,7 +41,6 @@ public class PlayerControllerSystem extends IteratingSystem {
 
         Gdx.input.setInputProcessor(new InputMultiplexer(new GameInputAdapter()));
         this.world = world;
-        this.pause = false;
     }
 
     @Override
@@ -66,6 +64,10 @@ public class PlayerControllerSystem extends IteratingSystem {
             tempoFinal = tempoCorrente + 10000;
         } else if (!temp) {
             walkSpeed = cPlayer.normalWalkSpeed;
+            coffe = false;
+        }
+        else {
+            coffe = false;
         }
 
         if (temp) {
@@ -134,7 +136,7 @@ public class PlayerControllerSystem extends IteratingSystem {
 
             //Pause/resume
             if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
-                pause = !pause;
+                //pause = !pause;
             }
 
             return true;
